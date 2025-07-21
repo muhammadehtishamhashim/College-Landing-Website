@@ -1,0 +1,34 @@
+{
+  "address": "123 Education Street, Science City, State 123456, India",
+  "phone": [
+    "+91-123-456-7890",
+    "+91-123-456-7891"
+  ],
+  "email": [
+    "info@fgscience.edu.in",
+    "admissions@fgscience.edu.in"
+  ],
+  "socialMedia": [
+    {
+      "platform": "Facebook",
+      "url": "https://facebook.com/fgsciencecollege",
+      "icon": "facebook"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/fgsciencecollege",
+      "icon": "twitter"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/company/fgsciencecollege",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://youtube.com/fgsciencecollege",
+      "icon": "youtube"
+    }
+  ],
+  "officeHours": "Monday to Friday: 9:00 AM - 5:00 PM, Saturday: 9:00 AM - 1:00 PM"
+}

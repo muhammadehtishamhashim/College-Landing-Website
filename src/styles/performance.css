@@ -1,0 +1,80 @@
+/* Performance optimizations */
+
+/* Hardware acceleration for animations */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+.will-change-filter {
+    will-change: filter;
+}
+
+/* Optimize blur text animations */
+.blur-text span {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Smooth mobile sidebar */
+.mobile-sidebar {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize hero section */
+.hero-section {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* GPU acceleration for common animations */
+.animate-spin,
+.animate-pulse {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}/*
+ Optimize header performance */
+.header-optimized {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: background-color, backdrop-filter;
+}
+
+/* Optimize mobile toggle */
+.mobile-toggle-optimized {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize canvas rendering */
+canvas {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Smooth scrolling optimization */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optimize text rendering */
+.text-optimized {
+    text-rendering: optimizeSpeed;
+    font-smooth: never;
+    -webkit-font-smoothing: subpixel-antialiased;
+}

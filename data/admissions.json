@@ -1,0 +1,59 @@
+{
+  "applicationDeadline": "June 30, 2025",
+  "requiredDocuments": [
+    "Completed application form",
+    "10th and 12th mark sheets",
+    "Transfer certificate",
+    "Character certificate",
+    "Passport size photographs (4 copies)",
+    "Entrance exam scorecard",
+    "Caste certificate (if applicable)",
+    "Income certificate (for fee concession)"
+  ],
+  "procedures": [
+    "Fill out the online application form",
+    "Pay the application fee",
+    "Submit required documents",
+    "Appear for entrance examination",
+    "Attend counseling session",
+    "Complete admission formalities",
+    "Pay the first semester fees"
+  ],
+  "importantDates": [
+    {
+      "event": "Application Form Release",
+      "date": "March 1, 2025",
+      "description": "Online application forms will be available"
+    },
+    {
+      "event": "Last Date for Application",
+      "date": "June 30, 2025",
+      "description": "Final deadline for submitting applications"
+    },
+    {
+      "event": "Entrance Examination",
+      "date": "July 15, 2025",
+      "description": "Written entrance test for all programs"
+    },
+    {
+      "event": "Result Declaration",
+      "date": "July 25, 2025",
+      "description": "Entrance exam results and merit list"
+    },
+    {
+      "event": "Counseling Session",
+      "date": "August 1-5, 2025",
+      "description": "Document verification and seat allocation"
+    },
+    {
+      "event": "Classes Begin",
+      "date": "August 15, 2025",
+      "description": "First semester classes commence"
+    }
+  ],
+  "fees": {
+    "application": "₹500",
+    "tuition": "₹42,000 - ₹55,000 per year (varies by program)",
+    "other": "₹5,000 per year (library, lab, and other fees)"
+  }
+}

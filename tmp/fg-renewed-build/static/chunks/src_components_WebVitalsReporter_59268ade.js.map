@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///mnt/mydrive/Web%20Devlopment/Projects/fg-renewed/src/components/WebVitalsReporter.js"],"sourcesContent":["'use client';\n\nimport { useEffect } from 'react';\n\nexport default function WebVitalsReporter() {\n  useEffect(() => {\n    // Import and initialize web vitals tracking with error handling\n    import('../lib/vitals').then(({ initWebVitals }) => {\n      try {\n        initWebVitals();\n      } catch (error) {\n        console.warn('Web Vitals initialization failed:', error);\n      }\n    }).catch(error => {\n      console.warn('Failed to load Web Vitals:', error);\n    });\n  }, []);\n\n  return null;\n}"],"names":[],"mappings":";;;AAEA;;AAFA;;AAIe,SAAS;;IACtB,CAAA,GAAA,6JAAA,CAAA,YAAS,AAAD;uCAAE;YACR,gEAAgE;YAChE,wHAAwB,IAAI;+CAAC;wBAAC,EAAE,aAAa,EAAE;oBAC7C,IAAI;wBACF;oBACF,EAAE,OAAO,OAAO;wBACd,QAAQ,IAAI,CAAC,qCAAqC;oBACpD;gBACF;8CAAG,KAAK;+CAAC,CAAA;oBACP,QAAQ,IAAI,CAAC,8BAA8B;gBAC7C;;QACF;sCAAG,EAAE;IAEL,OAAO;AACT;GAfwB;KAAA","debugId":null}}]
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "id": "physics-lab",
+    "name": "Advanced Physics Laboratory",
+    "description": "State-of-the-art physics laboratory equipped with modern instruments for experimental physics and research.",
+    "images": [
+      "/images/facilities/physics-lab-1.jpg",
+      "/images/facilities/physics-lab-2.jpg"
+    ],
+    "features": [
+      "Digital oscilloscopes",
+      "Spectrometers",
+      "Laser equipment",
+      "Vacuum systems",
+      "Computer-controlled experiments"
+    ],
+    "capacity": "30 students"
+  },
+  {
+    "id": "chemistry-lab",
+    "name": "Chemistry Research Laboratory",
+    "description": "Fully equipped chemistry laboratory with fume hoods, analytical instruments, and safety systems.",
+    "images": [
+      "/images/facilities/chemistry-lab-1.jpg",
+      "/images/facilities/chemistry-lab-2.jpg"
+    ],
+    "features": [
+      "Fume hoods",
+      "HPLC systems",
+      "UV-Vis spectrophotometer",
+      "pH meters",
+      "Safety shower systems"
+    ],
+    "capacity": "25 students"
+  },
+  {
+    "id": "computer-lab",
+    "name": "Computer Science Laboratory",
+    "description": "Modern computer lab with high-performance workstations and latest software for programming and development.",
+    "images": [
+      "/images/facilities/computer-lab-1.jpg",
+      "/images/facilities/computer-lab-2.jpg"
+    ],
+    "features": [
+      "40 high-performance PCs",
+      "Latest development software",
+      "High-speed internet",
+      "Projector systems",
+      "Air conditioning"
+    ],
+    "capacity": "40 students"
+  },
+  {
+    "id": "library",
+    "name": "Central Library",
+    "description": "Comprehensive library with extensive collection of books, journals, and digital resources.",
+    "images": [
+      "/images/facilities/library-1.jpg",
+      "/images/facilities/library-2.jpg"
+    ],
+    "features": [
+      "10,000+ books",
+      "Digital library access",
+      "Study halls",
+      "Internet facility",
+      "Quiet reading zones"
+    ],
+    "capacity": "200 students"
+  },
+  {
+    "id": "auditorium",
+    "name": "Main Auditorium",
+    "description": "Spacious auditorium for seminars, conferences, and cultural events with modern audio-visual systems.",
+    "images": [
+      "/images/facilities/auditorium-1.jpg",
+      "/images/facilities/auditorium-2.jpg"
+    ],
+    "features": [
+      "300 seating capacity",
+      "Audio-visual systems",
+      "Stage lighting",
+      "Air conditioning",
+      "Wheelchair accessible"
+    ],
+    "capacity": "300 people"
+  }
+]

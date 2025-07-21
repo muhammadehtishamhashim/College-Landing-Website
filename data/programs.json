@@ -1,0 +1,114 @@
+[
+  {
+    "id": "bsc-physics",
+    "name": "Bachelor of Science in Physics",
+    "description": "A comprehensive program covering classical and modern physics, preparing students for careers in research, industry, and education.",
+    "duration": "3 Years",
+    "eligibility": [
+      "10+2 with Physics, Chemistry, and Mathematics",
+      "Minimum 50% aggregate marks",
+      "Valid entrance exam score"
+    ],
+    "subjects": [
+      "Classical Mechanics",
+      "Quantum Physics",
+      "Thermodynamics",
+      "Electromagnetism",
+      "Optics",
+      "Nuclear Physics"
+    ],
+    "careerProspects": [
+      "Research Scientist",
+      "Physics Teacher",
+      "Technical Consultant",
+      "Quality Control Analyst",
+      "Further Studies (M.Sc, Ph.D)"
+    ],
+    "fees": "₹45,000 per year",
+    "intake": 60
+  },
+  {
+    "id": "bsc-chemistry",
+    "name": "Bachelor of Science in Chemistry",
+    "description": "An intensive program focusing on organic, inorganic, and physical chemistry with extensive laboratory experience.",
+    "duration": "3 Years",
+    "eligibility": [
+      "10+2 with Chemistry, Physics, and Mathematics/Biology",
+      "Minimum 50% aggregate marks",
+      "Valid entrance exam score"
+    ],
+    "subjects": [
+      "Organic Chemistry",
+      "Inorganic Chemistry",
+      "Physical Chemistry",
+      "Analytical Chemistry",
+      "Biochemistry",
+      "Environmental Chemistry"
+    ],
+    "careerProspects": [
+      "Chemical Analyst",
+      "Research Chemist",
+      "Quality Control Officer",
+      "Chemistry Teacher",
+      "Pharmaceutical Industry"
+    ],
+    "fees": "₹48,000 per year",
+    "intake": 60
+  },
+  {
+    "id": "bsc-mathematics",
+    "name": "Bachelor of Science in Mathematics",
+    "description": "A rigorous program covering pure and applied mathematics, statistics, and computational methods.",
+    "duration": "3 Years",
+    "eligibility": [
+      "10+2 with Mathematics as main subject",
+      "Minimum 50% aggregate marks",
+      "Valid entrance exam score"
+    ],
+    "subjects": [
+      "Calculus",
+      "Linear Algebra",
+      "Differential Equations",
+      "Statistics",
+      "Numerical Analysis",
+      "Abstract Algebra"
+    ],
+    "careerProspects": [
+      "Data Analyst",
+      "Statistician",
+      "Mathematics Teacher",
+      "Actuary",
+      "Software Developer"
+    ],
+    "fees": "₹42,000 per year",
+    "intake": 40
+  },
+  {
+    "id": "bsc-computer-science",
+    "name": "Bachelor of Science in Computer Science",
+    "description": "A modern program combining theoretical computer science with practical programming and software development skills.",
+    "duration": "3 Years",
+    "eligibility": [
+      "10+2 with Mathematics and any science subject",
+      "Minimum 50% aggregate marks",
+      "Valid entrance exam score"
+    ],
+    "subjects": [
+      "Programming Languages",
+      "Data Structures",
+      "Database Management",
+      "Computer Networks",
+      "Software Engineering",
+      "Artificial Intelligence"
+    ],
+    "careerProspects": [
+      "Software Developer",
+      "System Analyst",
+      "Database Administrator",
+      "Web Developer",
+      "IT Consultant"
+    ],
+    "fees": "₹55,000 per year",
+    "intake": 80
+  }
+]

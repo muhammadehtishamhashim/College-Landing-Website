@@ -1,0 +1,45 @@
+{
+  "typescript.preferences.exclude": [
+    "**/node_modules",
+    "**/.next",
+    "**/dist",
+    "**/build",
+    "**/coverage",
+    "**/.git",
+    "**/tmp"
+  ],
+  "javascript.preferences.exclude": [
+    "**/node_modules",
+    "**/.next",
+    "**/dist",
+    "**/build",
+    "**/coverage",
+    "**/.git",
+    "**/tmp"
+  ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/.git": true,
+    "**/tmp": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": false,
+    "**/.next": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/coverage/**": true,
+    "**/tmp/**": true
+  }
+}
