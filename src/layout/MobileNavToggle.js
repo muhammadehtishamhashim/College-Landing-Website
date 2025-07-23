@@ -10,21 +10,18 @@ const MobileNavToggle = ({ isOpen, onClick }) => {
       style={{ transform: 'translateZ(0)' }}
     >
       <div className="w-6 h-5 flex flex-col justify-between">
-        <span 
-          className={`block h-0.5 w-full bg-green-400 transform transition-transform duration-200 will-change-transform ${
-            isOpen ? 'rotate-45 translate-y-2' : ''
-          }`}
+        <span
+          className={`block h-0.5 w-full bg-green-400 transform transition-transform duration-200 will-change-transform ${isOpen ? 'rotate-45 translate-y-2' : ''
+            }`}
           style={{ transformOrigin: 'center' }}
         />
-        <span 
-          className={`block h-0.5 w-full bg-green-400 transition-opacity duration-200 will-change-opacity ${
-            isOpen ? 'opacity-0' : 'opacity-100'
-          }`}
+        <span
+          className={`block h-0.5 w-full bg-green-400 transition-opacity duration-200 will-change-opacity ${isOpen ? 'opacity-0' : 'opacity-100'
+            }`}
         />
-        <span 
-          className={`block h-0.5 w-full bg-green-400 transform transition-transform duration-200 will-change-transform ${
-            isOpen ? '-rotate-45 -translate-y-2' : ''
-          }`}
+        <span
+          className={`block h-0.5 w-full bg-green-400 transform transition-transform duration-200 will-change-transform ${isOpen ? '-rotate-45 -translate-y-2' : ''
+            }`}
           style={{ transformOrigin: 'center' }}
         />
       </div>

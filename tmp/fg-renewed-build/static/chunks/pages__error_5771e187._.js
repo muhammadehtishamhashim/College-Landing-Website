@@ -8,8 +8,10 @@
   "static/chunks/node_modules_next_dist_7c4b9b2a._.js",
   "static/chunks/node_modules_next_error_8c8bf619.js",
   "static/chunks/[next]_entry_page-loader_ts_8ccf5f86._.js",
-  "static/chunks/node_modules_react-dom_82bb97c6._.js",
-  "static/chunks/node_modules_f2979c3a._.js",
+  "static/chunks/node_modules_react_b2385d85._.js",
+  "static/chunks/node_modules_react-dom_cjs_react-dom_development_ab7e073c.js",
+  "static/chunks/node_modules_react-dom_f14d0471._.js",
+  "static/chunks/node_modules_3ade4e3c._.js",
   "static/chunks/[root-of-the-server]__95ff7225._.js"
 ],
     source: "entry"

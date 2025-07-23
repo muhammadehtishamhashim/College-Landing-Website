@@ -949,7 +949,7 @@ const __TURBOPACK__default__export__ = ContactInfo;
 }),
 "[project]/data/contact.json (json)": ((__turbopack_context__) => {
 
-__turbopack_context__.v(JSON.parse("{\"address\":\"123 Education Street, Science City, State 123456, India\",\"phone\":[\"+91-123-456-7890\",\"+91-123-456-7891\"],\"email\":[\"info@fgscience.edu.in\",\"admissions@fgscience.edu.in\"],\"socialMedia\":[{\"platform\":\"Facebook\",\"url\":\"https://facebook.com/fgsciencecollege\",\"icon\":\"facebook\"},{\"platform\":\"Twitter\",\"url\":\"https://twitter.com/fgsciencecollege\",\"icon\":\"twitter\"},{\"platform\":\"LinkedIn\",\"url\":\"https://linkedin.com/company/fgsciencecollege\",\"icon\":\"linkedin\"},{\"platform\":\"YouTube\",\"url\":\"https://youtube.com/fgsciencecollege\",\"icon\":\"youtube\"}],\"officeHours\":\"Monday to Friday: 9:00 AM - 5:00 PM, Saturday: 9:00 AM - 1:00 PM\"}"));}),
+__turbopack_context__.v(JSON.parse("{\"address\":\"FG Science Degree College for Men, Wah Cantt, Punjab , Pakistan\",\"phone\":[\"(051) 4531142\"],\"email\":[\"fgsdcwah@gmail.com\"],\"socialMedia\":[{\"platform\":\"Facebook\",\"url\":\"https://web.facebook.com/p/FG-Science-Degree-College-Wah-cantt-100070310101981/?_rdc=1&_rdr#\",\"icon\":\"facebook\"},{\"platform\":\"Twitter\",\"url\":\"https://twitter.com/fgsciencecollege\",\"icon\":\"twitter\"},{\"platform\":\"LinkedIn\",\"url\":\"https://linkedin.com/company/fgsciencecollege\",\"icon\":\"linkedin\"},{\"platform\":\"YouTube\",\"url\":\"https://youtube.com/fgsciencecollege\",\"icon\":\"youtube\"}],\"officeHours\":\"Monday to Friday: :00 AM - 12:30 PM, Saturday: OFF\"}"));}),
 "[project]/src/app/contact/page.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 

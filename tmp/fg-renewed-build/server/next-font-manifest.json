@@ -1,6 +1,12 @@
 {
   "app": {
+    "[project]/src/app/_not-found/page": [
+      "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2"
+    ],
     "[project]/src/app/about/page": [
+      "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2"
+    ],
+    "[project]/src/app/contact/page": [
       "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2"
     ],
     "[project]/src/app/facilities/page": [

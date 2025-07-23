@@ -587,7 +587,7 @@ const __TURBOPACK__default__export__ = MainLayout;
 }),
 "[project]/data/college-info.json (json)": ((__turbopack_context__) => {
 
-__turbopack_context__.v(JSON.parse("{\"name\":\"FG Science Degree College\",\"logo\":\"/images/college-logo.png\",\"tagline\":\"Excellence in Science Education\",\"description\":\"FG Science Degree College is a premier institution dedicated to providing quality education in science and technology. We foster academic excellence, research innovation, and character development to prepare students for successful careers and meaningful contributions to society.\",\"establishedYear\":2010,\"accreditation\":\"UGC Recognized\",\"affiliations\":[\"University of Excellence\",\"State Board of Higher Education\"]}"));}),
+__turbopack_context__.v(JSON.parse("{\"name\":\"FG Science Degree College\",\"logo\":\"/images/college-logo.png\",\"tagline\":\"Excellence in Science Education\",\"description\":\"FG Science Degree College is a premier institution dedicated to providing quality education in science and technology. We foster academic excellence, research innovation, and character development to prepare students for successful careers and meaningful contributions to society.\",\"establishedYear\":1993,\"accreditation\":\"UGC Recognized\",\"affiliations\":[\"National University of Pakistan\"]}"));}),
 "[project]/src/app/about/page.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 

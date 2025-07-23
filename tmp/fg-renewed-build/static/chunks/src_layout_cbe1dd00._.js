@@ -357,7 +357,7 @@ const MobileNavToggle = (param)=>{
                     className: "block h-0.5 w-full bg-green-400 transition-opacity duration-200 will-change-opacity ".concat(isOpen ? 'opacity-0' : 'opacity-100')
                 }, void 0, false, {
                     fileName: "[project]/src/layout/MobileNavToggle.js",
-                    lineNumber: 19,
+                    lineNumber: 18,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -367,7 +367,7 @@ const MobileNavToggle = (param)=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/layout/MobileNavToggle.js",
-                    lineNumber: 24,
+                    lineNumber: 22,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
@@ -870,7 +870,7 @@ const Header = ()=>{
                     transform: 'translateZ(0)'
                 },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                    className: "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center justify-between h-16 lg:h-20",
                         children: [

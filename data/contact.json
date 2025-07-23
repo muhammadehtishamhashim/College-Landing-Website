@@ -1,17 +1,15 @@
 {
-  "address": "123 Education Street, Science City, State 123456, India",
+  "address": "FG Science Degree College for Men, Wah Cantt, Punjab , Pakistan",
   "phone": [
-    "+91-123-456-7890",
-    "+91-123-456-7891"
+    "(051) 4531142"
   ],
   "email": [
-    "info@fgscience.edu.in",
-    "admissions@fgscience.edu.in"
+    "fgsdcwah@gmail.com"
   ],
   "socialMedia": [
     {
       "platform": "Facebook",
-      "url": "https://facebook.com/fgsciencecollege",
+      "url": "https://web.facebook.com/p/FG-Science-Degree-College-Wah-cantt-100070310101981/?_rdc=1&_rdr#",
       "icon": "facebook"
     },
     {
@@ -30,5 +28,5 @@
       "icon": "youtube"
     }
   ],
-  "officeHours": "Monday to Friday: 9:00 AM - 5:00 PM, Saturday: 9:00 AM - 1:00 PM"
+  "officeHours": "Monday to Friday: :00 AM - 12:30 PM, Saturday: OFF"
 }
