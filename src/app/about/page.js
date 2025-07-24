@@ -13,7 +13,7 @@ export default function About() {
         <MainLayout>
             <div className="bg-gray-900 text-white min-h-screen">
                 {/* Hero Section with Particles Background */}
-                <section className="relative bg-gradient-to-br from-cyan-600 via-cyan-500 to-green-500 text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
+                <section className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
                     {/* Particles Background */}
                     <div className="absolute inset-0 w-full h-full">
                         <Particles

@@ -14,7 +14,7 @@ export default function Facilities() {
     <MainLayout>
       <div className="pt-16 bg-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gray-900 text-white py-12 overflow-hidden">
+        <section className="relative bg-gray-900 text-white py-20 lg:py-32 flex items-center justify-center overflow-hidden">
           {/* Background Animation */}
           <div className="absolute inset-0 w-full h-full">
             {/* Dark gradient background */}

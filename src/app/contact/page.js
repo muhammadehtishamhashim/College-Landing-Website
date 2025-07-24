@@ -1,6 +1,7 @@
 import MainLayout from '../../layout/MainLayout';
 import ContactForm from '../_components/contact/ContactForm';
 import ContactInfo from '../_components/contact/ContactInfo';
+import Particles from '../../ui/Particles';
 import contact from '../../../data/contact.json';
 
 export const metadata = {
@@ -13,8 +14,31 @@ export default function Contact() {
     <MainLayout>
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-teal-900 to-blue-900 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-20 lg:py-32 flex items-center justify-center overflow-hidden">
+          {/* Background Animation */}
+          <div className="absolute inset-0 w-full h-full">
+            {/* Dark gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"></div>
+            
+            {/* Particles animation */}
+            <div className="absolute inset-0 opacity-60">
+              <Particles
+                particleCount={180}
+                particleSpread={10}
+                speed={0.9}
+                particleColors={["#14b8a6", "#0891b2", "#06b6d4", "#ffffff"]}
+                moveParticlesOnHover={false}
+                particleHoverFactor={1.2}
+                alphaParticles={false}
+                particleBaseSize={90}
+                sizeRandomness={0.9}
+                cameraDistance={14}
+                disableRotation={false}
+              />
+            </div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">Contact Us</h1>
               <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
