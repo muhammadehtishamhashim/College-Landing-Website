@@ -13,14 +13,14 @@ export default function About() {
         <MainLayout>
             <div className="bg-gray-900 text-white min-h-screen">
                 {/* Hero Section with Particles Background */}
-<section className="relative bg-gradient-to-br from-cyan-600 via-cyan-500 to-green-500 text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
+                <section className="relative bg-gradient-to-br from-cyan-600 via-cyan-500 to-green-500 text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
                     {/* Particles Background */}
                     <div className="absolute inset-0 w-full h-full">
                         <Particles
                             particleColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
                             particleCount={200}
                             particleSpread={10}
-                            speed={0.1}
+                            speed={0.8}
                             particleBaseSize={100}
                             moveParticlesOnHover={false}
                             particleHoverFactor={1}

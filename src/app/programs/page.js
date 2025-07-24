@@ -20,7 +20,7 @@ export default function Programs() {
               particleColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
               particleCount={200}
               particleSpread={10}
-              speed={0.1}
+              speed={0.8}
               particleBaseSize={100}
               moveParticlesOnHover={false}
               alphaParticles={false}

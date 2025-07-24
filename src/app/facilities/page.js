@@ -1,6 +1,7 @@
 import MainLayout from '../../layout/MainLayout';
 import FacilityCard from '../_components/facilities/FacilityCard';
-import LightRays from '../../ui/LightRays';
+import Particles from '../../ui/Particles';
+
 import facilities from '../../../data/facilities.json';
 
 export const metadata = {
@@ -11,24 +12,30 @@ export const metadata = {
 export default function Facilities() {
   return (
     <MainLayout>
-      <div className="pt-20 bg-gray-900 min-h-screen">
+      <div className="pt-16 bg-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gray-900 text-white py-20 overflow-hidden">
-          {/* LightRays Background */}
+        <section className="relative bg-gray-900 text-white py-12 overflow-hidden">
+          {/* Background Animation */}
           <div className="absolute inset-0 w-full h-full">
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#8b5cf6"
-              raysSpeed={1.5}
-              lightSpread={2}
-              rayLength={1.2}
-              followMouse={true}
-              mouseInfluence={0.2}
-              noiseAmount={0.1}
-              distortion={0.01}
-              saturation={2}
+            {/* Dark gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-pink-900"></div>
 
-            />
+            {/* Particles animation */}
+            <div className="absolute inset-0 opacity-50">
+              <Particles
+                particleCount={100}
+                particleSpread={8}
+                speed={0.5}
+                particleColors={["#00ffff", "#40ffaa", "#4079ff", "#ffffff"]}
+                moveParticlesOnHover={false}
+                particleHoverFactor={2}
+                alphaParticles={false}
+                particleBaseSize={80}
+                sizeRandomness={0.8}
+                cameraDistance={15}
+                disableRotation={false}
+              />
+            </div>
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

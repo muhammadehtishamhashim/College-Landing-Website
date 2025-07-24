@@ -1,6 +1,6 @@
 'use client';
 
-import LightRays from '../../../ui/LightRays';
+import Particles from '../../../ui/Particles';
 import BlurText from '../../textanimations/BlurText';
 import GradientText from '../../textanimations/GradientText';
 
@@ -8,19 +8,26 @@ const HeroSection = ({ collegeInfo }) => {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden hero-section will-change-transform">
       {/* Background Animation */}
-      <div className="absolute inset-0 w-full h-full opacity-100">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#00ffff"
-          raysSpeed={1.5}
-          lightSpread={2}
-          rayLength={1.8}
-          followMouse={true}
-          mouseInfluence={0.3}
-          noiseAmount={0.1}
-          distortion={0.05}
-          className="custom-rays"
-        />
+      <div className="absolute inset-0 w-full h-full">
+        {/* Dark gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
+
+        {/* Particles animation */}
+        <div className="absolute inset-0 opacity-80">
+          <Particles
+            particleCount={300}
+            particleSpread={12}
+            speed={0.4}
+            particleColors={["#00ffff", "#40ffaa", "#4079ff", "#ffffff"]}
+            moveParticlesOnHover={true}
+            particleHoverFactor={1.5}
+            alphaParticles={true}
+            particleBaseSize={120}
+            sizeRandomness={1.2}
+            cameraDistance={12}
+            disableRotation={false}
+          />
+        </div>
       </div>
 
       {/* Ribbons Overlay */}

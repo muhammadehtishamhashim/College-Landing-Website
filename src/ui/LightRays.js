@@ -17,11 +17,19 @@ const hexToRgb = (hex) => {
 
 const getAnchorAndDir = (origin, w, h) => {
   const outside = 0.2;
+  const isMobile = window.innerWidth < 768;
+  
   switch (origin) {
     case "top-left":
-      return { anchor: [0, -outside * h], dir: [0, 1] };
+      return { 
+        anchor: isMobile ? [0, -0.1 * h] : [0, -outside * h], 
+        dir: [0, 1] 
+      };
     case "top-right":
-      return { anchor: [w, -outside * h], dir: [0, 1] };
+      return { 
+        anchor: isMobile ? [w, -0.1 * h] : [w, -outside * h], 
+        dir: [0, 1] 
+      };
     case "left":
       return { anchor: [-outside * w, 0.5 * h], dir: [1, 0] };
     case "right":
@@ -33,7 +41,10 @@ const getAnchorAndDir = (origin, w, h) => {
     case "bottom-right":
       return { anchor: [w, (1 + outside) * h], dir: [0, -1] };
     default: // "top-center"
-      return { anchor: [0.5 * w, -outside * h], dir: [0, 1] };
+      return { 
+        anchor: isMobile ? [0.5 * w, -0.05 * h] : [0.5 * w, -outside * h], 
+        dir: [0, 1] 
+      };
   }
 };
 

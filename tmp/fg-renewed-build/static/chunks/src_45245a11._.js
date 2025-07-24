@@ -1013,7 +1013,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/ui/LightRays.js [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/ui/Particles.js [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
@@ -1024,442 +1024,253 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Renderer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Renderer.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Camera.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Geometry$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Geometry.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Program$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Program.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$extras$2f$Triangle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/extras/Triangle.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Mesh$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Mesh.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
-const DEFAULT_COLOR = "#ffffff";
+const defaultColors = [
+    "#ffffff",
+    "#ffffff",
+    "#ffffff"
+];
 const hexToRgb = (hex)=>{
-    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return m ? [
-        parseInt(m[1], 16) / 255,
-        parseInt(m[2], 16) / 255,
-        parseInt(m[3], 16) / 255
-    ] : [
-        1,
-        1,
-        1
+    hex = hex.replace(/^#/, "");
+    if (hex.length === 3) {
+        hex = hex.split("").map((c)=>c + c).join("");
+    }
+    const int = parseInt(hex, 16);
+    const r = (int >> 16 & 255) / 255;
+    const g = (int >> 8 & 255) / 255;
+    const b = (int & 255) / 255;
+    return [
+        r,
+        g,
+        b
     ];
 };
-const getAnchorAndDir = (origin, w, h)=>{
-    const outside = 0.2;
-    const isMobile = window.innerWidth < 768;
-    switch(origin){
-        case "top-left":
-            return {
-                anchor: isMobile ? [
-                    0,
-                    -0.1 * h
-                ] : [
-                    0,
-                    -outside * h
-                ],
-                dir: [
-                    0,
-                    1
-                ]
-            };
-        case "top-right":
-            return {
-                anchor: isMobile ? [
-                    w,
-                    -0.1 * h
-                ] : [
-                    w,
-                    -outside * h
-                ],
-                dir: [
-                    0,
-                    1
-                ]
-            };
-        case "left":
-            return {
-                anchor: [
-                    -outside * w,
-                    0.5 * h
-                ],
-                dir: [
-                    1,
-                    0
-                ]
-            };
-        case "right":
-            return {
-                anchor: [
-                    (1 + outside) * w,
-                    0.5 * h
-                ],
-                dir: [
-                    -1,
-                    0
-                ]
-            };
-        case "bottom-left":
-            return {
-                anchor: [
-                    0,
-                    (1 + outside) * h
-                ],
-                dir: [
-                    0,
-                    -1
-                ]
-            };
-        case "bottom-center":
-            return {
-                anchor: [
-                    0.5 * w,
-                    (1 + outside) * h
-                ],
-                dir: [
-                    0,
-                    -1
-                ]
-            };
-        case "bottom-right":
-            return {
-                anchor: [
-                    w,
-                    (1 + outside) * h
-                ],
-                dir: [
-                    0,
-                    -1
-                ]
-            };
-        default:
-            return {
-                anchor: isMobile ? [
-                    0.5 * w,
-                    -0.05 * h
-                ] : [
-                    0.5 * w,
-                    -outside * h
-                ],
-                dir: [
-                    0,
-                    1
-                ]
-            };
-    }
-};
-const LightRays = (param)=>{
-    let { raysOrigin = "top-center", raysColor = DEFAULT_COLOR, raysSpeed = 1, lightSpread = 1, rayLength = 2, pulsating = false, fadeDistance = 1.0, saturation = 1.0, followMouse = true, mouseInfluence = 0.1, noiseAmount = 0.0, distortion = 0.0, className = "" } = param;
+const vertex = "\n  attribute vec3 position;\n  attribute vec4 random;\n  attribute vec3 color;\n  \n  uniform mat4 modelMatrix;\n  uniform mat4 viewMatrix;\n  uniform mat4 projectionMatrix;\n  uniform float uTime;\n  uniform float uSpread;\n  uniform float uBaseSize;\n  uniform float uSizeRandomness;\n  \n  varying vec4 vRandom;\n  varying vec3 vColor;\n  \n  void main() {\n    vRandom = random;\n    vColor = color;\n    \n    vec3 pos = position * uSpread;\n    pos.z *= 10.0;\n    \n    vec4 mPos = modelMatrix * vec4(pos, 1.0);\n    float t = uTime;\n    mPos.x += sin(t * random.z + 6.28 * random.w) * mix(0.1, 1.5, random.x);\n    mPos.y += sin(t * random.y + 6.28 * random.x) * mix(0.1, 1.5, random.w);\n    mPos.z += sin(t * random.w + 6.28 * random.y) * mix(0.1, 1.5, random.z);\n    \n    vec4 mvPos = viewMatrix * mPos;\n    gl_PointSize = (uBaseSize * (1.0 + uSizeRandomness * (random.x - 0.5))) / length(mvPos.xyz);\n    gl_Position = projectionMatrix * mvPos;\n  }\n";
+const fragment = "\n  precision highp float;\n  \n  uniform float uTime;\n  uniform float uAlphaParticles;\n  varying vec4 vRandom;\n  varying vec3 vColor;\n  \n  void main() {\n    vec2 uv = gl_PointCoord.xy;\n    float d = length(uv - vec2(0.5));\n    \n    if(uAlphaParticles < 0.5) {\n      if(d > 0.5) {\n        discard;\n      }\n      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), 1.0);\n    } else {\n      float circle = smoothstep(0.5, 0.4, d) * 0.8;\n      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);\n    }\n  }\n";
+const Particles = (param)=>{
+    let { particleCount = 200, particleSpread = 10, speed = 0.1, particleColors, moveParticlesOnHover = false, particleHoverFactor = 1, alphaParticles = false, particleBaseSize = 100, sizeRandomness = 1, cameraDistance = 20, disableRotation = false, className } = param;
     _s();
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const uniformsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const rendererRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const mouseRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])({
-        x: 0.5,
-        y: 0.5
+        x: 0,
+        y: 0
     });
-    const smoothMouseRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])({
-        x: 0.5,
-        y: 0.5
-    });
-    const animationIdRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const meshRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const cleanupFunctionRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const observerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LightRays.useEffect": ()=>{
-            if (!containerRef.current) return;
-            observerRef.current = new IntersectionObserver({
-                "LightRays.useEffect": (entries)=>{
-                    const entry = entries[0];
-                    setIsVisible(entry.isIntersecting);
+        "Particles.useEffect": ()=>{
+            const container = containerRef.current;
+            if (!container) return;
+            try {
+                // More compatible renderer settings
+                const renderer = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Renderer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Renderer"]({
+                    depth: false,
+                    alpha: true,
+                    antialias: true,
+                    powerPreference: "default",
+                    preserveDrawingBuffer: false
+                });
+                const gl = renderer.gl;
+                // Check if WebGL is properly initialized
+                if (!gl) {
+                    console.error('WebGL not supported');
+                    return;
                 }
-            }["LightRays.useEffect"], {
-                threshold: 0.1
-            });
-            observerRef.current.observe(containerRef.current);
-            return ({
-                "LightRays.useEffect": ()=>{
-                    if (observerRef.current) {
-                        observerRef.current.disconnect();
-                        observerRef.current = null;
+                console.log('WebGL context created:', gl.getParameter(gl.VERSION));
+                // Set canvas style for better compatibility
+                gl.canvas.style.width = '100%';
+                gl.canvas.style.height = '100%';
+                gl.canvas.style.display = 'block';
+                container.appendChild(gl.canvas);
+                gl.clearColor(0, 0, 0, 0);
+                const camera = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Camera"](gl, {
+                    fov: 15
+                });
+                camera.position.set(0, 0, cameraDistance);
+                const resize = {
+                    "Particles.useEffect.resize": ()=>{
+                        const width = container.clientWidth;
+                        const height = container.clientHeight;
+                        console.log('Resizing canvas to:', width, height);
+                        if (width > 0 && height > 0) {
+                            renderer.setSize(width, height);
+                            camera.perspective({
+                                aspect: width / height
+                            });
+                        }
                     }
+                }["Particles.useEffect.resize"];
+                window.addEventListener("resize", resize, false);
+                // Force initial resize after a short delay for Chrome/Edge
+                setTimeout({
+                    "Particles.useEffect": ()=>{
+                        resize();
+                    }
+                }["Particles.useEffect"], 100);
+                const handleMouseMove = {
+                    "Particles.useEffect.handleMouseMove": (e)=>{
+                        const rect = container.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / rect.width * 2 - 1;
+                        const y = -((e.clientY - rect.top) / rect.height * 2 - 1);
+                        mouseRef.current = {
+                            x,
+                            y
+                        };
+                    }
+                }["Particles.useEffect.handleMouseMove"];
+                if (moveParticlesOnHover) {
+                    container.addEventListener("mousemove", handleMouseMove);
                 }
-            })["LightRays.useEffect"];
-        }
-    }["LightRays.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LightRays.useEffect": ()=>{
-            if (!isVisible || !containerRef.current) return;
-            if (cleanupFunctionRef.current) {
-                cleanupFunctionRef.current();
-                cleanupFunctionRef.current = null;
-            }
-            const initializeWebGL = {
-                "LightRays.useEffect.initializeWebGL": async ()=>{
-                    if (!containerRef.current) return;
-                    await new Promise({
-                        "LightRays.useEffect.initializeWebGL": (resolve)=>setTimeout(resolve, 10)
-                    }["LightRays.useEffect.initializeWebGL"]);
-                    if (!containerRef.current) return;
-                    const renderer = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Renderer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Renderer"]({
-                        dpr: Math.min(window.devicePixelRatio, 2),
-                        alpha: true
-                    });
-                    rendererRef.current = renderer;
-                    const gl = renderer.gl;
-                    gl.canvas.style.width = "100%";
-                    gl.canvas.style.height = "100%";
-                    while(containerRef.current.firstChild){
-                        containerRef.current.removeChild(containerRef.current.firstChild);
+                const count = particleCount;
+                const positions = new Float32Array(count * 3);
+                const randoms = new Float32Array(count * 4);
+                const colors = new Float32Array(count * 3);
+                const palette = particleColors && particleColors.length > 0 ? particleColors : defaultColors;
+                for(let i = 0; i < count; i++){
+                    let x, y, z, len;
+                    do {
+                        x = Math.random() * 2 - 1;
+                        y = Math.random() * 2 - 1;
+                        z = Math.random() * 2 - 1;
+                        len = x * x + y * y + z * z;
+                    }while (len > 1 || len === 0)
+                    const r = Math.cbrt(Math.random());
+                    positions.set([
+                        x * r,
+                        y * r,
+                        z * r
+                    ], i * 3);
+                    randoms.set([
+                        Math.random(),
+                        Math.random(),
+                        Math.random(),
+                        Math.random()
+                    ], i * 4);
+                    const col = hexToRgb(palette[Math.floor(Math.random() * palette.length)]);
+                    colors.set(col, i * 3);
+                }
+                const geometry = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Geometry$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Geometry"](gl, {
+                    position: {
+                        size: 3,
+                        data: positions
+                    },
+                    random: {
+                        size: 4,
+                        data: randoms
+                    },
+                    color: {
+                        size: 3,
+                        data: colors
                     }
-                    containerRef.current.appendChild(gl.canvas);
-                    const vert = "\nattribute vec2 position;\nvarying vec2 vUv;\nvoid main() {\n  vUv = position * 0.5 + 0.5;\n  gl_Position = vec4(position, 0.0, 1.0);\n}";
-                    const frag = "precision highp float;\n\nuniform float iTime;\nuniform vec2  iResolution;\n\nuniform vec2  rayPos;\nuniform vec2  rayDir;\nuniform vec3  raysColor;\nuniform float raysSpeed;\nuniform float lightSpread;\nuniform float rayLength;\nuniform float pulsating;\nuniform float fadeDistance;\nuniform float saturation;\nuniform vec2  mousePos;\nuniform float mouseInfluence;\nuniform float noiseAmount;\nuniform float distortion;\n\nvarying vec2 vUv;\n\nfloat noise(vec2 st) {\n  return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);\n}\n\nfloat rayStrength(vec2 raySource, vec2 rayRefDirection, vec2 coord,\n                  float seedA, float seedB, float speed) {\n  vec2 sourceToCoord = coord - raySource;\n  vec2 dirNorm = normalize(sourceToCoord);\n  float cosAngle = dot(dirNorm, rayRefDirection);\n\n  float distortedAngle = cosAngle + distortion * sin(iTime * 2.0 + length(sourceToCoord) * 0.01) * 0.2;\n  \n  float spreadFactor = pow(max(distortedAngle, 0.0), 1.0 / max(lightSpread, 0.001));\n\n  float distance = length(sourceToCoord);\n  float maxDistance = iResolution.x * rayLength;\n  float lengthFalloff = clamp((maxDistance - distance) / maxDistance, 0.0, 1.0);\n  \n  float fadeFalloff = clamp((iResolution.x * fadeDistance - distance) / (iResolution.x * fadeDistance), 0.5, 1.0);\n  float pulse = pulsating > 0.5 ? (0.8 + 0.2 * sin(iTime * speed * 3.0)) : 1.0;\n\n  float baseStrength = clamp(\n    (0.45 + 0.15 * sin(distortedAngle * seedA + iTime * speed)) +\n    (0.3 + 0.2 * cos(-distortedAngle * seedB + iTime * speed)),\n    0.0, 1.0\n  );\n\n  return baseStrength * lengthFalloff * fadeFalloff * spreadFactor * pulse;\n}\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord) {\n  vec2 coord = vec2(fragCoord.x, iResolution.y - fragCoord.y);\n  \n  vec2 finalRayDir = rayDir;\n  if (mouseInfluence > 0.0) {\n    vec2 mouseScreenPos = mousePos * iResolution.xy;\n    vec2 mouseDirection = normalize(mouseScreenPos - rayPos);\n    finalRayDir = normalize(mix(rayDir, mouseDirection, mouseInfluence));\n  }\n\n  vec4 rays1 = vec4(1.0) *\n               rayStrength(rayPos, finalRayDir, coord, 36.2214, 21.11349,\n                           1.5 * raysSpeed);\n  vec4 rays2 = vec4(1.0) *\n               rayStrength(rayPos, finalRayDir, coord, 22.3991, 18.0234,\n                           1.1 * raysSpeed);\n\n  fragColor = rays1 * 0.5 + rays2 * 0.4;\n\n  if (noiseAmount > 0.0) {\n    float n = noise(coord * 0.01 + iTime * 0.1);\n    fragColor.rgb *= (1.0 - noiseAmount + noiseAmount * n);\n  }\n\n  float brightness = 1.0 - (coord.y / iResolution.y);\n  fragColor.x *= 0.1 + brightness * 0.8;\n  fragColor.y *= 0.3 + brightness * 0.6;\n  fragColor.z *= 0.5 + brightness * 0.5;\n\n  if (saturation != 1.0) {\n    float gray = dot(fragColor.rgb, vec3(0.299, 0.587, 0.114));\n    fragColor.rgb = mix(vec3(gray), fragColor.rgb, saturation);\n  }\n\n  fragColor.rgb *= raysColor;\n}\n\nvoid main() {\n  vec4 color;\n  mainImage(color, gl_FragCoord.xy);\n  gl_FragColor  = color;\n}";
-                    const uniforms = {
-                        iTime: {
+                });
+                const program = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Program$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Program"](gl, {
+                    vertex,
+                    fragment,
+                    uniforms: {
+                        uTime: {
                             value: 0
                         },
-                        iResolution: {
-                            value: [
-                                1,
-                                1
-                            ]
+                        uSpread: {
+                            value: particleSpread
                         },
-                        rayPos: {
-                            value: [
-                                0,
-                                0
-                            ]
+                        uBaseSize: {
+                            value: particleBaseSize
                         },
-                        rayDir: {
-                            value: [
-                                0,
-                                1
-                            ]
+                        uSizeRandomness: {
+                            value: sizeRandomness
                         },
-                        raysColor: {
-                            value: hexToRgb(raysColor)
-                        },
-                        raysSpeed: {
-                            value: raysSpeed
-                        },
-                        lightSpread: {
-                            value: lightSpread
-                        },
-                        rayLength: {
-                            value: rayLength
-                        },
-                        pulsating: {
-                            value: pulsating ? 1.0 : 0.0
-                        },
-                        fadeDistance: {
-                            value: fadeDistance
-                        },
-                        saturation: {
-                            value: saturation
-                        },
-                        mousePos: {
-                            value: [
-                                0.5,
-                                0.5
-                            ]
-                        },
-                        mouseInfluence: {
-                            value: mouseInfluence
-                        },
-                        noiseAmount: {
-                            value: noiseAmount
-                        },
-                        distortion: {
-                            value: distortion
+                        uAlphaParticles: {
+                            value: alphaParticles ? 1 : 0
                         }
-                    };
-                    uniformsRef.current = uniforms;
-                    const geometry = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$extras$2f$Triangle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Triangle"](gl);
-                    const program = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Program$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Program"](gl, {
-                        vertex: vert,
-                        fragment: frag,
-                        uniforms
-                    });
-                    const mesh = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Mesh$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Mesh"](gl, {
-                        geometry,
-                        program
-                    });
-                    meshRef.current = mesh;
-                    const updatePlacement = {
-                        "LightRays.useEffect.initializeWebGL.updatePlacement": ()=>{
-                            if (!containerRef.current || !renderer) return;
-                            renderer.dpr = Math.min(window.devicePixelRatio, 2);
-                            const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
-                            renderer.setSize(wCSS, hCSS);
-                            const dpr = renderer.dpr;
-                            const w = wCSS * dpr;
-                            const h = hCSS * dpr;
-                            uniforms.iResolution.value = [
-                                w,
-                                h
-                            ];
-                            const { anchor, dir } = getAnchorAndDir(raysOrigin, w, h);
-                            uniforms.rayPos.value = anchor;
-                            uniforms.rayDir.value = dir;
+                    },
+                    transparent: true,
+                    depthTest: false
+                });
+                const particles = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Mesh$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Mesh"](gl, {
+                    mode: gl.POINTS,
+                    geometry,
+                    program
+                });
+                let animationFrameId;
+                let lastTime = performance.now();
+                let elapsed = 0;
+                const update = {
+                    "Particles.useEffect.update": (t)=>{
+                        animationFrameId = requestAnimationFrame(update);
+                        const delta = t - lastTime;
+                        lastTime = t;
+                        elapsed += delta * speed;
+                        program.uniforms.uTime.value = elapsed * 0.001;
+                        if (moveParticlesOnHover) {
+                            particles.position.x = -mouseRef.current.x * particleHoverFactor;
+                            particles.position.y = -mouseRef.current.y * particleHoverFactor;
+                        } else {
+                            particles.position.x = 0;
+                            particles.position.y = 0;
                         }
-                    }["LightRays.useEffect.initializeWebGL.updatePlacement"];
-                    const loop = {
-                        "LightRays.useEffect.initializeWebGL.loop": (t)=>{
-                            if (!rendererRef.current || !uniformsRef.current || !meshRef.current) {
-                                return;
-                            }
-                            uniforms.iTime.value = t * 0.001;
-                            if (followMouse && mouseInfluence > 0.0) {
-                                const smoothing = 0.92;
-                                smoothMouseRef.current.x = smoothMouseRef.current.x * smoothing + mouseRef.current.x * (1 - smoothing);
-                                smoothMouseRef.current.y = smoothMouseRef.current.y * smoothing + mouseRef.current.y * (1 - smoothing);
-                                uniforms.mousePos.value = [
-                                    smoothMouseRef.current.x,
-                                    smoothMouseRef.current.y
-                                ];
-                            }
-                            try {
-                                renderer.render({
-                                    scene: mesh
-                                });
-                                animationIdRef.current = requestAnimationFrame(loop);
-                            } catch (error) {
-                                console.warn("WebGL rendering error:", error);
-                                return;
-                            }
+                        if (!disableRotation) {
+                            particles.rotation.x = Math.sin(elapsed * 0.0002) * 0.1;
+                            particles.rotation.y = Math.cos(elapsed * 0.0005) * 0.15;
+                            particles.rotation.z += 0.01 * speed;
                         }
-                    }["LightRays.useEffect.initializeWebGL.loop"];
-                    window.addEventListener("resize", updatePlacement);
-                    updatePlacement();
-                    animationIdRef.current = requestAnimationFrame(loop);
-                    cleanupFunctionRef.current = ({
-                        "LightRays.useEffect.initializeWebGL": ()=>{
-                            if (animationIdRef.current) {
-                                cancelAnimationFrame(animationIdRef.current);
-                                animationIdRef.current = null;
-                            }
-                            window.removeEventListener("resize", updatePlacement);
-                            if (renderer) {
-                                try {
-                                    const canvas = renderer.gl.canvas;
-                                    const loseContextExt = renderer.gl.getExtension("WEBGL_lose_context");
-                                    if (loseContextExt) {
-                                        loseContextExt.loseContext();
-                                    }
-                                    if (canvas && canvas.parentNode) {
-                                        canvas.parentNode.removeChild(canvas);
-                                    }
-                                } catch (error) {
-                                    console.warn("Error during WebGL cleanup:", error);
-                                }
-                            }
-                            rendererRef.current = null;
-                            uniformsRef.current = null;
-                            meshRef.current = null;
-                        }
-                    })["LightRays.useEffect.initializeWebGL"];
-                }
-            }["LightRays.useEffect.initializeWebGL"];
-            initializeWebGL();
-            return ({
-                "LightRays.useEffect": ()=>{
-                    if (cleanupFunctionRef.current) {
-                        cleanupFunctionRef.current();
-                        cleanupFunctionRef.current = null;
+                        renderer.render({
+                            scene: particles,
+                            camera
+                        });
                     }
-                }
-            })["LightRays.useEffect"];
-        }
-    }["LightRays.useEffect"], [
-        isVisible,
-        raysOrigin,
-        raysColor,
-        raysSpeed,
-        lightSpread,
-        rayLength,
-        pulsating,
-        fadeDistance,
-        saturation,
-        followMouse,
-        mouseInfluence,
-        noiseAmount,
-        distortion
-    ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LightRays.useEffect": ()=>{
-            if (!uniformsRef.current || !containerRef.current || !rendererRef.current) return;
-            const u = uniformsRef.current;
-            const renderer = rendererRef.current;
-            u.raysColor.value = hexToRgb(raysColor);
-            u.raysSpeed.value = raysSpeed;
-            u.lightSpread.value = lightSpread;
-            u.rayLength.value = rayLength;
-            u.pulsating.value = pulsating ? 1.0 : 0.0;
-            u.fadeDistance.value = fadeDistance;
-            u.saturation.value = saturation;
-            u.mouseInfluence.value = mouseInfluence;
-            u.noiseAmount.value = noiseAmount;
-            u.distortion.value = distortion;
-            const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
-            const dpr = renderer.dpr;
-            const { anchor, dir } = getAnchorAndDir(raysOrigin, wCSS * dpr, hCSS * dpr);
-            u.rayPos.value = anchor;
-            u.rayDir.value = dir;
-        }
-    }["LightRays.useEffect"], [
-        raysColor,
-        raysSpeed,
-        lightSpread,
-        raysOrigin,
-        rayLength,
-        pulsating,
-        fadeDistance,
-        saturation,
-        mouseInfluence,
-        noiseAmount,
-        distortion
-    ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "LightRays.useEffect": ()=>{
-            const handleMouseMove = {
-                "LightRays.useEffect.handleMouseMove": (e)=>{
-                    if (!containerRef.current || !rendererRef.current) return;
-                    const rect = containerRef.current.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width;
-                    const y = (e.clientY - rect.top) / rect.height;
-                    mouseRef.current = {
-                        x,
-                        y
-                    };
-                }
-            }["LightRays.useEffect.handleMouseMove"];
-            if (followMouse) {
-                window.addEventListener("mousemove", handleMouseMove);
+                }["Particles.useEffect.update"];
+                animationFrameId = requestAnimationFrame(update);
                 return ({
-                    "LightRays.useEffect": ()=>window.removeEventListener("mousemove", handleMouseMove)
-                })["LightRays.useEffect"];
+                    "Particles.useEffect": ()=>{
+                        window.removeEventListener("resize", resize);
+                        if (moveParticlesOnHover) {
+                            container.removeEventListener("mousemove", handleMouseMove);
+                        }
+                        cancelAnimationFrame(animationFrameId);
+                        if (container.contains(gl.canvas)) {
+                            container.removeChild(gl.canvas);
+                        }
+                    }
+                })["Particles.useEffect"];
+            } catch (error) {
+                console.error('Particles WebGL Error:', error);
+                // Fallback: show a simple message or alternative effect
+                container.innerHTML = '<div style="color: white; padding: 20px;">WebGL not supported in this browser</div>';
             }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }
-    }["LightRays.useEffect"], [
-        followMouse
+    }["Particles.useEffect"], [
+        particleCount,
+        particleSpread,
+        speed,
+        moveParticlesOnHover,
+        particleHoverFactor,
+        alphaParticles,
+        particleBaseSize,
+        sizeRandomness,
+        cameraDistance,
+        disableRotation
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         ref: containerRef,
-        className: "w-full h-full pointer-events-none z-[3] overflow-hidden relative ".concat(className).trim()
+        className: "relative w-full h-full ".concat(className)
     }, void 0, false, {
-        fileName: "[project]/src/ui/LightRays.js",
-        lineNumber: 418,
+        fileName: "[project]/src/ui/Particles.js",
+        lineNumber: 263,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(LightRays, "gkxaG+awg9r85Ws+gbq3bog+yME=");
-_c = LightRays;
-const __TURBOPACK__default__export__ = LightRays;
+_s(Particles, "+nF1yJvQLVO//ZYCcNavPZmnV1A=");
+_c = Particles;
+const __TURBOPACK__default__export__ = Particles;
 var _c;
-__turbopack_context__.k.register(_c, "LightRays");
+__turbopack_context__.k.register(_c, "Particles");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
@@ -1704,7 +1515,7 @@ __turbopack_context__.s({
     "default": ()=>__TURBOPACK__default__export__
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$LightRays$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/ui/LightRays.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$Particles$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/ui/Particles.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$BlurText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/textanimations/BlurText.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$GradientText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/textanimations/GradientText.js [app-client] (ecmascript)");
 'use client';
@@ -1718,24 +1529,46 @@ const HeroSection = (param)=>{
         className: "relative min-h-screen bg-black overflow-hidden hero-section will-change-transform",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 w-full h-full opacity-100",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$LightRays$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    raysOrigin: "top-center",
-                    raysColor: "#00ffff",
-                    raysSpeed: 1.5,
-                    lightSpread: 2,
-                    rayLength: 1.8,
-                    followMouse: true,
-                    mouseInfluence: 0.3,
-                    noiseAmount: 0.1,
-                    distortion: 0.05,
-                    className: "custom-rays"
-                }, void 0, false, {
-                    fileName: "[project]/src/app/_components/home/HeroSection.js",
-                    lineNumber: 12,
-                    columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0))
-            }, void 0, false, {
+                className: "absolute inset-0 w-full h-full",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/_components/home/HeroSection.js",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute inset-0 opacity-80",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$Particles$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            particleCount: 300,
+                            particleSpread: 12,
+                            speed: 0.4,
+                            particleColors: [
+                                "#00ffff",
+                                "#40ffaa",
+                                "#4079ff",
+                                "#ffffff"
+                            ],
+                            moveParticlesOnHover: true,
+                            particleHoverFactor: 1.5,
+                            alphaParticles: true,
+                            particleBaseSize: 120,
+                            sizeRandomness: 1.2,
+                            cameraDistance: 12,
+                            disableRotation: false
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/_components/home/HeroSection.js",
+                            lineNumber: 17,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/_components/home/HeroSection.js",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/app/_components/home/HeroSection.js",
                 lineNumber: 11,
                 columnNumber: 7
@@ -1760,7 +1593,7 @@ const HeroSection = (param)=>{
                                             className: "lg:mt-12 md:mt-8 sm:mt-6 mt-4 text-lg sm:text-xl lg:text-2xl font-medium mb-1 text-white/80 drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 37,
+                                            lineNumber: 44,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$BlurText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1772,7 +1605,7 @@ const HeroSection = (param)=>{
                                             className: "text-2xl sm:text-3xl lg:text-4.5xl font-bold mb-1 lg:mb-4 leading-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 45,
+                                            lineNumber: 52,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$BlurText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1784,7 +1617,7 @@ const HeroSection = (param)=>{
                                             className: "text-lg font-bold sm:text-xl lg:text-xl text-gray-300 mb-2 lg:mb-4 font-light mt-1"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 54,
+                                            lineNumber: 61,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1799,14 +1632,14 @@ const HeroSection = (param)=>{
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 67,
+                                                        lineNumber: 74,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute inset-1 rounded-full bg-gray-900/80 backdrop-blur-sm"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 68,
+                                                        lineNumber: 75,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1819,12 +1652,12 @@ const HeroSection = (param)=>{
                                                                     children: "FG"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 72,
+                                                                    lineNumber: 79,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 71,
+                                                                lineNumber: 78,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1832,7 +1665,7 @@ const HeroSection = (param)=>{
                                                                 children: "College Logo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 74,
+                                                                lineNumber: 81,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1840,31 +1673,31 @@ const HeroSection = (param)=>{
                                                                 children: "Image will be placed here"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 75,
+                                                                lineNumber: 82,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 69,
+                                                        lineNumber: 76,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                lineNumber: 65,
+                                                lineNumber: 72,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 64,
+                                            lineNumber: 71,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "lg:hidden w-full h-px bg-gradient-to-r from-transparent via-green-400 to-transparent my-6"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 81,
+                                            lineNumber: 88,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1883,12 +1716,12 @@ const HeroSection = (param)=>{
                                                 children: "FG Science Degree College is a premier institution dedicated to providing quality education in science and technology. We foster academic excellence, research innovation, and character development to prepare students for successful careers and meaningful contributions to society."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                lineNumber: 84,
+                                                lineNumber: 91,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 83,
+                                            lineNumber: 90,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1902,14 +1735,14 @@ const HeroSection = (param)=>{
                                                             className: "absolute inset-0 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 105,
+                                                            lineNumber: 112,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "absolute inset-0 rounded-2xl bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-700 ease-out"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 108,
+                                                            lineNumber: 115,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1923,7 +1756,7 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 112,
+                                                                    lineNumber: 119,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1934,7 +1767,7 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 113,
+                                                                    lineNumber: 120,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1945,27 +1778,27 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 114,
+                                                                    lineNumber: 121,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 111,
+                                                            lineNumber: 118,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out skew-x-12"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 118,
+                                                            lineNumber: 125,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl opacity-0 group-hover:opacity-30 blur-lg transition-all duration-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 121,
+                                                            lineNumber: 128,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1975,7 +1808,7 @@ const HeroSection = (param)=>{
                                                                     children: "Explore Facilities"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 124,
+                                                                    lineNumber: 131,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -1990,24 +1823,24 @@ const HeroSection = (param)=>{
                                                                         d: "M13 7l5 5m0 0l-5 5m5-5H6"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                        lineNumber: 126,
+                                                                        lineNumber: 133,
                                                                         columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 125,
+                                                                    lineNumber: 132,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 123,
+                                                            lineNumber: 130,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                    lineNumber: 100,
+                                                    lineNumber: 107,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2018,14 +1851,14 @@ const HeroSection = (param)=>{
                                                             className: "absolute inset-0 bg-gradient-to-r from-green-500 via-emerald-400 to-teal-400 -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out rounded-2xl"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 137,
+                                                            lineNumber: 144,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "absolute inset-0 rounded-2xl border-2 border-green-400/0 group-hover:border-green-400 transition-all duration-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 140,
+                                                            lineNumber: 147,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2035,7 +1868,7 @@ const HeroSection = (param)=>{
                                                                     className: "absolute inset-2 border border-white/30 rounded-xl animate-ping"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 144,
+                                                                    lineNumber: 151,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2045,13 +1878,13 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 145,
+                                                                    lineNumber: 152,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 143,
+                                                            lineNumber: 150,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2061,7 +1894,7 @@ const HeroSection = (param)=>{
                                                                     className: "absolute top-3 left-8 w-1 h-1 bg-white rounded-full animate-pulse"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 150,
+                                                                    lineNumber: 157,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2071,7 +1904,7 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 151,
+                                                                    lineNumber: 158,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2081,7 +1914,7 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 152,
+                                                                    lineNumber: 159,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2091,20 +1924,20 @@ const HeroSection = (param)=>{
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 153,
+                                                                    lineNumber: 160,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 149,
+                                                            lineNumber: 156,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "absolute -inset-0.5 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-2xl opacity-0 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 157,
+                                                            lineNumber: 164,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2122,43 +1955,43 @@ const HeroSection = (param)=>{
                                                                         d: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                        lineNumber: 161,
+                                                                        lineNumber: 168,
                                                                         columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 160,
+                                                                    lineNumber: 167,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: "View Programs"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                    lineNumber: 163,
+                                                                    lineNumber: 170,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 159,
+                                                            lineNumber: 166,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                    lineNumber: 132,
+                                                    lineNumber: 139,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                            lineNumber: 98,
+                                            lineNumber: 105,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                    lineNumber: 35,
+                                    lineNumber: 42,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2173,14 +2006,14 @@ const HeroSection = (param)=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                lineNumber: 173,
+                                                lineNumber: 180,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "absolute inset-1 rounded-full bg-gray-900/80 backdrop-blur-sm"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                lineNumber: 174,
+                                                lineNumber: 181,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2193,12 +2026,12 @@ const HeroSection = (param)=>{
                                                             children: "FG"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                            lineNumber: 178,
+                                                            lineNumber: 185,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 177,
+                                                        lineNumber: 184,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2206,7 +2039,7 @@ const HeroSection = (param)=>{
                                                         children: "College Logo"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 180,
+                                                        lineNumber: 187,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2214,30 +2047,30 @@ const HeroSection = (param)=>{
                                                         children: "Image will be placed here"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 181,
+                                                        lineNumber: 188,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                lineNumber: 175,
+                                                lineNumber: 182,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                        lineNumber: 171,
+                                        lineNumber: 178,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                    lineNumber: 170,
+                                    lineNumber: 177,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                            lineNumber: 32,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2284,28 +2117,28 @@ const HeroSection = (param)=>{
                                                         className: "absolute inset-0 bg-gradient-to-br from-".concat(stat.gradientFrom, "/80 to-").concat(stat.gradientTo, "/80 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 205,
+                                                        lineNumber: 212,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute inset-0 rounded-xl bg-white/10 scale-0 group-hover:scale-100 transition-transform duration-700 ease-out"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 208,
+                                                        lineNumber: 215,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out skew-x-12"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 211,
+                                                        lineNumber: 218,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute -inset-1 bg-gradient-to-r from-".concat(stat.gradientFrom, " to-").concat(stat.gradientTo, " rounded-xl opacity-0 group-hover:opacity-30 blur-lg transition-all duration-500")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 214,
+                                                        lineNumber: 221,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2318,7 +2151,7 @@ const HeroSection = (param)=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 218,
+                                                                lineNumber: 225,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2329,7 +2162,7 @@ const HeroSection = (param)=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 219,
+                                                                lineNumber: 226,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2340,13 +2173,13 @@ const HeroSection = (param)=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 220,
+                                                                lineNumber: 227,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 217,
+                                                        lineNumber: 224,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2359,7 +2192,7 @@ const HeroSection = (param)=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 225,
+                                                                lineNumber: 232,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2370,13 +2203,13 @@ const HeroSection = (param)=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 226,
+                                                                lineNumber: 233,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 224,
+                                                        lineNumber: 231,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2387,7 +2220,7 @@ const HeroSection = (param)=>{
                                                                 children: stat.value
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 231,
+                                                                lineNumber: 238,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2395,57 +2228,57 @@ const HeroSection = (param)=>{
                                                                 children: stat.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                                lineNumber: 234,
+                                                                lineNumber: 241,
                                                                 columnNumber: 25
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 230,
+                                                        lineNumber: 237,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-".concat(stat.color, "-400/0 via-").concat(stat.color, "-400 to-").concat(stat.color, "-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300")
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                        lineNumber: 240,
+                                                        lineNumber: 247,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                                lineNumber: 200,
+                                                lineNumber: 207,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                        lineNumber: 192,
+                                        lineNumber: 199,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                    lineNumber: 191,
+                                    lineNumber: 198,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                                lineNumber: 190,
+                                lineNumber: 197,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/app/_components/home/HeroSection.js",
-                            lineNumber: 189,
+                            lineNumber: 196,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/_components/home/HeroSection.js",
-                    lineNumber: 31,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/app/_components/home/HeroSection.js",
-                lineNumber: 30,
+                lineNumber: 37,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
@@ -3130,29 +2963,36 @@ const IntroPreview = ()=>{
     }["IntroPreview.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: sectionRef,
-        className: "jsx-48e903966a11f735" + " " + "py-16 sm:py-20 md:py-24 bg-gray-900 text-white overflow-hidden relative",
+        className: "jsx-caa235d047e2c41e" + " " + "py-16 sm:py-20 md:py-24 bg-gray-900 text-white overflow-hidden relative",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-48e903966a11f735" + " " + "absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-80"
+                className: "jsx-caa235d047e2c41e" + " " + "absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-80"
             }, void 0, false, {
                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
                 lineNumber: 73,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$DottedBG$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "jsx-caa235d047e2c41e" + " " + "opacity-30",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$DottedBG$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                    fileName: "[project]/src/app/_components/home/IntroPreview.js",
+                    lineNumber: 77,
+                    columnNumber: 17
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
                 lineNumber: 76,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-48e903966a11f735" + " " + "max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10",
+                className: "jsx-caa235d047e2c41e" + " " + "max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: titleRef,
-                        className: "jsx-48e903966a11f735" + " " + "text-center mb-12 sm:mb-16",
+                        className: "jsx-caa235d047e2c41e" + " " + "text-center mb-12 sm:mb-16",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-48e903966a11f735" + " " + "animate-title",
+                                className: "jsx-caa235d047e2c41e" + " " + "animate-title",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$GradientText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     colors: [
                                         '#3b82f6',
@@ -3163,16 +3003,16 @@ const IntroPreview = ()=>{
                                     children: "FG Science Degree College, Wah Cantt"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                    lineNumber: 85,
+                                    lineNumber: 87,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                lineNumber: 84,
+                                lineNumber: 86,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-48e903966a11f735" + " " + "animate-title",
+                                className: "jsx-caa235d047e2c41e" + " " + "animate-title",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$GradientText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     colors: [
                                         '#10b981',
@@ -3183,30 +3023,30 @@ const IntroPreview = ()=>{
                                     children: "A Legacy of Excellence in Education"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                    lineNumber: 93,
+                                    lineNumber: 95,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                lineNumber: 92,
+                                lineNumber: 94,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                        lineNumber: 80,
+                        lineNumber: 82,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-48e903966a11f735" + " " + "mx-1 sm:mx-8 lg:mx-12",
+                        className: "jsx-caa235d047e2c41e" + " " + "mx-1 sm:mx-8 lg:mx-12",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             ref: contentRef,
-                            className: "jsx-48e903966a11f735" + " " + "space-y-6 bg-gray-800/40 backdrop-blur-sm p-5 sm:p-6 rounded-xl border border-gray-700/50 relative overflow-hidden main-content-group hover:bg-gray-800/60 transition-all duration-500 hover:border-gray-600/70 hover:shadow-xl hover:shadow-blue-500/10",
+                            className: "jsx-caa235d047e2c41e" + " " + "space-y-6 bg-gray-800/40 backdrop-blur-sm p-5 sm:p-6 rounded-xl border border-gray-700/50 relative overflow-hidden main-content-group hover:bg-gray-800/60 transition-all duration-500 hover:border-gray-600/70 hover:shadow-xl hover:shadow-blue-500/10",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-48e903966a11f735" + " " + "relative z-10",
+                                className: "jsx-caa235d047e2c41e" + " " + "relative z-10",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-48e903966a11f735" + " " + "animate-text",
+                                        className: "jsx-caa235d047e2c41e" + " " + "animate-text",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$GradientText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                 colors: [
@@ -3218,39 +3058,39 @@ const IntroPreview = ()=>{
                                                 children: "Our Legacy"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                lineNumber: 112,
+                                                lineNumber: 114,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "jsx-48e903966a11f735" + " " + "text-sm sm:text-base md:text-lg text-gray-300 space-y-4",
+                                                className: "jsx-caa235d047e2c41e" + " " + "text-sm sm:text-base md:text-lg text-gray-300 space-y-4",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "jsx-48e903966a11f735" + " " + "animate-text",
+                                                        className: "jsx-caa235d047e2c41e" + " " + "animate-text",
                                                         children: "It was 1986 when on a visit to POF the then Prime Minister, Muhammad Khan Junejo, approached by the representatives of Wah Cantt residents, promised the establishment of another F.G. College to cater to the ever growing demand for a standard educational institution."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                        lineNumber: 120,
+                                                        lineNumber: 122,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-48e903966a11f735" + " " + "quote-box bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-5 sm:p-6 rounded-lg border-l-4 border-blue-500 relative animate-text transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20 hover:border-l-[6px] group/quote",
+                                                        className: "jsx-caa235d047e2c41e" + " " + "quote-box bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-5 sm:p-6 rounded-lg border-l-4 border-blue-500 relative animate-text transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20 hover:border-l-[6px] group/quote",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover/quote:translate-x-full transition-transform duration-1200 ease-in-out rounded-lg"
+                                                                className: "jsx-caa235d047e2c41e" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover/quote:translate-x-full transition-transform duration-1200 ease-in-out rounded-lg"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 126,
+                                                                lineNumber: 128,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-purple-500/0 opacity-0 group-hover/quote:opacity-100 blur-lg transition-opacity duration-500 rounded-lg"
+                                                                className: "jsx-caa235d047e2c41e" + " " + "absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-purple-500/0 opacity-0 group-hover/quote:opacity-100 blur-lg transition-opacity duration-500 rounded-lg"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 129,
+                                                                lineNumber: 131,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "relative z-10 px-1",
+                                                                className: "jsx-caa235d047e2c41e" + " " + "relative z-10 px-1",
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$GradientText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                                     colors: [
                                                                         '#60a5fa',
@@ -3261,100 +3101,100 @@ const IntroPreview = ()=>{
                                                                     children: "FG Science Degree College, located in the heart of Wah Cantt, Pakistan, has been a provider of quality education since 1993."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                    lineNumber: 132,
+                                                                    lineNumber: 134,
                                                                     columnNumber: 45
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 131,
+                                                                lineNumber: 133,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                        lineNumber: 124,
+                                                        lineNumber: 126,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                lineNumber: 119,
+                                                lineNumber: 121,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                        lineNumber: 111,
+                                        lineNumber: 113,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-48e903966a11f735" + " " + "mt-6 mb-8 relative animate-text",
+                                        className: "jsx-caa235d047e2c41e" + " " + "mt-6 mb-8 relative animate-text",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-48e903966a11f735" + " " + "flex flex-col md:flex-row items-center gap-6",
+                                            className: "jsx-caa235d047e2c41e" + " " + "flex flex-col md:flex-row items-center gap-6",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-48e903966a11f735" + " " + "w-full md:w-1/3 group/historical relative overflow-hidden rounded-lg transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20",
+                                                    className: "jsx-caa235d047e2c41e" + " " + "w-full md:w-1/3 group/historical relative overflow-hidden rounded-lg transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "jsx-48e903966a11f735" + " " + "absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover/historical:opacity-50 blur-md transition-opacity duration-500"
+                                                            className: "jsx-caa235d047e2c41e" + " " + "absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover/historical:opacity-50 blur-md transition-opacity duration-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                            lineNumber: 148,
+                                                            lineNumber: 150,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                             src: "/IntroPreview/RegionalDirectorVisit.png",
                                                             alt: "Regional Director Visit - Establishment 1993, Wah Cantt",
-                                                            className: "jsx-48e903966a11f735" + " " + "w-full h-48 object-cover rounded-lg border border-gray-600 transition-transform duration-500 group-hover/historical:scale-110"
+                                                            className: "jsx-caa235d047e2c41e" + " " + "w-full h-48 object-cover rounded-lg border border-gray-600 transition-transform duration-500 group-hover/historical:scale-110"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                            lineNumber: 150,
+                                                            lineNumber: 152,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                    lineNumber: 146,
+                                                    lineNumber: 148,
                                                     columnNumber: 37
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "jsx-48e903966a11f735" + " " + "w-full md:w-2/3",
+                                                    className: "jsx-caa235d047e2c41e" + " " + "w-full md:w-2/3",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                            className: "jsx-48e903966a11f735" + " " + "text-lg font-semibold text-white mb-2 transition-colors duration-300 hover:text-blue-300",
+                                                            className: "jsx-caa235d047e2c41e" + " " + "text-lg font-semibold text-white mb-2 transition-colors duration-300 hover:text-blue-300",
                                                             children: "Historical Milestone"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                            lineNumber: 157,
+                                                            lineNumber: 159,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: "jsx-48e903966a11f735" + " " + "text-gray-300 text-sm transition-all duration-500 hover:text-gray-100",
+                                                            className: "jsx-caa235d047e2c41e" + " " + "text-gray-300 text-sm transition-all duration-500 hover:text-gray-100",
                                                             children: "Established in 1993 in Wah Cantt, Pakistan, our college has been serving the community with dedication and excellence for over three decades."
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                            lineNumber: 158,
+                                                            lineNumber: 160,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                    lineNumber: 156,
+                                                    lineNumber: 158,
                                                     columnNumber: 37
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                            lineNumber: 145,
+                                            lineNumber: 147,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                        lineNumber: 144,
+                                        lineNumber: 146,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-48e903966a11f735" + " " + "space-y-6 mt-6",
+                                        className: "jsx-caa235d047e2c41e" + " " + "space-y-6 mt-6",
                                         children: [
                                             {
                                                 id: 'campus',
@@ -3400,65 +3240,66 @@ const IntroPreview = ()=>{
                                             }
                                         ].map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 ref: (el)=>cardsRef.current[index] = el,
-                                                className: "jsx-48e903966a11f735" + " " + "animated-border-box",
+                                                className: "jsx-caa235d047e2c41e" + " " + "animated-border-box",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-48e903966a11f735" + " " + "animated-border animated-border-".concat(item.id)
+                                                        className: "jsx-caa235d047e2c41e" + " " + "animated-border animated-border-".concat(item.id)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                        lineNumber: 197,
+                                                        lineNumber: 199,
                                                         columnNumber: 41
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "jsx-48e903966a11f735" + " " + "content-box group/".concat(item.id, " transition-all duration-500 hover:shadow-lg hover:shadow-[#60a5fa]/20 overflow-hidden"),
+                                                        className: "jsx-caa235d047e2c41e" + " " + "content-box group/".concat(item.id, " transition-all duration-500 hover:shadow-lg hover:shadow-[#60a5fa]/20 overflow-hidden"),
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/6 to-transparent -translate-x-full group-hover/".concat(item.id, ":translate-x-full transition-transform duration-1200 ease-in-out")
+                                                                className: "jsx-caa235d047e2c41e" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/6 to-transparent -translate-x-full group-hover/".concat(item.id, ":translate-x-full transition-transform duration-1200 ease-in-out")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 200,
+                                                                lineNumber: 202,
                                                                 columnNumber: 45
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "absolute inset-0 bg-gradient-to-br from-".concat(item.colors[0], "/5 to-").concat(item.colors[1], "/5 opacity-0 group-hover/").concat(item.id, ":opacity-100 transition-opacity duration-500")
+                                                                className: "jsx-caa235d047e2c41e" + " " + "absolute inset-0 bg-gradient-to-br from-".concat(item.colors[0], "/5 to-").concat(item.colors[1], "/5 opacity-0 group-hover/").concat(item.id, ":opacity-100 transition-opacity duration-500")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 203,
+                                                                lineNumber: 205,
                                                                 columnNumber: 45
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "flex flex-col lg:flex-row gap-4 sm:gap-6 relative z-10",
+                                                                className: "jsx-caa235d047e2c41e" + " " + "flex flex-col lg:flex-row gap-4 sm:gap-6 relative z-10",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "jsx-48e903966a11f735" + " " + "w-full lg:w-80 h-40 sm:h-48 relative order-1 lg:order-2 overflow-hidden rounded-lg transition-all duration-500 group-hover/".concat(item.id, ":shadow-md group-hover/").concat(item.id, ":shadow-[#60a5fa]/20"),
+                                                                        className: "jsx-caa235d047e2c41e" + " " + "w-full lg:w-80 h-40 sm:h-48 relative order-1 lg:order-2 overflow-hidden rounded-lg transition-all duration-500 group-hover/".concat(item.id, ":shadow-md group-hover/").concat(item.id, ":shadow-[#60a5fa]/20"),
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "jsx-48e903966a11f735" + " " + "w-full h-full transition-transform duration-500 group-hover/".concat(item.id, ":scale-105"),
-                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$SimpleImageTransition$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                                                    images: item.images,
-                                                                                    width: "100%",
-                                                                                    height: "100%"
+                                                                                className: "jsx-caa235d047e2c41e" + " " + "w-full h-full transition-transform duration-500 group-hover/".concat(item.id, ":scale-105"),
+                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                                                    src: item.images[0],
+                                                                                    alt: item.title,
+                                                                                    loading: "lazy",
+                                                                                    className: "jsx-caa235d047e2c41e" + " " + "w-full h-full object-cover rounded-lg"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                    lineNumber: 209,
+                                                                                    lineNumber: 211,
                                                                                     columnNumber: 57
                                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                lineNumber: 208,
+                                                                                lineNumber: 210,
                                                                                 columnNumber: 53
                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "jsx-48e903966a11f735" + " " + "absolute inset-0 opacity-0 group-hover/".concat(item.id, ":opacity-100 transition-opacity duration-500 pointer-events-none z-20"),
+                                                                                className: "jsx-caa235d047e2c41e" + " " + "absolute inset-0 opacity-0 group-hover/".concat(item.id, ":opacity-100 transition-opacity duration-500 pointer-events-none z-20"),
                                                                                 children: [
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                         style: {
                                                                                             animationDuration: '2s'
                                                                                         },
-                                                                                        className: "jsx-48e903966a11f735" + " " + "absolute top-3 left-4 w-1 h-1 bg-white/60 rounded-full animate-pulse"
+                                                                                        className: "jsx-caa235d047e2c41e" + " " + "absolute top-3 left-4 w-1 h-1 bg-white/60 rounded-full animate-pulse"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                        lineNumber: 218,
+                                                                                        lineNumber: 221,
                                                                                         columnNumber: 57
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3466,10 +3307,10 @@ const IntroPreview = ()=>{
                                                                                             animationDelay: '0.5s',
                                                                                             animationDuration: '2.5s'
                                                                                         },
-                                                                                        className: "jsx-48e903966a11f735" + " " + "absolute top-6 right-5 w-1 h-1 bg-white/50 rounded-full animate-pulse"
+                                                                                        className: "jsx-caa235d047e2c41e" + " " + "absolute top-6 right-5 w-1 h-1 bg-white/50 rounded-full animate-pulse"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                        lineNumber: 219,
+                                                                                        lineNumber: 222,
                                                                                         columnNumber: 57
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3477,36 +3318,36 @@ const IntroPreview = ()=>{
                                                                                             animationDelay: '1s',
                                                                                             animationDuration: '2.2s'
                                                                                         },
-                                                                                        className: "jsx-48e903966a11f735" + " " + "absolute bottom-4 left-6 w-1 h-1 bg-white/55 rounded-full animate-pulse"
+                                                                                        className: "jsx-caa235d047e2c41e" + " " + "absolute bottom-4 left-6 w-1 h-1 bg-white/55 rounded-full animate-pulse"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                        lineNumber: 220,
+                                                                                        lineNumber: 223,
                                                                                         columnNumber: 57
                                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                lineNumber: 217,
+                                                                                lineNumber: 220,
                                                                                 columnNumber: 53
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                        lineNumber: 207,
+                                                                        lineNumber: 209,
                                                                         columnNumber: 49
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "jsx-48e903966a11f735" + " " + "flex-1 order-2 lg:order-1",
+                                                                        className: "jsx-caa235d047e2c41e" + " " + "flex-1 order-2 lg:order-1",
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                                                className: "jsx-48e903966a11f735" + " " + "text-lg sm:text-xl font-semibold flex items-center mb-3 transition-all duration-300 group-hover/".concat(item.id, ":translate-x-1"),
+                                                                                className: "jsx-caa235d047e2c41e" + " " + "text-lg sm:text-xl font-semibold flex items-center mb-3 transition-all duration-300 group-hover/".concat(item.id, ":translate-x-1"),
                                                                                 children: [
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "jsx-48e903966a11f735" + " " + "mr-2 inline-block transition-transform duration-300 group-hover/".concat(item.id, ":scale-110 group-hover/").concat(item.id, ":-translate-y-0.5"),
+                                                                                        className: "jsx-caa235d047e2c41e" + " " + "mr-2 inline-block transition-transform duration-300 group-hover/".concat(item.id, ":scale-110 group-hover/").concat(item.id, ":-translate-y-0.5"),
                                                                                         children: item.icon
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                        lineNumber: 227,
+                                                                                        lineNumber: 230,
                                                                                         columnNumber: 57
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$textanimations$2f$GradientText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -3515,84 +3356,84 @@ const IntroPreview = ()=>{
                                                                                         children: item.title
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                        lineNumber: 230,
+                                                                                        lineNumber: 233,
                                                                                         columnNumber: 57
                                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                lineNumber: 226,
+                                                                                lineNumber: 229,
                                                                                 columnNumber: 53
                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "jsx-48e903966a11f735" + " " + "text-gray-300 text-sm sm:text-base leading-relaxed transition-colors duration-500 group-hover/".concat(item.id, ":text-gray-100"),
+                                                                                className: "jsx-caa235d047e2c41e" + " " + "text-gray-300 text-sm sm:text-base leading-relaxed transition-colors duration-500 group-hover/".concat(item.id, ":text-gray-100"),
                                                                                 children: item.content
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                                lineNumber: 238,
+                                                                                lineNumber: 241,
                                                                                 columnNumber: 53
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                        lineNumber: 225,
+                                                                        lineNumber: 228,
                                                                         columnNumber: 49
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 205,
+                                                                lineNumber: 207,
                                                                 columnNumber: 45
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "jsx-48e903966a11f735" + " " + "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-".concat(item.colors[0], "/0 via-").concat(item.colors[0], " to-").concat(item.colors[0], "/0 opacity-0 group-hover/").concat(item.id, ":opacity-100 transition-opacity duration-300")
+                                                                className: "jsx-caa235d047e2c41e" + " " + "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-".concat(item.colors[0], "/0 via-").concat(item.colors[0], " to-").concat(item.colors[0], "/0 opacity-0 group-hover/").concat(item.id, ":opacity-100 transition-opacity duration-300")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                                lineNumber: 245,
+                                                                lineNumber: 248,
                                                                 columnNumber: 45
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                        lineNumber: 198,
+                                                        lineNumber: 200,
                                                         columnNumber: 41
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, item.id, true, {
                                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                                lineNumber: 192,
+                                                lineNumber: 194,
                                                 columnNumber: 37
                                             }, ("TURBOPACK compile-time value", void 0)))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                        lineNumber: 165,
+                                        lineNumber: 167,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                                lineNumber: 110,
+                                lineNumber: 112,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                            lineNumber: 105,
+                            lineNumber: 107,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                        lineNumber: 103,
+                        lineNumber: 105,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/_components/home/IntroPreview.js",
-                lineNumber: 78,
+                lineNumber: 80,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                id: "48e903966a11f735",
-                children: '@property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}.animated-border-box{border-radius:12px;margin-bottom:24px;padding:2px;position:relative}.animated-border{z-index:0;background-size:300% 300%;border-radius:12px;animation:4s linear infinite rotate;position:absolute;top:0;bottom:0;left:0;right:0}.content-box{z-index:1;background-color:#111827;border-radius:10px;padding:16px;position:relative}.animated-border-campus{background-image:conic-gradient(from var(--angle),#34d399,#60a5fa,#34d399)}.animated-border-academic{background-image:conic-gradient(from var(--angle),#8b5cf6,#ec4899,#8b5cf6)}.animated-border-commitment{background-image:conic-gradient(from var(--angle),#f59e0b,#ef4444,#f59e0b)}@keyframes rotate{0%{--angle:0deg}to{--angle:360deg}}@media (min-width:640px){.content-box{padding:24px}}'
+                id: "caa235d047e2c41e",
+                children: '@property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}.animated-border-box{border-radius:12px;margin-bottom:24px;padding:2px;position:relative}.animated-border{z-index:0;will-change:transform;background-size:200% 200%;border-radius:12px;animation:6s linear infinite rotate;position:absolute;top:0;bottom:0;left:0;right:0}.content-box{z-index:1;background-color:#111827;border-radius:10px;padding:16px;position:relative}.animated-border-campus{background:linear-gradient(45deg,#34d399,#60a5fa)}.animated-border-academic{background:linear-gradient(45deg,#8b5cf6,#ec4899)}.animated-border-commitment{background:linear-gradient(45deg,#f59e0b,#ef4444)}@keyframes rotate{0%{--angle:0deg}to{--angle:360deg}}@media (min-width:640px){.content-box{padding:24px}}'
             }, void 0, false, void 0, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
@@ -4618,4 +4459,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }}),
 }]);
 
-//# sourceMappingURL=src_aa8c2546._.js.map
+//# sourceMappingURL=src_45245a11._.js.map

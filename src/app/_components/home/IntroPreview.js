@@ -72,8 +72,10 @@ const IntroPreview = () => {
             {/* Background animated gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-80"></div>
 
-            {/* Animated background dots */}
-            <DottedBG />
+            {/* Animated background dots - reduced for performance */}
+            <div className="opacity-30">
+                <DottedBG />
+            </div>
 
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
                 {/* Title section */}
@@ -206,10 +208,11 @@ const IntroPreview = () => {
                                                 {/* Image first on mobile, right on desktop */}
                                                 <div className={`w-full lg:w-80 h-40 sm:h-48 relative order-1 lg:order-2 overflow-hidden rounded-lg transition-all duration-500 group-hover/${item.id}:shadow-md group-hover/${item.id}:shadow-[#60a5fa]/20`}>
                                                     <div className={`w-full h-full transition-transform duration-500 group-hover/${item.id}:scale-105`}>
-                                                        <SimpleImageTransition
-                                                            images={item.images}
-                                                            width="100%"
-                                                            height="100%"
+                                                        <img
+                                                            src={item.images[0]}
+                                                            alt={item.title}
+                                                            className="w-full h-full object-cover rounded-lg"
+                                                            loading="lazy"
                                                         />
                                                     </div>
 
@@ -275,8 +278,9 @@ const IntroPreview = () => {
                     bottom: 0;
                     border-radius: 12px;
                     z-index: 0;
-                    background-size: 300% 300%;
-                    animation: rotate 4s linear infinite;
+                    background-size: 200% 200%;
+                    animation: rotate 6s linear infinite;
+                    will-change: transform;
                 }
 
                 .content-box {
@@ -288,15 +292,15 @@ const IntroPreview = () => {
                 }
 
                 .animated-border-campus {
-                    background-image: conic-gradient(from var(--angle), #34d399, #60a5fa, #34d399);
+                    background: linear-gradient(45deg, #34d399, #60a5fa);
                 }
 
                 .animated-border-academic {
-                    background-image: conic-gradient(from var(--angle), #8b5cf6, #ec4899, #8b5cf6);
+                    background: linear-gradient(45deg, #8b5cf6, #ec4899);
                 }
 
                 .animated-border-commitment {
-                    background-image: conic-gradient(from var(--angle), #f59e0b, #ef4444, #f59e0b);
+                    background: linear-gradient(45deg, #f59e0b, #ef4444);
                 }
 
                 @keyframes rotate {
