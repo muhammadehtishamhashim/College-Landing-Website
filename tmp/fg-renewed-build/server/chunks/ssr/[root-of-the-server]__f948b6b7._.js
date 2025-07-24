@@ -891,7 +891,7 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$u
 }),
 "[project]/data/admissions.json (json)": ((__turbopack_context__) => {
 
-__turbopack_context__.v(JSON.parse("{\"applicationDeadline\":\"June 30, 2025\",\"requiredDocuments\":[\"Completed application form\",\"10th and 12th mark sheets\",\"Transfer certificate\",\"Character certificate\",\"Passport size photographs (4 copies)\",\"Entrance exam scorecard\",\"Caste certificate (if applicable)\",\"Income certificate (for fee concession)\"],\"procedures\":[\"Fill out the online application form\",\"Pay the application fee\",\"Submit required documents\",\"Appear for entrance examination\",\"Attend counseling session\",\"Complete admission formalities\",\"Pay the first semester fees\"],\"importantDates\":[{\"event\":\"Application Form Release\",\"date\":\"March 1, 2025\",\"description\":\"Online application forms will be available\"},{\"event\":\"Last Date for Application\",\"date\":\"June 30, 2025\",\"description\":\"Final deadline for submitting applications\"},{\"event\":\"Entrance Examination\",\"date\":\"July 15, 2025\",\"description\":\"Written entrance test for all programs\"},{\"event\":\"Result Declaration\",\"date\":\"July 25, 2025\",\"description\":\"Entrance exam results and merit list\"},{\"event\":\"Counseling Session\",\"date\":\"August 1-5, 2025\",\"description\":\"Document verification and seat allocation\"},{\"event\":\"Classes Begin\",\"date\":\"August 15, 2025\",\"description\":\"First semester classes commence\"}],\"fees\":{\"application\":\"₹500\",\"tuition\":\"₹42,000 - ₹55,000 per year (varies by program)\",\"other\":\"₹5,000 per year (library, lab, and other fees)\"}}"));}),
+__turbopack_context__.v(JSON.parse("{\"requiredDocuments\":[\"Completed application form\",\"10th and 12th mark sheets\",\"Transfer certificate\",\"Character certificate\",\"Passport size photographs (4 copies)\",\"Entrance exam scorecard\",\"Caste certificate (if applicable)\",\"Income certificate (for fee concession)\"],\"procedures\":[\"Fill out the online application form\",\"Pay the application fee\",\"Submit required documents\",\"Appear for entrance examination\",\"Attend counseling session\",\"Complete admission formalities\",\"Pay the first semester fees\"],\"importantDates\":[{\"event\":\"Application Form Release\",\"date\":\"March 1, 2025\",\"description\":\"Online application forms will be available\"},{\"event\":\"Last Date for Application\",\"date\":\"June 30, 2025\",\"description\":\"Final deadline for submitting applications\"},{\"event\":\"Entrance Examination\",\"date\":\"July 15, 2025\",\"description\":\"Written entrance test for all programs\"},{\"event\":\"Result Declaration\",\"date\":\"July 25, 2025\",\"description\":\"Entrance exam results and merit list\"},{\"event\":\"Counseling Session\",\"date\":\"August 1-5, 2025\",\"description\":\"Document verification and seat allocation\"},{\"event\":\"Classes Begin\",\"date\":\"August 15, 2025\",\"description\":\"First semester classes commence\"}],\"fees\":{\"application\":\"₹500\",\"tuition\":\"₹42,000 - ₹55,000 per year (varies by program)\",\"other\":\"₹5,000 per year (library, lab, and other fees)\"}}"));}),
 "[project]/src/app/admissions/page.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -911,245 +911,469 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__
 ;
 ;
 ;
+;
 const metadata = {
     title: 'Admissions | FG Science Degree College',
     description: 'Apply to FG Science Degree College. Learn about admission procedures, requirements, important dates, and fees.'
 };
 function Admissions() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$layout$2f$MainLayout$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "pt-20 overflow-x-hidden",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                    className: "relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-20 lg:py-32 flex items-center justify-center overflow-hidden",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute inset-0 w-full h-full",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/admissions/page.js",
-                                    lineNumber: 21,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute inset-0 opacity-60",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$Particles$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                        particleCount: 180,
-                                        particleSpread: 10,
-                                        speed: 0.7,
-                                        particleColors: [
-                                            "#14b8a6",
-                                            "#0891b2",
-                                            "#06b6d4",
-                                            "#ffffff"
-                                        ],
-                                        moveParticlesOnHover: false,
-                                        particleHoverFactor: 1.2,
-                                        alphaParticles: true,
-                                        particleBaseSize: 90,
-                                        sizeRandomness: 0.9,
-                                        cameraDistance: 14,
-                                        disableRotation: false
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "jsx-844c77ffa3541180" + " " + "pt-20 overflow-x-hidden",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                        className: "jsx-844c77ffa3541180" + " " + "relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-20 lg:py-32 flex items-center justify-center overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 w-full h-full",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admissions/page.js",
+                                        lineNumber: 22,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 opacity-60",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$Particles$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                            particleCount: 180,
+                                            particleSpread: 10,
+                                            speed: 0.7,
+                                            particleColors: [
+                                                "#14b8a6",
+                                                "#0891b2",
+                                                "#06b6d4",
+                                                "#ffffff"
+                                            ],
+                                            moveParticlesOnHover: false,
+                                            particleHoverFactor: 1.2,
+                                            alphaParticles: true,
+                                            particleBaseSize: 90,
+                                            sizeRandomness: 0.9,
+                                            cameraDistance: 14,
+                                            disableRotation: false
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/admissions/page.js",
+                                            lineNumber: 26,
+                                            columnNumber: 15
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admissions/page.js",
                                         lineNumber: 25,
-                                        columnNumber: 15
+                                        columnNumber: 13
                                     }, this)
-                                }, void 0, false, {
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 20,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-844c77ffa3541180" + " " + "text-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                            className: "jsx-844c77ffa3541180" + " " + "text-4xl lg:text-6xl font-bold mb-6",
+                                            children: "Admissions"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/admissions/page.js",
+                                            lineNumber: 44,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "jsx-844c77ffa3541180" + " " + "text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto mb-8",
+                                            children: "Join our community of future scientists and innovators. Start your journey with us today."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/admissions/page.js",
+                                            lineNumber: 45,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/admissions/page.js",
-                                    lineNumber: 24,
+                                    lineNumber: 43,
                                     columnNumber: 13
                                 }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/app/admissions/page.js",
-                            lineNumber: 19,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "text-center",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "text-4xl lg:text-6xl font-bold mb-6",
-                                        children: "Admissions"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/admissions/page.js",
-                                        lineNumber: 43,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto mb-8",
-                                        children: "Join our community of future scientists and innovators. Start your journey with us today."
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/admissions/page.js",
-                                        lineNumber: 44,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/admissions/page.js",
-                                lineNumber: 42,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/admissions/page.js",
-                            lineNumber: 41,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/app/admissions/page.js",
-                    lineNumber: 17,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                    className: "py-20",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "text-center mb-16",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-3xl lg:text-4xl font-bold text-gray-900 mb-4",
-                                        children: "Important Dates"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/admissions/page.js",
-                                        lineNumber: 56,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-lg text-gray-600",
-                                        children: "Stay updated with our admission timeline and don't miss any important dates."
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/admissions/page.js",
-                                        lineNumber: 59,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/admissions/page.js",
-                                lineNumber: 55,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$admissions$2f$AdmissionTimeline$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                dates: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].importantDates
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admissions/page.js",
-                                lineNumber: 63,
-                                columnNumber: 13
+                                lineNumber: 42,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/admissions/page.js",
+                        lineNumber: 18,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                        className: "jsx-844c77ffa3541180" + " " + "py-20 bg-gray-900 relative overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-844c77ffa3541180" + " " + "zigzag-line"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/admissions/page.js",
+                                    lineNumber: 57,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 56,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-844c77ffa3541180" + " " + "text-center mb-16",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "jsx-844c77ffa3541180" + " " + "text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4",
+                                                children: "Important Dates"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 62,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "jsx-844c77ffa3541180" + " " + "text-lg text-gray-300",
+                                                children: "Stay updated with our admission timeline and don't miss any important dates."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 65,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admissions/page.js",
+                                        lineNumber: 61,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-844c77ffa3541180" + " " + "animated-border-box group/timeline transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/20",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-844c77ffa3541180" + " " + "animated-border animated-border-timeline"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 72,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-844c77ffa3541180" + " " + "timeline-content bg-gray-800 rounded-2xl shadow-lg overflow-hidden p-8 relative",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 opacity-0 group-hover/timeline:opacity-100 transition-opacity duration-500 rounded-2xl"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admissions/page.js",
+                                                        lineNumber: 75,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "jsx-844c77ffa3541180" + " " + "relative z-10",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$admissions$2f$AdmissionTimeline$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                            dates: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].importantDates
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                            lineNumber: 78,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admissions/page.js",
+                                                        lineNumber: 77,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 73,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admissions/page.js",
+                                        lineNumber: 71,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 60,
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admissions/page.js",
                         lineNumber: 54,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/src/app/admissions/page.js",
-                    lineNumber: 53,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                    className: "bg-gray-50 py-20",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$admissions$2f$AdmissionProcedures$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                            procedures: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].procedures,
-                            documents: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].requiredDocuments,
-                            fees: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].fees
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/admissions/page.js",
-                            lineNumber: 70,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                        className: "jsx-844c77ffa3541180" + " " + "bg-gray-800 py-20 relative overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-844c77ffa3541180" + " " + "zigzag-line-reverse"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/admissions/page.js",
+                                    lineNumber: 89,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 88,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-844c77ffa3541180" + " " + "text-center mb-16",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "jsx-844c77ffa3541180" + " " + "text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-4",
+                                                children: "Admission Process"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 94,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "jsx-844c77ffa3541180" + " " + "text-lg text-gray-300",
+                                                children: "Follow our step-by-step admission process to secure your place at our college."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 97,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admissions/page.js",
+                                        lineNumber: 93,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-844c77ffa3541180" + " " + "animated-border-box group/procedures transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-900/20",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-844c77ffa3541180" + " " + "animated-border animated-border-procedures"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 104,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-844c77ffa3541180" + " " + "procedures-content bg-gray-900 rounded-2xl shadow-lg overflow-hidden p-8 relative",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 bg-gradient-to-br from-purple-900/10 to-pink-900/10 opacity-0 group-hover/procedures:opacity-100 transition-opacity duration-500 rounded-2xl"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admissions/page.js",
+                                                        lineNumber: 107,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "jsx-844c77ffa3541180" + " " + "relative z-10",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$admissions$2f$AdmissionProcedures$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                            procedures: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].procedures,
+                                                            documents: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].requiredDocuments,
+                                                            fees: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$admissions$2e$json__$28$json$29$__["default"].fees
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                            lineNumber: 110,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admissions/page.js",
+                                                        lineNumber: 109,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/admissions/page.js",
+                                                lineNumber: 105,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admissions/page.js",
+                                        lineNumber: 103,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 92,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/app/admissions/page.js",
-                        lineNumber: 69,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/src/app/admissions/page.js",
-                    lineNumber: 68,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                    className: "py-20",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "bg-blue-600 text-white rounded-2xl p-12",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "text-3xl font-bold mb-4",
-                                    children: "Ready to Apply?"
+                        lineNumber: 86,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                        className: "jsx-844c77ffa3541180" + " " + "py-20 bg-gray-900 relative overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-844c77ffa3541180" + " " + "zigzag-line"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admissions/page.js",
-                                    lineNumber: 82,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-xl mb-8 text-blue-100",
-                                    children: "Take the first step towards your future in science and technology."
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/admissions/page.js",
-                                    lineNumber: 83,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex flex-col sm:flex-row gap-4 justify-center",
+                                    lineNumber: 125,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 124,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-844c77ffa3541180" + " " + "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-844c77ffa3541180" + " " + "animated-border-box group/apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-green-900/20",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "bg-white text-blue-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors",
-                                            children: "Start Application"
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-844c77ffa3541180" + " " + "animated-border animated-border-apply"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admissions/page.js",
-                                            lineNumber: 87,
-                                            columnNumber: 17
+                                            lineNumber: 131,
+                                            columnNumber: 15
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-800 transition-colors",
-                                            children: "Download Brochure"
-                                        }, void 0, false, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-844c77ffa3541180" + " " + "apply-content bg-gray-800 rounded-2xl shadow-lg overflow-hidden p-12 text-center relative",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 bg-gradient-to-br from-green-900/10 to-blue-900/10 opacity-0 group-hover/apply:opacity-100 transition-opacity duration-500 rounded-2xl"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/admissions/page.js",
+                                                    lineNumber: 134,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-844c77ffa3541180" + " " + "relative z-10",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                            className: "jsx-844c77ffa3541180" + " " + "text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500",
+                                                            children: "Ready to Apply?"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                            lineNumber: 137,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "jsx-844c77ffa3541180" + " " + "text-xl mb-8 text-gray-300",
+                                                            children: "Take the first step towards your future in science and technology."
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                            lineNumber: 138,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "jsx-844c77ffa3541180" + " " + "flex flex-col sm:flex-row gap-4 justify-center",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                    className: "jsx-844c77ffa3541180" + " " + "group/btn relative bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold px-8 py-4 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                                            lineNumber: 143,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "jsx-844c77ffa3541180" + " " + "relative z-10",
+                                                                            children: "Start Application"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                                            lineNumber: 144,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/app/admissions/page.js",
+                                                                    lineNumber: 142,
+                                                                    columnNumber: 21
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                    className: "jsx-844c77ffa3541180" + " " + "group/btn relative bg-gray-700 text-white font-semibold px-8 py-4 rounded-xl border border-gray-600 overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-gray-600 hover:border-gray-500",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "jsx-844c77ffa3541180" + " " + "absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                                            lineNumber: 147,
+                                                                            columnNumber: 23
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "jsx-844c77ffa3541180" + " " + "relative z-10",
+                                                                            children: "Download Brochure"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                                            lineNumber: 148,
+                                                                            columnNumber: 23
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/app/admissions/page.js",
+                                                                    lineNumber: 146,
+                                                                    columnNumber: 21
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/admissions/page.js",
+                                                            lineNumber: 141,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/admissions/page.js",
+                                                    lineNumber: 136,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/src/app/admissions/page.js",
-                                            lineNumber: 90,
-                                            columnNumber: 17
+                                            lineNumber: 132,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/admissions/page.js",
-                                    lineNumber: 86,
-                                    columnNumber: 15
+                                    lineNumber: 130,
+                                    columnNumber: 13
                                 }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/app/admissions/page.js",
-                            lineNumber: 81,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admissions/page.js",
+                                lineNumber: 128,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/app/admissions/page.js",
-                        lineNumber: 80,
-                        columnNumber: 11
+                        lineNumber: 122,
+                        columnNumber: 9
                     }, this)
-                }, void 0, false, {
-                    fileName: "[project]/src/app/admissions/page.js",
-                    lineNumber: 79,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/admissions/page.js",
-            lineNumber: 15,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/admissions/page.js",
+                lineNumber: 16,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(void 0, {
+                id: "844c77ffa3541180",
+                children: '@property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}.animated-border-box{border-radius:16px;margin-bottom:0;padding:2px;position:relative}.animated-border{z-index:0;will-change:transform;background-size:200% 200%;border-radius:16px;animation:6s linear infinite rotate;position:absolute;inset:0}.timeline-content,.procedures-content,.apply-content{z-index:1;position:relative}.animated-border-timeline{background-image:conic-gradient(from var(--angle),#3b82f6,#8b5cf6,#3b82f6)}.animated-border-procedures{background-image:conic-gradient(from var(--angle),#8b5cf6,#ec4899,#8b5cf6)}.animated-border-apply{background-image:conic-gradient(from var(--angle),#10b981,#3b82f6,#10b981)}@keyframes rotate{0%{--angle:0deg}to{--angle:360deg}}.zigzag-line{background:linear-gradient(90deg,#0000 0%,currentColor 50%,#0000 100%);width:100%;height:100%;animation:3s ease-in-out infinite zigzag-move;position:relative}.zigzag-line:before{content:"";background-image:linear-gradient(45deg,#0000 40%,currentColor 50%,#0000 60%),linear-gradient(-45deg,#0000 40%,currentColor 50%,#0000 60%);background-position:0 0,10px 0;background-size:20px 100%,20px 100%;animation:2s linear infinite zigzag-pattern;position:absolute;inset:0}.zigzag-line-reverse{background:linear-gradient(90deg,#0000 0%,currentColor 50%,#0000 100%);width:100%;height:100%;animation:3s ease-in-out infinite zigzag-move-reverse;position:relative}.zigzag-line-reverse:before{content:"";background-image:linear-gradient(45deg,#0000 40%,currentColor 50%,#0000 60%),linear-gradient(-45deg,#0000 40%,currentColor 50%,#0000 60%);background-position:0 0,10px 0;background-size:20px 100%,20px 100%;animation:2s linear infinite zigzag-pattern-reverse;position:absolute;inset:0}@keyframes zigzag-move{0%,to{opacity:0;transform:translate(-100%)}50%{opacity:1;transform:translate(0%)}}@keyframes zigzag-move-reverse{0%,to{opacity:0;transform:translate(100%)}50%{opacity:1;transform:translate(0%)}}@keyframes zigzag-pattern{0%{background-position:0 0,10px 0}to{background-position:20px 0,30px 0}}@keyframes zigzag-pattern-reverse{0%{background-position:20px 0,30px 0}to{background-position:0 0,10px 0}}'
+            }, void 0, false, void 0, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/app/admissions/page.js",
-        lineNumber: 14,
+        lineNumber: 15,
         columnNumber: 5
     }, this);
 }
