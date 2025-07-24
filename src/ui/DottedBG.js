@@ -30,23 +30,29 @@ const DottedBG = ({ className = '' }) => {
         const movement = isTopBottom ? 'x' : 'y';
         const distance = isTopBottom ? 30 : 20;
 
+        // Use deterministic values based on index to avoid hydration mismatch
+        const durationVariation = (index * 0.3) % 2;
+        const delayVariation = (index * 0.2) % 2;
+        const opacityDuration = 1.5 + (index * 0.1) % 1;
+        const opacityDelay = (index * 0.15) % 1.5;
+
         gsap.to(particle, {
           [movement]: `+=${distance}`,
-          duration: 3 + Math.random() * 2,
+          duration: 3 + durationVariation,
           ease: 'sine.inOut',
           repeat: -1,
           yoyo: true,
-          delay: Math.random() * 2
+          delay: delayVariation
         });
 
         gsap.to(particle, {
           opacity: 0.8,
           scale: 1.2,
-          duration: 1.5 + Math.random(),
+          duration: opacityDuration,
           ease: 'power2.inOut',
           repeat: -1,
           yoyo: true,
-          delay: Math.random() * 1.5
+          delay: opacityDelay
         });
       }
     });
@@ -133,62 +139,78 @@ const DottedBG = ({ className = '' }) => {
       {/* Edge Particles */}
       {/* Top Edge */}
       <div className="absolute top-0 left-1/4 right-1/4 h-16">
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={`top-${i}`}
-            ref={el => edgeParticlesRef.current[i] = el}
-            className="absolute w-1.5 h-1.5 bg-cyan-400/50 rounded-full"
-            style={{
-              left: `${i * 25}%`,
-              top: `${10 + Math.random() * 20}px`,
-            }}
-          />
-        ))}
+        {[...Array(4)].map((_, i) => {
+          // Use deterministic values based on index to avoid hydration mismatch
+          const topOffset = 10 + (i * 7) % 20;
+          return (
+            <div
+              key={`top-${i}`}
+              ref={el => edgeParticlesRef.current[i] = el}
+              className="absolute w-1.5 h-1.5 bg-cyan-400/50 rounded-full"
+              style={{
+                left: `${i * 25}%`,
+                top: `${topOffset}px`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Bottom Edge */}
       <div className="absolute bottom-0 left-1/4 right-1/4 h-16">
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={`bottom-${i}`}
-            ref={el => edgeParticlesRef.current[4 + i] = el}
-            className="absolute w-1.5 h-1.5 bg-teal-400/50 rounded-full"
-            style={{
-              left: `${i * 25}%`,
-              bottom: `${10 + Math.random() * 20}px`,
-            }}
-          />
-        ))}
+        {[...Array(4)].map((_, i) => {
+          // Use deterministic values based on index to avoid hydration mismatch
+          const bottomOffset = 10 + (i * 5) % 20;
+          return (
+            <div
+              key={`bottom-${i}`}
+              ref={el => edgeParticlesRef.current[4 + i] = el}
+              className="absolute w-1.5 h-1.5 bg-teal-400/50 rounded-full"
+              style={{
+                left: `${i * 25}%`,
+                bottom: `${bottomOffset}px`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Left Edge */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-16">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={`left-${i}`}
-            ref={el => edgeParticlesRef.current[8 + i] = el}
-            className="absolute w-1.5 h-1.5 bg-indigo-400/50 rounded-full"
-            style={{
-              left: `${10 + Math.random() * 20}px`,
-              top: `${i * 33}%`,
-            }}
-          />
-        ))}
+        {[...Array(3)].map((_, i) => {
+          // Use deterministic values based on index to avoid hydration mismatch
+          const leftOffset = 10 + (i * 9) % 20;
+          return (
+            <div
+              key={`left-${i}`}
+              ref={el => edgeParticlesRef.current[8 + i] = el}
+              className="absolute w-1.5 h-1.5 bg-indigo-400/50 rounded-full"
+              style={{
+                left: `${leftOffset}px`,
+                top: `${i * 33}%`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Right Edge */}
       <div className="absolute right-0 top-1/4 bottom-1/4 w-16">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={`right-${i}`}
-            ref={el => edgeParticlesRef.current[11 + i] = el}
-            className="absolute w-1.5 h-1.5 bg-pink-400/50 rounded-full"
-            style={{
-              right: `${10 + Math.random() * 20}px`,
-              top: `${i * 33}%`,
-            }}
-          />
-        ))}
+        {[...Array(3)].map((_, i) => {
+          // Use deterministic values based on index to avoid hydration mismatch
+          const rightOffset = 10 + (i * 11) % 20;
+          return (
+            <div
+              key={`right-${i}`}
+              ref={el => edgeParticlesRef.current[11 + i] = el}
+              className="absolute w-1.5 h-1.5 bg-pink-400/50 rounded-full"
+              style={{
+                right: `${rightOffset}px`,
+                top: `${i * 33}%`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Floating Corner Sparkles */}

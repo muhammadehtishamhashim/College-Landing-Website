@@ -1,0 +1,111 @@
+{
+  "collegeInfo": {
+    "name": "FG Science College",
+    "shortName": "FG",
+    "tagline": "Excellence in Science Education",
+    "description": "Premier institution dedicated to providing quality education in science and technology since 1993.",
+    "establishedYear": 1993
+  },
+  "quickLinks": [
+    {
+      "href": "/about",
+      "label": "About Us"
+    },
+    {
+      "href": "/programs",
+      "label": "Programs"
+    },
+    {
+      "href": "/facilities",
+      "label": "Facilities"
+    },
+    {
+      "href": "/admissions",
+      "label": "Admissions"
+    }
+  ],
+  "programs": [
+    {
+      "href": "/programs#ics",
+      "label": "ICS (Intermediate)"
+    },
+    {
+      "href": "/programs#fcs",
+      "label": "FCS (Intermediate)"
+    },
+    {
+      "href": "/programs#premedical",
+      "label": "Pre-Medical(Intermediate)"
+    },
+    {
+      "href": "/programs#pre-engineering",
+      "label": "Pre-Engineering(Intermediate)"
+    },
+    {
+      "href": "/programs#bsc-computer-science",
+      "label": "BS Computer Science"
+    },
+    {
+      "href": "/programs#bsc-physics",
+      "label": "BS Physics"
+    }
+  ],
+  "socialLinks": [
+    {
+      "href": "https://facebook.com/fgsciencecollege",
+      "label": "Facebook",
+      "icon": "facebook",
+      "emoji": "📘"
+    },
+    {
+      "href": "https://twitter.com/fgsciencecollege",
+      "label": "Twitter",
+      "icon": "twitter",
+      "emoji": "🐦"
+    },
+    {
+      "href": "https://linkedin.com/company/fgsciencecollege",
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "emoji": "💼"
+    },
+    {
+      "href": "https://youtube.com/fgsciencecollege",
+      "label": "YouTube",
+      "icon": "youtube",
+      "emoji": "📺"
+    }
+  ],
+  "contactInfo": {
+    "address": {
+      "street": "Main Campus Road",
+      "area": "University Town",
+      "city": "Islamabad",
+      "postalCode": "44000",
+      "country": "Pakistan"
+    },
+    "phones": [
+      "+92-51-123-4567",
+      "+92-51-123-4568"
+    ],
+    "emails": [
+      "info@fgscience.edu.pk",
+      "admissions@fgscience.edu.pk"
+    ],
+    "workingHours": {
+      "weekdays": "Mon-Fri: 8:00 AM - 4:00 PM",
+      "saturday": "Sat: 8:00 AM - 12:00 PM",
+      "sunday": "Closed"
+    }
+  },
+  "legalLinks": [
+    {
+      "href": "/privacy",
+      "label": "Privacy Policy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms of Service"
+    }
+  ]
+}

@@ -198,18 +198,39 @@ const DotGrid = ({
         if (speed > speedTrigger && dist < proximity && !dot._inertiaApplied) {
           dot._inertiaApplied = true;
           gsap.killTweensOf(dot);
-          const pushX = dot.cx - pr.x + vx * 0.005;
-          const pushY = dot.cy - pr.y + vy * 0.005;
+          const pushX = (dot.cx - pr.x) * 0.1 + vx * 0.002;
+          const pushY = (dot.cy - pr.y) * 0.1 + vy * 0.002;
           gsap.to(dot, {
-            inertia: { xOffset: pushX, yOffset: pushY, resistance },
+            inertia: {
+              xOffset: pushX,
+              yOffset: pushY,
+              resistance: resistance,
+              end: () => {
+                // Ensure dots don't get stuck at boundaries
+                gsap.to(dot, {
+                  xOffset: 0,
+                  yOffset: 0,
+                  duration: returnDuration,
+                  ease: "elastic.out(1,0.75)",
+                  onComplete: () => {
+                    dot._inertiaApplied = false;
+                  }
+                });
+              }
+            },
             onComplete: () => {
-              gsap.to(dot, {
-                xOffset: 0,
-                yOffset: 0,
-                duration: returnDuration,
-                ease: "elastic.out(1,0.75)",
-              });
-              dot._inertiaApplied = false;
+              // Fallback in case inertia doesn't trigger end callback
+              if (dot._inertiaApplied) {
+                gsap.to(dot, {
+                  xOffset: 0,
+                  yOffset: 0,
+                  duration: returnDuration,
+                  ease: "elastic.out(1,0.75)",
+                  onComplete: () => {
+                    dot._inertiaApplied = false;
+                  }
+                });
+              }
             },
           });
         }
@@ -229,15 +250,36 @@ const DotGrid = ({
           const pushX = (dot.cx - cx) * shockStrength * falloff;
           const pushY = (dot.cy - cy) * shockStrength * falloff;
           gsap.to(dot, {
-            inertia: { xOffset: pushX, yOffset: pushY, resistance },
+            inertia: {
+              xOffset: pushX,
+              yOffset: pushY,
+              resistance: resistance,
+              end: () => {
+                // Ensure dots don't get stuck at boundaries
+                gsap.to(dot, {
+                  xOffset: 0,
+                  yOffset: 0,
+                  duration: returnDuration,
+                  ease: "elastic.out(1,0.75)",
+                  onComplete: () => {
+                    dot._inertiaApplied = false;
+                  }
+                });
+              }
+            },
             onComplete: () => {
-              gsap.to(dot, {
-                xOffset: 0,
-                yOffset: 0,
-                duration: returnDuration,
-                ease: "elastic.out(1,0.75)",
-              });
-              dot._inertiaApplied = false;
+              // Fallback in case inertia doesn't trigger end callback
+              if (dot._inertiaApplied) {
+                gsap.to(dot, {
+                  xOffset: 0,
+                  yOffset: 0,
+                  duration: returnDuration,
+                  ease: "elastic.out(1,0.75)",
+                  onComplete: () => {
+                    dot._inertiaApplied = false;
+                  }
+                });
+              }
             },
           });
         }

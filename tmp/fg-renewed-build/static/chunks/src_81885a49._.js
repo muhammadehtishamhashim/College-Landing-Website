@@ -2180,22 +2180,27 @@ const DottedBG = (param)=>{
                         const isTopBottom = index < 8; // First 8 are top/bottom
                         const movement = isTopBottom ? 'x' : 'y';
                         const distance = isTopBottom ? 30 : 20;
+                        // Use deterministic values based on index to avoid hydration mismatch
+                        const durationVariation = index * 0.3 % 2;
+                        const delayVariation = index * 0.2 % 2;
+                        const opacityDuration = 1.5 + index * 0.1 % 1;
+                        const opacityDelay = index * 0.15 % 1.5;
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].to(particle, {
                             [movement]: "+=".concat(distance),
-                            duration: 3 + Math.random() * 2,
+                            duration: 3 + durationVariation,
                             ease: 'sine.inOut',
                             repeat: -1,
                             yoyo: true,
-                            delay: Math.random() * 2
+                            delay: delayVariation
                         });
                         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].to(particle, {
                             opacity: 0.8,
                             scale: 1.2,
-                            duration: 1.5 + Math.random(),
+                            duration: opacityDuration,
                             ease: 'power2.inOut',
                             repeat: -1,
                             yoyo: true,
-                            delay: Math.random() * 1.5
+                            delay: opacityDelay
                         });
                     }
                 }
@@ -2220,7 +2225,7 @@ const DottedBG = (param)=>{
                 }
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 64,
+                lineNumber: 70,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2236,12 +2241,12 @@ const DottedBG = (param)=>{
                         }
                     }, "tl-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 76,
+                        lineNumber: 82,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 74,
+                lineNumber: 80,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2257,12 +2262,12 @@ const DottedBG = (param)=>{
                         }
                     }, "tr-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 91,
+                        lineNumber: 97,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 89,
+                lineNumber: 95,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2278,12 +2283,12 @@ const DottedBG = (param)=>{
                         }
                     }, "bl-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 106,
+                        lineNumber: 112,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 104,
+                lineNumber: 110,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2299,96 +2304,112 @@ const DottedBG = (param)=>{
                         }
                     }, "br-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 121,
+                        lineNumber: 127,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 119,
+                lineNumber: 125,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute top-0 left-1/4 right-1/4 h-16",
                 children: [
                     ...Array(4)
-                ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                ].map((_, i)=>{
+                    // Use deterministic values based on index to avoid hydration mismatch
+                    const topOffset = 10 + i * 7 % 20;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: (el)=>edgeParticlesRef.current[i] = el,
                         className: "absolute w-1.5 h-1.5 bg-cyan-400/50 rounded-full",
                         style: {
                             left: "".concat(i * 25, "%"),
-                            top: "".concat(10 + Math.random() * 20, "px")
+                            top: "".concat(topOffset, "px")
                         }
                     }, "top-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 137,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)))
+                        lineNumber: 146,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                })
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 135,
+                lineNumber: 141,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute bottom-0 left-1/4 right-1/4 h-16",
                 children: [
                     ...Array(4)
-                ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                ].map((_, i)=>{
+                    // Use deterministic values based on index to avoid hydration mismatch
+                    const bottomOffset = 10 + i * 5 % 20;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: (el)=>edgeParticlesRef.current[4 + i] = el,
                         className: "absolute w-1.5 h-1.5 bg-teal-400/50 rounded-full",
                         style: {
                             left: "".concat(i * 25, "%"),
-                            bottom: "".concat(10 + Math.random() * 20, "px")
+                            bottom: "".concat(bottomOffset, "px")
                         }
                     }, "bottom-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 152,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)))
+                        lineNumber: 165,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                })
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 150,
+                lineNumber: 160,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute left-0 top-1/4 bottom-1/4 w-16",
                 children: [
                     ...Array(3)
-                ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                ].map((_, i)=>{
+                    // Use deterministic values based on index to avoid hydration mismatch
+                    const leftOffset = 10 + i * 9 % 20;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: (el)=>edgeParticlesRef.current[8 + i] = el,
                         className: "absolute w-1.5 h-1.5 bg-indigo-400/50 rounded-full",
                         style: {
-                            left: "".concat(10 + Math.random() * 20, "px"),
+                            left: "".concat(leftOffset, "px"),
                             top: "".concat(i * 33, "%")
                         }
                     }, "left-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 167,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)))
+                        lineNumber: 184,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                })
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 165,
+                lineNumber: 179,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute right-0 top-1/4 bottom-1/4 w-16",
                 children: [
                     ...Array(3)
-                ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                ].map((_, i)=>{
+                    // Use deterministic values based on index to avoid hydration mismatch
+                    const rightOffset = 10 + i * 11 % 20;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: (el)=>edgeParticlesRef.current[11 + i] = el,
                         className: "absolute w-1.5 h-1.5 bg-pink-400/50 rounded-full",
                         style: {
-                            right: "".concat(10 + Math.random() * 20, "px"),
+                            right: "".concat(rightOffset, "px"),
                             top: "".concat(i * 33, "%")
                         }
                     }, "right-".concat(i), false, {
                         fileName: "[project]/src/ui/DottedBG.js",
-                        lineNumber: 182,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)))
+                        lineNumber: 203,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                })
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 180,
+                lineNumber: 198,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2397,12 +2418,12 @@ const DottedBG = (param)=>{
                     className: "w-3 h-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-60 animate-pulse"
                 }, void 0, false, {
                     fileName: "[project]/src/ui/DottedBG.js",
-                    lineNumber: 196,
+                    lineNumber: 218,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 195,
+                lineNumber: 217,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2414,12 +2435,12 @@ const DottedBG = (param)=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/ui/DottedBG.js",
-                    lineNumber: 199,
+                    lineNumber: 221,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 198,
+                lineNumber: 220,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2431,12 +2452,12 @@ const DottedBG = (param)=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/ui/DottedBG.js",
-                    lineNumber: 202,
+                    lineNumber: 224,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 201,
+                lineNumber: 223,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2448,18 +2469,18 @@ const DottedBG = (param)=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/ui/DottedBG.js",
-                    lineNumber: 205,
+                    lineNumber: 227,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/ui/DottedBG.js",
-                lineNumber: 204,
+                lineNumber: 226,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/ui/DottedBG.js",
-        lineNumber: 62,
+        lineNumber: 68,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -3284,32 +3305,44 @@ if ("TURBOPACK compile-time truthy", 1) {
 }
 const achievements = [
     {
-        id: 'top-ranking',
-        title: 'Top Ranking',
-        description: 'Ranked among the top science colleges in the region for academic excellence',
-        year: '2024',
-        icon: '🏆'
+        id: 'bscs-topper',
+        title: 'BSCS Topper',
+        description: 'Ali Ahmad achieved the highest marks in Bachelor of Computer Science program',
+        student: 'Ali Ahmad',
+        image: '/Achievments/BSCStopper-Ali Ahmad.png',
+        category: 'Academic Excellence'
     },
     {
-        id: 'research-grants',
-        title: 'Research Grants',
-        description: 'Secured multiple research grants for faculty and student projects',
-        year: '2023',
-        icon: '💰'
+        id: 'physics-topper',
+        title: 'BS Physics Topper',
+        description: 'Fatima Sajid secured top position in Bachelor of Physics program',
+        student: 'Fatima Sajid',
+        image: '/Achievments/BSPhysicsTopper-Fatima Sajid.png',
+        category: 'Academic Excellence'
     },
     {
-        id: 'alumni-success',
-        title: 'Alumni Success',
-        description: 'Our graduates have achieved remarkable success in various scientific fields',
-        year: '2022',
-        icon: '🌟'
+        id: 'software-competition',
+        title: 'Software Development Competition',
+        description: 'Our students won the inter-college software development competition',
+        student: 'Team Winners',
+        image: '/Achievments/SoftwareDevCompWinners.png',
+        category: 'Competition'
     },
     {
-        id: 'innovation-award',
-        title: 'Innovation Award',
-        description: 'Received the National Innovation Award for our teaching methodologies',
-        year: '2021',
-        icon: '🔍'
+        id: 'english-declamation',
+        title: 'English Declamation Winner',
+        description: 'Outstanding performance in English declamation contest',
+        student: 'Winner',
+        image: '/Achievments/WinnerOfEnglishDeclamation.png',
+        category: 'Literary Excellence'
+    },
+    {
+        id: 'annual-prize',
+        title: 'Annual Prize Distribution',
+        description: 'Celebrating academic achievements and outstanding performances',
+        student: 'Multiple Winners',
+        image: '/Achievments/AnnualPrizeDistribution.png',
+        category: 'Annual Event'
     }
 ];
 const Achievements = ()=>{
@@ -3394,7 +3427,7 @@ const Achievements = ()=>{
                             children: "Our Achievements"
                         }, void 0, false, {
                             fileName: "[project]/src/app/_components/home/Achievements.js",
-                            lineNumber: 115,
+                            lineNumber: 127,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3402,96 +3435,137 @@ const Achievements = ()=>{
                             children: "We take pride in our accomplishments and the recognition we've received for our commitment to excellence in science education."
                         }, void 0, false, {
                             fileName: "[project]/src/app/_components/home/Achievements.js",
-                            lineNumber: 118,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/_components/home/Achievements.js",
-                    lineNumber: 114,
+                    lineNumber: 126,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "grid md:grid-cols-2 lg:grid-cols-4 gap-8",
+                    className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6",
                     children: achievements.map((achievement, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             ref: (el)=>cardsRef.current[index] = el,
-                            className: "bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-900/20",
+                            className: "bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-900/20 max-w-sm mx-auto w-full",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col h-full",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex justify-between items-center mb-4",
+                                        className: "relative h-40 w-full overflow-hidden bg-gray-700",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "w-16 h-16 bg-gradient-to-br from-blue-900 to-purple-900 rounded-full flex items-center justify-center text-3xl",
-                                                children: achievement.icon
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                src: achievement.image,
+                                                alt: achievement.title,
+                                                className: "w-full h-full object-contain transition-transform duration-300 hover:scale-105"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/_components/home/Achievements.js",
-                                                lineNumber: 133,
+                                                lineNumber: 145,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-blue-400 font-semibold",
-                                                children: achievement.year
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "absolute top-3 right-3",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "bg-blue-600/90 text-white text-xs px-2 py-1 rounded-full font-medium",
+                                                    children: achievement.category
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                    lineNumber: 151,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/_components/home/Achievements.js",
-                                                lineNumber: 136,
+                                                lineNumber: 150,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/_components/home/Achievements.js",
-                                        lineNumber: 132,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        className: "text-xl font-bold text-white mb-3",
-                                        children: achievement.title
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/home/Achievements.js",
-                                        lineNumber: 140,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-400 flex-grow",
-                                        children: achievement.description
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/home/Achievements.js",
-                                        lineNumber: 141,
+                                        lineNumber: 144,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "mt-6 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                                    }, void 0, false, {
+                                        className: "p-4 flex flex-col flex-grow",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-lg font-bold text-white mb-2",
+                                                children: achievement.title
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                lineNumber: 159,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-400 text-sm mb-3 flex-grow",
+                                                children: achievement.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                lineNumber: 160,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center justify-between",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center space-x-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                            lineNumber: 165,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-blue-400 font-medium text-sm",
+                                                            children: achievement.student
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                            lineNumber: 166,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                    lineNumber: 164,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/home/Achievements.js",
+                                                lineNumber: 163,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/src/app/_components/home/Achievements.js",
-                                        lineNumber: 144,
+                                        lineNumber: 158,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/_components/home/Achievements.js",
-                                lineNumber: 130,
+                                lineNumber: 142,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, achievement.id, false, {
                             fileName: "[project]/src/app/_components/home/Achievements.js",
-                            lineNumber: 125,
+                            lineNumber: 137,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/src/app/_components/home/Achievements.js",
-                    lineNumber: 123,
+                    lineNumber: 135,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/_components/home/Achievements.js",
-            lineNumber: 113,
+            lineNumber: 125,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/_components/home/Achievements.js",
-        lineNumber: 112,
+        lineNumber: 124,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -3614,18 +3688,18 @@ const ProgramsPreview = (param)=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: sectionRef,
         className: "py-24 bg-gray-900 text-white",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "text-center mb-16",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                             className: "section-title text-3xl lg:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500",
-                            children: "Our Programs"
+                            children: "Our Degree Programs"
                         }, void 0, false, {
                             fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                            lineNumber: 106,
+                            lineNumber: 107,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3633,279 +3707,291 @@ const ProgramsPreview = (param)=>{
                             children: "Choose from our premier science degree programs designed to prepare you for a successful career in the field of science and technology."
                         }, void 0, false, {
                             fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                            lineNumber: 109,
+                            lineNumber: 110,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                    lineNumber: 105,
+                    lineNumber: 106,
                     columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "grid md:grid-cols-2 gap-8 mb-16",
-                    children: filteredPrograms.map((program, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            ref: index === 0 ? leftCardRef : rightCardRef,
-                            className: "bg-gray-800 border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-blue-900/20 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "text-center",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-20 h-20 bg-gradient-to-br from-blue-900 to-purple-900 rounded-full flex items-center justify-center mx-auto mb-6",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-3xl",
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                lineNumber: 105,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "px-0 sm:px-4 md:px-6 lg:px-8 mb-16",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "max-w-7xl mx-auto",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-4 md:gap-8",
+                        children: filteredPrograms.map((program, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                ref: index === 0 ? leftCardRef : rightCardRef,
+                                className: "bg-gray-800 border-0 sm:border border-gray-700 hover:border-blue-500 p-6 sm:p-8 sm:rounded-xl shadow-lg hover:shadow-xl hover:shadow-blue-900/20 transition-all duration-300 transform hover:-translate-y-2 mb-4 sm:mb-0",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "text-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-full h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-gray-700",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                src: program.id === 'bsc-physics' ? '/IntroPreview/Programs1.png' : '/IntroPreview/Programs2.png',
+                                                alt: program.name,
+                                                className: "w-full h-full object-cover"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                lineNumber: 129,
+                                                columnNumber: 21
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                            lineNumber: 128,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-xl font-bold text-white mb-4",
+                                            children: program.name.replace('Bachelor of Science in ', 'B.Sc ')
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                            lineNumber: 135,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-gray-300 mb-6",
+                                            children: program.description
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                            lineNumber: 138,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "space-y-3 mb-6 text-left",
                                             children: [
-                                                program.id === 'bsc-physics' && '⚛️',
-                                                program.id === 'bsc-computer-science' && '💻'
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-start",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-blue-400 mr-2",
+                                                            children: "⏱️"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                            lineNumber: 145,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-sm font-semibold text-blue-400",
+                                                                    children: "Duration"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                                    lineNumber: 147,
+                                                                    columnNumber: 25
+                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-gray-400",
+                                                                    children: program.duration
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                                    lineNumber: 148,
+                                                                    columnNumber: 25
+                                                                }, ("TURBOPACK compile-time value", void 0))
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                            lineNumber: 146,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                    lineNumber: 144,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-start",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-green-400 mr-2",
+                                                            children: "💰"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                            lineNumber: 152,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-sm font-semibold text-green-400",
+                                                                    children: "Fees"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                                    lineNumber: 154,
+                                                                    columnNumber: 25
+                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-gray-400",
+                                                                    children: program.fees
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                                    lineNumber: 155,
+                                                                    columnNumber: 25
+                                                                }, ("TURBOPACK compile-time value", void 0))
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                            lineNumber: 153,
+                                                            columnNumber: 23
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                    lineNumber: 151,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                            lineNumber: 123,
+                                            lineNumber: 143,
                                             columnNumber: 19
-                                        }, ("TURBOPACK compile-time value", void 0))
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 122,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        className: "text-xl font-bold text-white mb-4",
-                                        children: program.name.replace('Bachelor of Science in ', 'B.Sc ')
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 128,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-300 mb-6",
-                                        children: program.description
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 131,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "space-y-3 mb-6 text-left",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-start",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "text-blue-400 mr-2",
-                                                        children: "⏱️"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                        lineNumber: 138,
-                                                        columnNumber: 21
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-sm font-semibold text-blue-400",
-                                                                children: "Duration"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                                lineNumber: 140,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-gray-400",
-                                                                children: program.duration
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                                lineNumber: 141,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                        lineNumber: 139,
-                                                        columnNumber: 21
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                lineNumber: 137,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-start",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "text-green-400 mr-2",
-                                                        children: "💰"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                        lineNumber: 145,
-                                                        columnNumber: 21
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-sm font-semibold text-green-400",
-                                                                children: "Fees"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                                lineNumber: 147,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-gray-400",
-                                                                children: program.fees
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                                lineNumber: 148,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                        lineNumber: 146,
-                                                        columnNumber: 21
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                lineNumber: 144,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0))
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 136,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "mb-6",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                className: "text-sm font-semibold text-gray-300 mb-2 text-left",
-                                                children: "Key Subjects:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                lineNumber: 155,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex flex-wrap gap-2",
-                                                children: program.subjects.slice(0, 3).map((subject, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full",
-                                                        children: subject
-                                                    }, i, false, {
-                                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                        lineNumber: 158,
-                                                        columnNumber: 23
-                                                    }, ("TURBOPACK compile-time value", void 0)))
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                lineNumber: 156,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0))
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 154,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-1/3 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 169,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: "/programs#".concat(program.id),
-                                        className: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105",
-                                        children: [
-                                            "Learn More",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                className: "ml-2 w-4 h-4",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                viewBox: "0 0 24 24",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                    strokeLinecap: "round",
-                                                    strokeLinejoin: "round",
-                                                    strokeWidth: 2,
-                                                    d: "M13 7l5 5m0 0l-5 5m5-5H6"
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "text-sm font-semibold text-gray-300 mb-2 text-left",
+                                                    children: "Key Subjects:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                    lineNumber: 178,
+                                                    lineNumber: 162,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex flex-wrap gap-2",
+                                                    children: program.subjects.slice(0, 3).map((subject, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full",
+                                                            children: subject
+                                                        }, i, false, {
+                                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                            lineNumber: 165,
+                                                            columnNumber: 25
+                                                        }, ("TURBOPACK compile-time value", void 0)))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                    lineNumber: 163,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                                lineNumber: 177,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0))
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                        lineNumber: 172,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0))
-                                ]
-                            }, void 0, true, {
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                            lineNumber: 161,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-1/3 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                            lineNumber: 176,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            href: "/programs#".concat(program.id),
+                                            className: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105",
+                                            children: [
+                                                "Learn More",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                    className: "ml-2 w-4 h-4",
+                                                    fill: "none",
+                                                    stroke: "currentColor",
+                                                    viewBox: "0 0 24 24",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                        strokeLinecap: "round",
+                                                        strokeLinejoin: "round",
+                                                        strokeWidth: 2,
+                                                        d: "M13 7l5 5m0 0l-5 5m5-5H6"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                        lineNumber: 185,
+                                                        columnNumber: 23
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                                    lineNumber: 184,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                            lineNumber: 179,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                    lineNumber: 126,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, program.id, false, {
                                 fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
                                 lineNumber: 121,
                                 columnNumber: 15
-                            }, ("TURBOPACK compile-time value", void 0))
-                        }, program.id, false, {
-                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                            lineNumber: 116,
-                            columnNumber: 13
-                        }, ("TURBOPACK compile-time value", void 0)))
-                }, void 0, false, {
-                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                    lineNumber: 114,
-                    columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "text-center",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                        href: "/programs",
-                        className: "inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105",
-                        children: [
-                            "View All Programs",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                className: "ml-2 w-5 h-5",
-                                fill: "none",
-                                stroke: "currentColor",
-                                viewBox: "0 0 24 24",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                    strokeLinecap: "round",
-                                    strokeLinejoin: "round",
-                                    strokeWidth: 2,
-                                    d: "M17 8l4 4m0 0l-4 4m4-4H3"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                    lineNumber: 193,
-                                    columnNumber: 15
-                                }, ("TURBOPACK compile-time value", void 0))
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                                lineNumber: 192,
-                                columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
+                            }, ("TURBOPACK compile-time value", void 0)))
+                    }, void 0, false, {
                         fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                        lineNumber: 187,
+                        lineNumber: 119,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-                    lineNumber: 186,
+                    lineNumber: 118,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
-            lineNumber: 104,
-            columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0))
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                lineNumber: 117,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "text-center px-4 sm:px-6 lg:px-8",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                    href: "/programs",
+                    className: "inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105",
+                    children: [
+                        "View All Programs",
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            className: "ml-2 w-5 h-5",
+                            fill: "none",
+                            stroke: "currentColor",
+                            viewBox: "0 0 24 24",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                strokeWidth: 2,
+                                d: "M17 8l4 4m0 0l-4 4m4-4H3"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                                lineNumber: 203,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                            lineNumber: 202,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                    lineNumber: 197,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
+                lineNumber: 196,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/app/_components/home/ProgramsPreview.js",
         lineNumber: 103,
         columnNumber: 5
@@ -4046,46 +4132,57 @@ const FacilitiesPreview = (param)=>{
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12",
-                    children: facilities.slice(0, 3).map((facility, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: facilities.slice(0, 3).map((facility, index)=>{
+                        // Map facility IDs to their corresponding images
+                        const getImagePath = (facilityId)=>{
+                            switch(facilityId){
+                                case 'physics-lab':
+                                    return '/Facilities/PhysicsLab.png';
+                                case 'chemistry-lab':
+                                    return '/Facilities/ChemistryLab.png';
+                                case 'computer-lab':
+                                    return '/Facilities/ComputerLab.png';
+                                case 'library':
+                                    return '/Facilities/Library.png';
+                                default:
+                                    return '/Facilities/PhysicsLab.png';
+                            }
+                        };
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             ref: (el)=>cardsRef.current[index] = el,
                             className: "group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-900/20",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-48 bg-gradient-to-br from-blue-900 to-purple-900 rounded-xl mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-4xl",
-                                        children: [
-                                            facility.id === 'physics-lab' && '⚛️',
-                                            facility.id === 'chemistry-lab' && '🧪',
-                                            facility.id === 'computer-lab' && '💻',
-                                            facility.id === 'library' && '📚',
-                                            facility.id === 'auditorium' && '🎭'
-                                        ]
-                                    }, void 0, true, {
+                                    className: "h-48 rounded-xl mb-6 overflow-hidden bg-gray-700",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: getImagePath(facility.id),
+                                        alt: facility.name,
+                                        className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    }, void 0, false, {
                                         fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                        lineNumber: 102,
-                                        columnNumber: 17
+                                        lineNumber: 114,
+                                        columnNumber: 19
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                    lineNumber: 101,
-                                    columnNumber: 15
+                                    lineNumber: 113,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                     className: "text-xl font-semibold text-white mb-3",
                                     children: facility.name
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                    lineNumber: 111,
-                                    columnNumber: 15
+                                    lineNumber: 121,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-gray-300 mb-4 line-clamp-3",
                                     children: facility.description
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                    lineNumber: 112,
-                                    columnNumber: 15
+                                    lineNumber: 122,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "space-y-2",
@@ -4097,34 +4194,35 @@ const FacilitiesPreview = (param)=>{
                                                     children: "✓"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                                    lineNumber: 118,
-                                                    columnNumber: 21
+                                                    lineNumber: 128,
+                                                    columnNumber: 23
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 feature
                                             ]
                                         }, idx, true, {
                                             fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                            lineNumber: 117,
-                                            columnNumber: 19
+                                            lineNumber: 127,
+                                            columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                    lineNumber: 115,
-                                    columnNumber: 15
+                                    lineNumber: 125,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "mt-6 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                    lineNumber: 125,
-                                    columnNumber: 15
+                                    lineNumber: 135,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, facility.id, true, {
                             fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                            lineNumber: 95,
-                            columnNumber: 13
-                        }, ("TURBOPACK compile-time value", void 0)))
+                            lineNumber: 107,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0));
+                    })
                 }, void 0, false, {
                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
                     lineNumber: 93,
@@ -4149,23 +4247,23 @@ const FacilitiesPreview = (param)=>{
                                     d: "M17 8l4 4m0 0l-4 4m4-4H3"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                    lineNumber: 137,
+                                    lineNumber: 148,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                                lineNumber: 136,
+                                lineNumber: 147,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                        lineNumber: 131,
+                        lineNumber: 142,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/app/_components/home/FacilitiesPreview.js",
-                    lineNumber: 130,
+                    lineNumber: 141,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]

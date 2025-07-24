@@ -91,40 +91,51 @@ const FacilitiesPreview = ({ facilities }) => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {facilities.slice(0, 3).map((facility, index) => (
-            <div 
-              key={facility.id} 
-              ref={el => cardsRef.current[index] = el}
-              className="group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-900/20"
-            >
-              {/* Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-blue-900 to-purple-900 rounded-xl mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                <span className="text-4xl">
-                  {facility.id === 'physics-lab' && '⚛️'}
-                  {facility.id === 'chemistry-lab' && '🧪'}
-                  {facility.id === 'computer-lab' && '💻'}
-                  {facility.id === 'library' && '📚'}
-                  {facility.id === 'auditorium' && '🎭'}
-                </span>
+          {facilities.slice(0, 3).map((facility, index) => {
+            // Map facility IDs to their corresponding images
+            const getImagePath = (facilityId) => {
+              switch (facilityId) {
+                case 'physics-lab': return '/Facilities/PhysicsLab.png';
+                case 'chemistry-lab': return '/Facilities/ChemistryLab.png';
+                case 'computer-lab': return '/Facilities/ComputerLab.png';
+                case 'library': return '/Facilities/Library.png';
+                default: return '/Facilities/PhysicsLab.png';
+              }
+            };
+
+            return (
+              <div
+                key={facility.id}
+                ref={el => cardsRef.current[index] = el}
+                className="group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-900/20"
+              >
+                {/* Facility Image */}
+                <div className="h-48 rounded-xl mb-6 overflow-hidden bg-gray-700">
+                  <img
+                    src={getImagePath(facility.id)}
+                    alt={facility.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                <h3 className="text-xl font-semibold text-white mb-3">{facility.name}</h3>
+                <p className="text-gray-300 mb-4 line-clamp-3">{facility.description}</p>
+
+                {/* Key Features */}
+                <div className="space-y-2">
+                  {facility.features.slice(0, 2).map((feature, idx) => (
+                    <div key={idx} className="flex items-center text-sm text-gray-300">
+                      <span className="text-blue-400 mr-2">✓</span>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom decoration */}
+                <div className="mt-6 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
               </div>
-              
-              <h3 className="text-xl font-semibold text-white mb-3">{facility.name}</h3>
-              <p className="text-gray-300 mb-4 line-clamp-3">{facility.description}</p>
-              
-              {/* Key Features */}
-              <div className="space-y-2">
-                {facility.features.slice(0, 2).map((feature, idx) => (
-                  <div key={idx} className="flex items-center text-sm text-gray-300">
-                    <span className="text-blue-400 mr-2">✓</span>
-                    {feature}
-                  </div>
-                ))}
-              </div>
-              
-              {/* Bottom decoration */}
-              <div className="mt-6 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center">

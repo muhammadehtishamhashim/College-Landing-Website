@@ -1,28 +1,9 @@
 import Link from 'next/link';
+import footerData from '../../data/footer.json';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { href: '/about', label: 'About Us' },
-    { href: '/programs', label: 'Programs' },
-    { href: '/facilities', label: 'Facilities' },
-    { href: '/admissions', label: 'Admissions' },
-  ];
-
-  const programs = [
-    { href: '/programs#physics', label: 'B.Sc Physics' },
-    { href: '/programs#chemistry', label: 'B.Sc Chemistry' },
-    { href: '/programs#mathematics', label: 'B.Sc Mathematics' },
-    { href: '/programs#computer-science', label: 'B.Sc Computer Science' },
-  ];
-
-  const socialLinks = [
-    { href: 'https://facebook.com/fgsciencecollege', label: 'Facebook', icon: 'facebook' },
-    { href: 'https://twitter.com/fgsciencecollege', label: 'Twitter', icon: 'twitter' },
-    { href: 'https://linkedin.com/company/fgsciencecollege', label: 'LinkedIn', icon: 'linkedin' },
-    { href: 'https://youtube.com/fgsciencecollege', label: 'YouTube', icon: 'youtube' },
-  ];
+  const { collegeInfo, quickLinks, programs, socialLinks, contactInfo, legalLinks } = footerData;
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -33,15 +14,15 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">FG</span>
+                <span className="text-white font-bold text-xl">{collegeInfo.shortName}</span>
               </div>
               <div>
-                <h3 className="font-bold text-lg">FG Science College</h3>
-                <p className="text-gray-400 text-sm">Excellence in Science Education</p>
+                <h3 className="font-bold text-lg">{collegeInfo.name}</h3>
+                <p className="text-gray-400 text-sm">{collegeInfo.tagline}</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm mb-4">
-              Premier institution dedicated to providing quality education in science and technology since 2010.
+              {collegeInfo.description}
             </p>
             
             {/* Social Links */}
@@ -55,12 +36,7 @@ const Footer = () => {
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
                   aria-label={social.label}
                 >
-                  <span className="text-sm">
-                    {social.icon === 'facebook' && '📘'}
-                    {social.icon === 'twitter' && '🐦'}
-                    {social.icon === 'linkedin' && '💼'}
-                    {social.icon === 'youtube' && '📺'}
-                  </span>
+                  <span className="text-sm">{social.emoji}</span>
                 </a>
               ))}
             </div>
@@ -107,33 +83,37 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <span className="text-blue-400 mt-0.5">📍</span>
                 <p className="text-gray-300">
-                  123 Education Street<br />
-                  Science City, State 123456<br />
-                  India
+                  {contactInfo.address.street}<br />
+                  {contactInfo.address.area}<br />
+                  {contactInfo.address.city} {contactInfo.address.postalCode}<br />
+                  {contactInfo.address.country}
                 </p>
               </div>
               
               <div className="flex items-center space-x-3">
                 <span className="text-blue-400">📞</span>
                 <div>
-                  <p className="text-gray-300">+91-123-456-7890</p>
-                  <p className="text-gray-300">+91-123-456-7891</p>
+                  {contactInfo.phones.map((phone, index) => (
+                    <p key={index} className="text-gray-300">{phone}</p>
+                  ))}
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <span className="text-blue-400">✉️</span>
                 <div>
-                  <p className="text-gray-300">info@fgscience.edu.in</p>
-                  <p className="text-gray-300">admissions@fgscience.edu.in</p>
+                  {contactInfo.emails.map((email, index) => (
+                    <p key={index} className="text-gray-300">{email}</p>
+                  ))}
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <span className="text-blue-400 mt-0.5">🕒</span>
                 <p className="text-gray-300">
-                  Mon-Fri: 9:00 AM - 5:00 PM<br />
-                  Sat: 9:00 AM - 1:00 PM
+                  {contactInfo.workingHours.weekdays}<br />
+                  {contactInfo.workingHours.saturday}<br />
+                  {contactInfo.workingHours.sunday}
                 </p>
               </div>
             </div>
@@ -143,15 +123,18 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} FG Science Degree College. All rights reserved.
+            © {currentYear} {collegeInfo.name}. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
-              Terms of Service
-            </Link>
+            {legalLinks.map((link) => (
+              <Link 
+                key={link.href}
+                href={link.href} 
+                className="text-gray-400 hover:text-white text-sm transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
