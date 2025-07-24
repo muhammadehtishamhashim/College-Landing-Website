@@ -1,6 +1,6 @@
 'use client';
 
-import DarkVeil from '../../../ui/DarkVeil';
+import LightRays from '../../../ui/LightRays';
 import BlurText from '../../textanimations/BlurText';
 import GradientText from '../../textanimations/GradientText';
 
@@ -8,15 +8,18 @@ const HeroSection = ({ collegeInfo }) => {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden hero-section will-change-transform">
       {/* Background Animation */}
-      <div className="absolute inset-0 w-full h-full">
-        <DarkVeil
-          hueShift={10}
-          noiseIntensity={0}
-          scanlineIntensity={0.0}
-          speed={1.7}
-          scanlineFrequency={0.0}
-          warpAmount={0.2}
-          resolutionScale={1.03}
+      <div className="absolute inset-0 w-full h-full opacity-100">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00ffff"
+          raysSpeed={1.5}
+          lightSpread={2}
+          rayLength={1.8}
+          followMouse={true}
+          mouseInfluence={0.3}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays"
         />
       </div>
 

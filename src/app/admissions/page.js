@@ -1,6 +1,7 @@
 import MainLayout from '../../layout/MainLayout';
 import AdmissionTimeline from '../_components/admissions/AdmissionTimeline';
 import AdmissionProcedures from '../_components/admissions/AdmissionProcedures';
+import Orb from '../../ui/Orb';
 import admissions from '../../../data/admissions.json';
 
 export const metadata = {
@@ -13,17 +14,25 @@ export default function Admissions() {
     <MainLayout>
       <div className="pt-20 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-red-900 to-orange-900 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-black-900 text-white py-20 overflow-hidden">
+          {/* Ballpit Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <Orb
+              hoverIntensity={0.3}
+              rotateOnHover={true}
+              hue={80}
+              forceHoverState={false}
+              allowCursor={false}
+            />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">Admissions</h1>
               <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
                 Join our community of future scientists and innovators. Start your journey with us today.
               </p>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-                <h3 className="text-lg font-semibold mb-2">Application Deadline</h3>
-                <p className="text-2xl font-bold text-yellow-300">{admissions.applicationDeadline}</p>
-              </div>
+              
             </div>
           </div>
         </section>
@@ -46,7 +55,7 @@ export default function Admissions() {
         {/* Admission Procedures */}
         <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AdmissionProcedures 
+            <AdmissionProcedures
               procedures={admissions.procedures}
               documents={admissions.requiredDocuments}
               fees={admissions.fees}

@@ -1,6 +1,7 @@
 import MainLayout from '../../layout/MainLayout';
 import collegeInfo from '../../../data/college-info.json';
 import RippleGrid from '../../ui/RippleGrid';
+import Particles from '../../ui/Particles';
 
 export const metadata = {
     title: 'About Us | FG Science Degree College',
@@ -11,28 +12,31 @@ export default function About() {
     return (
         <MainLayout>
             <div className="bg-gray-900 text-white min-h-screen">
-                {/* Hero Section with RippleGrid Background */}
-                <section className="relative bg-black text-white overflow-hidden h-[60vh] sm:h-[70vh] lg:h-[80vh] flex items-center justify-center">
-                    {/* RippleGrid Background */}
-                    <div className="absolute inset-0">
-                        <div style={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
-                            <RippleGrid
-                                enableRainbow={true}
-                                gridColor="#ffffff"
-                                rippleIntensity={0.05}
-                                gridSize={10}
-                                gridThickness={25}
-                                mouseInteraction={true}
-                                mouseInteractionRadius={1.2}
-                                opacity={1}
-                            />
-                        </div>
+                {/* Hero Section with Particles Background */}
+<section className="relative bg-gradient-to-br from-cyan-600 via-cyan-500 to-green-500 text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
+                    {/* Particles Background */}
+                    <div className="absolute inset-0 w-full h-full">
+                        <Particles
+                            particleColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+                            particleCount={200}
+                            particleSpread={10}
+                            speed={0.1}
+                            particleBaseSize={100}
+                            moveParticlesOnHover={false}
+                            particleHoverFactor={1}
+                            alphaParticles={false}
+                            disableRotation={false}
+                            sizeRandomness={1}
+                        />
                     </div>
 
-                    <div className="relative z-10 text-center">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white drop-shadow-lg">
+                    <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-6">
                             About Us
                         </h1>
+                        <p className="text-lg sm:text-xl lg:text-2xl text-cyan-100 max-w-3xl mx-auto leading-relaxed">
+                            Discover the legacy of excellence at FG Science Degree College, where innovation meets education and dreams transform into reality.
+                        </p>
                     </div>
                 </section>
 

@@ -1,5 +1,6 @@
 import MainLayout from '../../layout/MainLayout';
 import FacilityCard from '../_components/facilities/FacilityCard';
+import LightRays from '../../ui/LightRays';
 import facilities from '../../../data/facilities.json';
 
 export const metadata = {
@@ -12,8 +13,25 @@ export default function Facilities() {
     <MainLayout>
       <div className="pt-20 bg-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-purple-900 to-pink-900 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-gray-900 text-white py-20 overflow-hidden">
+          {/* LightRays Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <LightRays
+              raysOrigin="top-center"
+              raysColor="#8b5cf6"
+              raysSpeed={1.5}
+              lightSpread={2}
+              rayLength={1.2}
+              followMouse={true}
+              mouseInfluence={0.2}
+              noiseAmount={0.1}
+              distortion={0.01}
+              saturation={2}
+
+            />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                 Our Facilities

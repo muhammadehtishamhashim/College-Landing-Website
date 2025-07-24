@@ -1,5 +1,6 @@
 import MainLayout from '../../layout/MainLayout';
 import ProgramCard from '../_components/programs/ProgramCard';
+import Particles from '../../ui/Particles';
 import programs from '../../../data/programs.json';
 
 export const metadata = {
@@ -12,8 +13,23 @@ export default function Programs() {
     <MainLayout>
       <div className="bg-gray-900 text-white min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-20 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-20 lg:py-32 overflow-hidden">
+          {/* Particles Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <Particles
+              particleColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+              particleCount={200}
+              particleSpread={10}
+              speed={0.1}
+              particleBaseSize={100}
+              moveParticlesOnHover={false}
+              alphaParticles={false}
+              disableRotation={false}
+              
+            />
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                 Our Programs
