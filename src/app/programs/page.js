@@ -4,30 +4,65 @@ import programs from '../../../data/programs.json';
 
 export const metadata = {
   title: 'Programs | FG Science Degree College',
-  description: 'Explore our comprehensive science degree programs in Physics, Chemistry, Mathematics, and Computer Science.',
+  description: 'Explore our comprehensive intermediate and degree programs in Computer Science, Physics, Pre-Medical, and Pre-Engineering.',
 };
 
 export default function Programs() {
   return (
     <MainLayout>
-      <div className="pt-20">
+      <div className="bg-gray-900 text-white min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-green-900 to-blue-900 text-white py-20">
+        <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">Our Programs</h1>
-              <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
-                Choose from our comprehensive range of science degree programs designed to prepare you for a successful career.
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                Our Programs
+              </h1>
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Choose from our comprehensive range of intermediate and degree programs designed to prepare you for academic excellence and successful careers.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Programs Grid */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Intermediate Programs Section */}
+        <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 mb-4">
+                Intermediate Programs
+              </h2>
+              <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+                Foundation programs to prepare students for higher education and specialized career paths.
+              </p>
+            </div>
+
             <div className="grid lg:grid-cols-2 gap-8">
-              {programs.map((program) => (
+              {programs.intermediate.map((program) => (
+                <ProgramCard key={program.id} program={program} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Degree Programs Section */}
+        <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+                Degree Programs
+              </h2>
+              <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+                Advanced four-year bachelor's degree programs for specialized professional careers.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              {programs.degree.map((program) => (
                 <ProgramCard key={program.id} program={program} />
               ))}
             </div>
@@ -35,40 +70,42 @@ export default function Programs() {
         </section>
 
         {/* Why Choose Our Programs */}
-        <section className="bg-gray-50 py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
                 Why Choose Our Programs?
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
                 Our programs are designed with industry needs in mind, providing both theoretical knowledge and practical skills.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gray-800/40 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-700/50 hover:bg-gray-800/60 transition-all duration-500 hover:border-gray-600/70 hover:shadow-xl hover:shadow-blue-500/10 text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">🔬</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Modern Labs</h3>
-                <p className="text-gray-600">State-of-the-art laboratories with latest equipment for hands-on learning.</p>
+                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">Modern Labs</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">State-of-the-art laboratories with latest equipment for hands-on learning.</p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gray-800/40 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-700/50 hover:bg-gray-800/60 transition-all duration-500 hover:border-gray-600/70 hover:shadow-xl hover:shadow-green-500/10 text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">👨‍🏫</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Expert Faculty</h3>
-                <p className="text-gray-600">Learn from experienced professors and industry professionals.</p>
+                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-green-300 transition-colors duration-300">Expert Faculty</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Learn from experienced professors and industry professionals.</p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gray-800/40 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-700/50 hover:bg-gray-800/60 transition-all duration-500 hover:border-gray-600/70 hover:shadow-xl hover:shadow-purple-500/10 text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">💼</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Career Support</h3>
-                <p className="text-gray-600">Comprehensive placement assistance and career guidance.</p>
+                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">Career Support</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Comprehensive placement assistance and career guidance.</p>
               </div>
             </div>
           </div>

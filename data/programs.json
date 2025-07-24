@@ -1,114 +1,178 @@
-[
-  {
-    "id": "bsc-physics",
-    "name": "Bachelor of Science in Physics",
-    "description": "A comprehensive program covering classical and modern physics, preparing students for careers in research, industry, and education.",
-    "duration": "3 Years",
-    "eligibility": [
-      "10+2 with Physics, Chemistry, and Mathematics",
-      "Minimum 50% aggregate marks",
-      "Valid entrance exam score"
-    ],
-    "subjects": [
-      "Classical Mechanics",
-      "Quantum Physics",
-      "Thermodynamics",
-      "Electromagnetism",
-      "Optics",
-      "Nuclear Physics"
-    ],
-    "careerProspects": [
-      "Research Scientist",
-      "Physics Teacher",
-      "Technical Consultant",
-      "Quality Control Analyst",
-      "Further Studies (M.Sc, Ph.D)"
-    ],
-    "fees": "₹45,000 per year",
-    "intake": 60
-  },
-  {
-    "id": "bsc-chemistry",
-    "name": "Bachelor of Science in Chemistry",
-    "description": "An intensive program focusing on organic, inorganic, and physical chemistry with extensive laboratory experience.",
-    "duration": "3 Years",
-    "eligibility": [
-      "10+2 with Chemistry, Physics, and Mathematics/Biology",
-      "Minimum 50% aggregate marks",
-      "Valid entrance exam score"
-    ],
-    "subjects": [
-      "Organic Chemistry",
-      "Inorganic Chemistry",
-      "Physical Chemistry",
-      "Analytical Chemistry",
-      "Biochemistry",
-      "Environmental Chemistry"
-    ],
-    "careerProspects": [
-      "Chemical Analyst",
-      "Research Chemist",
-      "Quality Control Officer",
-      "Chemistry Teacher",
-      "Pharmaceutical Industry"
-    ],
-    "fees": "₹48,000 per year",
-    "intake": 60
-  },
-  {
-    "id": "bsc-mathematics",
-    "name": "Bachelor of Science in Mathematics",
-    "description": "A rigorous program covering pure and applied mathematics, statistics, and computational methods.",
-    "duration": "3 Years",
-    "eligibility": [
-      "10+2 with Mathematics as main subject",
-      "Minimum 50% aggregate marks",
-      "Valid entrance exam score"
-    ],
-    "subjects": [
-      "Calculus",
-      "Linear Algebra",
-      "Differential Equations",
-      "Statistics",
-      "Numerical Analysis",
-      "Abstract Algebra"
-    ],
-    "careerProspects": [
-      "Data Analyst",
-      "Statistician",
-      "Mathematics Teacher",
-      "Actuary",
-      "Software Developer"
-    ],
-    "fees": "₹42,000 per year",
-    "intake": 40
-  },
-  {
-    "id": "bsc-computer-science",
-    "name": "Bachelor of Science in Computer Science",
-    "description": "A modern program combining theoretical computer science with practical programming and software development skills.",
-    "duration": "3 Years",
-    "eligibility": [
-      "10+2 with Mathematics and any science subject",
-      "Minimum 50% aggregate marks",
-      "Valid entrance exam score"
-    ],
-    "subjects": [
-      "Programming Languages",
-      "Data Structures",
-      "Database Management",
-      "Computer Networks",
-      "Software Engineering",
-      "Artificial Intelligence"
-    ],
-    "careerProspects": [
-      "Software Developer",
-      "System Analyst",
-      "Database Administrator",
-      "Web Developer",
-      "IT Consultant"
-    ],
-    "fees": "₹55,000 per year",
-    "intake": 80
-  }
-]
+{
+  "intermediate": [
+    {
+      "id": "ics",
+      "name": "ICS (Intermediate in Computer Science)",
+      "description": "A comprehensive two-year program focusing on computer science fundamentals, mathematics, and physics to prepare students for higher education in technology fields.",
+      "duration": "2 Years",
+      "eligibility": [
+        "Matriculation (10th grade) with Science subjects",
+        "Minimum 60% aggregate marks",
+        "Age limit: 15-19 years"
+      ],
+      "subjects": [
+        "Computer Science",
+        "Mathematics",
+        "Physics",
+        "English",
+        "Urdu",
+        "Islamic Studies/Ethics"
+      ],
+      "careerProspects": [
+        "Bachelor's in Computer Science",
+        "Bachelor's in Software Engineering",
+        "Bachelor's in Information Technology",
+        "Technical Diploma Programs"
+      ],
+      "fees": "₹25,000 per year",
+      "intake": 120
+    },
+    {
+      "id": "fcs",
+      "name": "FCS (Faculty of Computer Science)",
+      "description": "An advanced intermediate program with specialized focus on computer science, programming, and mathematical foundations for future computer scientists.",
+      "duration": "2 Years",
+      "eligibility": [
+        "Matriculation with Science subjects",
+        "Minimum 65% aggregate marks",
+        "Aptitude test for computer science"
+      ],
+      "subjects": [
+        "Advanced Computer Science",
+        "Programming Fundamentals",
+        "Mathematics",
+        "Physics",
+        "English",
+        "Research Methodology"
+      ],
+      "careerProspects": [
+        "Direct admission to BS Computer Science",
+        "Software Development Courses",
+        "IT Certification Programs",
+        "Computer Engineering Programs"
+      ],
+      "fees": "₹28,000 per year",
+      "intake": 80
+    },
+    {
+      "id": "premedical",
+      "name": "Pre-Medical",
+      "description": "A rigorous two-year program designed to prepare students for medical and health sciences education with strong foundation in biology, chemistry, and physics.",
+      "duration": "2 Years",
+      "eligibility": [
+        "Matriculation with Science subjects",
+        "Minimum 70% aggregate marks",
+        "Biology as compulsory subject"
+      ],
+      "subjects": [
+        "Biology",
+        "Chemistry",
+        "Physics",
+        "English",
+        "Urdu",
+        "Islamic Studies/Ethics"
+      ],
+      "careerProspects": [
+        "MBBS (Medical Doctor)",
+        "BDS (Dental Surgery)",
+        "Pharmacy Programs",
+        "Nursing and Allied Health Sciences"
+      ],
+      "fees": "₹30,000 per year",
+      "intake": 100
+    },
+    {
+      "id": "pre-engineering",
+      "name": "Pre-Engineering",
+      "description": "A comprehensive program focusing on mathematics, physics, and chemistry to prepare students for engineering and technology programs.",
+      "duration": "2 Years",
+      "eligibility": [
+        "Matriculation with Science subjects",
+        "Minimum 65% aggregate marks",
+        "Strong mathematics background"
+      ],
+      "subjects": [
+        "Mathematics",
+        "Physics",
+        "Chemistry",
+        "English",
+        "Urdu",
+        "Computer Science (Optional)"
+      ],
+      "careerProspects": [
+        "Engineering Programs (All Disciplines)",
+        "Architecture",
+        "Applied Sciences",
+        "Technology Programs"
+      ],
+      "fees": "₹27,000 per year",
+      "intake": 150
+    }
+  ],
+  "degree": [
+    {
+      "id": "bsc-computer-science",
+      "name": "BS Computer Science",
+      "description": "A modern four-year program combining theoretical computer science with practical programming, software development, and emerging technologies.",
+      "duration": "4 Years",
+      "eligibility": [
+        "Intermediate with Mathematics",
+        "Minimum 60% aggregate marks",
+        "Valid entrance exam score"
+      ],
+      "subjects": [
+        "Programming Languages (C++, Java)",
+        "Data Structures & Algorithms",
+        "Database Management Systems",
+        "Computer Networks",
+        "Software Engineering",
+        "Artificial Intelligence",
+        "Web Development",
+        "Mobile App Development"
+      ],
+      "careerProspects": [
+        "Software Developer",
+        "System Analyst",
+        "Database Administrator",
+        "Web Developer",
+        "Mobile App Developer",
+        "IT Consultant",
+        "Cybersecurity Specialist"
+      ],
+      "fees": "Rs27,980 per semester (Rs10,000 one-time charges)",
+      "intake": 40
+    },
+    {
+      "id": "bsc-physics",
+      "name": "BS Physics",
+      "description": "A comprehensive four-year program covering classical and modern physics, preparing students for careers in research, industry, and advanced studies.",
+      "duration": "4 Years",
+      "eligibility": [
+        "Intermediate with Physics, Chemistry, and Mathematics",
+        "Minimum 60% aggregate marks",
+        "Valid entrance exam score"
+      ],
+      "subjects": [
+        "Classical Mechanics",
+        "Quantum Physics",
+        "Thermodynamics",
+        "Electromagnetism",
+        "Optics",
+        "Nuclear Physics",
+        "Solid State Physics",
+        "Mathematical Physics"
+      ],
+      "careerProspects": [
+        "Research Scientist",
+        "Physics Teacher/Professor",
+        "Technical Consultant",
+        "Quality Control Analyst",
+        "Medical Physics",
+        "Further Studies (M.Sc, Ph.D)",
+        "Space Research"
+      ],
+      "fees": "Rs27,980 per semester (Rs10,000 one-time charges)",
+      "intake": 60
+    }
+  ]
+}

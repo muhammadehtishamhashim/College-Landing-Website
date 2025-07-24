@@ -1013,7 +1013,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/app/_components/contact/ContactForm.js [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/_components/programs/ProgramCard.js [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
@@ -1022,329 +1022,339 @@ __turbopack_context__.s({
     "default": ()=>__TURBOPACK__default__export__
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 'use client';
 ;
-const ContactForm = ()=>{
-    _s();
-    const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-    });
-    const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const handleChange = (e)=>{
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+;
+;
+const ProgramCard = (param)=>{
+    let { program } = param;
+    // Determine border colors based on program type
+    const getBorderColors = (programId)=>{
+        if (programId.includes('physics') || programId.includes('pre-engineering')) {
+            return [
+                '#3b82f6',
+                '#8b5cf6'
+            ]; // Blue to Purple
+        } else if (programId.includes('computer') || programId.includes('ics') || programId.includes('fcs')) {
+            return [
+                '#10b981',
+                '#3b82f6'
+            ]; // Green to Blue
+        } else if (programId.includes('medical')) {
+            return [
+                '#ef4444',
+                '#f59e0b'
+            ]; // Red to Orange
+        } else {
+            return [
+                '#8b5cf6',
+                '#ec4899'
+            ]; // Purple to Pink (default)
+        }
     };
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        setIsSubmitting(true);
-        // Simulate form submission
-        await new Promise((resolve)=>setTimeout(resolve, 1000));
-        // Reset form
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            subject: '',
-            message: ''
-        });
-        setIsSubmitting(false);
-        alert('Thank you for your message! We will get back to you soon.');
-    };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white p-8 rounded-2xl shadow-lg",
+    const borderColors = getBorderColors(program.id);
+    const borderClass = "animated-border-".concat(program.id);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: "text-2xl font-bold text-gray-900 mb-6",
-                children: "Send us a Message"
-            }, void 0, false, {
-                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                lineNumber: 44,
-                columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                onSubmit: handleSubmit,
-                className: "space-y-6",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "jsx-22490b19a797d590" + " " + "animated-border-box group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/20",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "name",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Full Name *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 49,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                id: "name",
-                                name: "name",
-                                value: formData.name,
-                                onChange: handleChange,
-                                required: true,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                placeholder: "Enter your full name"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 52,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 48,
+                        className: "jsx-22490b19a797d590" + " " + "animated-border ".concat(borderClass)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                        lineNumber: 25,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "email",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Email Address *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 66,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "email",
-                                id: "email",
-                                name: "email",
-                                value: formData.email,
-                                onChange: handleChange,
-                                required: true,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                placeholder: "Enter your email address"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 69,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 65,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "phone",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Phone Number"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 83,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "tel",
-                                id: "phone",
-                                name: "phone",
-                                value: formData.phone,
-                                onChange: handleChange,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                placeholder: "Enter your phone number"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 86,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 82,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "subject",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Subject *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 99,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                id: "subject",
-                                name: "subject",
-                                value: formData.subject,
-                                onChange: handleChange,
-                                required: true,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "",
-                                        children: "Select a subject"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 110,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "admission",
-                                        children: "Admission Inquiry"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 111,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "programs",
-                                        children: "Program Information"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 112,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "facilities",
-                                        children: "Facilities Tour"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 113,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "general",
-                                        children: "General Question"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 114,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "other",
-                                        children: "Other"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 115,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0))
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 102,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 98,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "message",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Message *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 121,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                                id: "message",
-                                name: "message",
-                                value: formData.message,
-                                onChange: handleChange,
-                                required: true,
-                                rows: 5,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical",
-                                placeholder: "Enter your message here..."
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 124,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 120,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        type: "submit",
-                        disabled: isSubmitting,
-                        className: "w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center",
-                        children: isSubmitting ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        className: "jsx-22490b19a797d590" + " " + "program-card-content bg-gray-800 rounded-2xl shadow-lg overflow-hidden",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-22490b19a797d590" + " " + "p-8 relative",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                    className: "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    fill: "none",
-                                    viewBox: "0 0 24 24",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-22490b19a797d590" + " " + "absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                    lineNumber: 29,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-22490b19a797d590" + " " + "relative z-10",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                            className: "opacity-25",
-                                            cx: "12",
-                                            cy: "12",
-                                            r: "10",
-                                            stroke: "currentColor",
-                                            strokeWidth: "4"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                            lineNumber: 145,
-                                            columnNumber: 17
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "flex items-start justify-between mb-4",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "jsx-22490b19a797d590" + " " + "text-2xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: program.name
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 33,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "jsx-22490b19a797d590" + " " + "bg-blue-500/20 text-blue-300 text-sm font-medium px-3 py-1 rounded-full border border-blue-500/30 group-hover:bg-blue-500/30 group-hover:border-blue-400/50 transition-all duration-300",
+                                                    children: program.duration
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 34,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 32,
+                                            columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                            className: "opacity-75",
-                                            fill: "currentColor",
-                                            d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "jsx-22490b19a797d590" + " " + "text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300",
+                                            children: program.description
                                         }, void 0, false, {
-                                            fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                            lineNumber: 146,
-                                            columnNumber: 17
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 39,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "grid grid-cols-2 gap-4 mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "bg-gray-700/50 p-4 rounded-lg border border-gray-600/50 group-hover:bg-gray-700/70 group-hover:border-gray-600/70 transition-all duration-300",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                            className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-2",
+                                                            children: "Annual Fees"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 46,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "jsx-22490b19a797d590" + " " + "text-blue-400 font-bold group-hover:text-blue-300 transition-colors duration-300",
+                                                            children: program.fees
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 47,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 45,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "bg-gray-700/50 p-4 rounded-lg border border-gray-600/50 group-hover:bg-gray-700/70 group-hover:border-gray-600/70 transition-all duration-300",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                            className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-2",
+                                                            children: "Intake"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 50,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "jsx-22490b19a797d590" + " " + "text-green-400 font-bold group-hover:text-green-300 transition-colors duration-300",
+                                                            children: [
+                                                                program.intake,
+                                                                " Students"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 51,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 49,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 44,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: "Eligibility Criteria"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 57,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                    className: "jsx-22490b19a797d590" + " " + "space-y-1",
+                                                    children: program.eligibility.map((criteria, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                            className: "jsx-22490b19a797d590" + " " + "text-sm text-gray-300 flex items-start group-hover:text-gray-200 transition-colors duration-300",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "jsx-22490b19a797d590" + " " + "text-green-400 mr-2 group-hover:text-green-300 transition-colors duration-300",
+                                                                    children: "✓"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                                    lineNumber: 61,
+                                                                    columnNumber: 23
+                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                criteria
+                                                            ]
+                                                        }, index, true, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 60,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0)))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 58,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 56,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: "Key Subjects"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 70,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "flex flex-wrap gap-2",
+                                                    children: [
+                                                        program.subjects.slice(0, 4).map((subject, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "jsx-22490b19a797d590" + " " + "bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/30 group-hover:bg-blue-500/30 group-hover:border-blue-400/50 transition-all duration-300",
+                                                                children: subject
+                                                            }, index, false, {
+                                                                fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                                lineNumber: 73,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0))),
+                                                        program.subjects.length > 4 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "jsx-22490b19a797d590" + " " + "bg-gray-600/50 text-gray-300 text-xs px-3 py-1 rounded-full border border-gray-500/30 group-hover:bg-gray-600/70 group-hover:border-gray-500/50 transition-all duration-300",
+                                                            children: [
+                                                                "+",
+                                                                program.subjects.length - 4,
+                                                                " more"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 81,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 71,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 69,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "mb-8",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: "Career Prospects"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 90,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "flex flex-wrap gap-2",
+                                                    children: program.careerProspects.slice(0, 3).map((career, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "jsx-22490b19a797d590" + " " + "bg-green-500/20 text-green-300 text-xs px-3 py-1 rounded-full border border-green-500/30 group-hover:bg-green-500/30 group-hover:border-green-400/50 transition-all duration-300",
+                                                            children: career
+                                                        }, index, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 93,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0)))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 91,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 89,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            href: "/admissions?program=".concat(program.id),
+                                            className: "block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-center font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl",
+                                            children: [
+                                                "Apply for ",
+                                                program.name.split(' ').pop()
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 104,
+                                            columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
-                                    fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                    lineNumber: 144,
-                                    columnNumber: 15
+                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                    lineNumber: 31,
+                                    columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
-                                "Sending..."
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-22490b19a797d590" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out rounded-2xl"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                    lineNumber: 113,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
                             ]
-                        }, void 0, true) : 'Send Message'
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                            lineNumber: 27,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 137,
+                        fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                        lineNumber: 26,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
-                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                lineNumber: 46,
+                fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                lineNumber: 24,
                 columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0))
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                id: "22490b19a797d590",
+                children: '@property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}.animated-border-box{border-radius:16px;margin-bottom:0;padding:2px;position:relative}.animated-border{z-index:0;background-size:300% 300%;border-radius:16px;animation:4s linear infinite rotate;position:absolute;top:0;bottom:0;left:0;right:0}.program-card-content{z-index:1;position:relative}.animated-border-bsc-physics,.animated-border-pre-engineering{background-image:conic-gradient(from var(--angle),#3b82f6,#8b5cf6,#3b82f6)}.animated-border-bsc-computer-science,.animated-border-ics,.animated-border-fcs{background-image:conic-gradient(from var(--angle),#10b981,#3b82f6,#10b981)}.animated-border-premedical{background-image:conic-gradient(from var(--angle),#ef4444,#f59e0b,#ef4444)}@keyframes rotate{0%{--angle:0deg}to{--angle:360deg}}'
+            }, void 0, false, void 0, ("TURBOPACK compile-time value", void 0))
         ]
-    }, void 0, true, {
-        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-        lineNumber: 43,
-        columnNumber: 5
-    }, ("TURBOPACK compile-time value", void 0));
+    }, void 0, true);
 };
-_s(ContactForm, "CqgBtZ+og8RGKDipeaVQ3r01Luk=");
-_c = ContactForm;
-const __TURBOPACK__default__export__ = ContactForm;
+_c = ProgramCard;
+const __TURBOPACK__default__export__ = ProgramCard;
 var _c;
-__turbopack_context__.k.register(_c, "ContactForm");
+__turbopack_context__.k.register(_c, "ProgramCard");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
 }]);
 
-//# sourceMappingURL=src_6d4482b7._.js.map
+//# sourceMappingURL=src_ffa2a56d._.js.map

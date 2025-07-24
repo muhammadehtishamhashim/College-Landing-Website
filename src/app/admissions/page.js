@@ -11,7 +11,7 @@ export const metadata = {
 export default function Admissions() {
   return (
     <MainLayout>
-      <div className="pt-20">
+      <div className="pt-20 overflow-x-hidden">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-red-900 to-orange-900 text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

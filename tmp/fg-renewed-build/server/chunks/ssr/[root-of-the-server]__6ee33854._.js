@@ -1,6 +1,6 @@
 module.exports = {
 
-"[project]/.next-internal/server/app/page/actions.js [app-rsc] (server actions loader, ecmascript)": ((__turbopack_context__) => {
+"[project]/.next-internal/server/app/facilities/page/actions.js [app-rsc] (server actions loader, ecmascript)": ((__turbopack_context__) => {
 
 var { m: module, e: exports } = __turbopack_context__;
 {
@@ -513,7 +513,7 @@ const MainLayout = ({ children })=>{
 };
 const __TURBOPACK__default__export__ = MainLayout;
 }),
-"[project]/src/app/_components/home/HeroSection.js [app-rsc] (client reference proxy) <module evaluation>": ((__turbopack_context__) => {
+"[project]/src/app/_components/facilities/FacilityCard.js [app-rsc] (client reference proxy) <module evaluation>": ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s({
@@ -522,10 +522,10 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
 ;
 const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/HeroSection.js <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/HeroSection.js <module evaluation>", "default");
+    throw new Error("Attempted to call the default export of [project]/src/app/_components/facilities/FacilityCard.js <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
+}, "[project]/src/app/_components/facilities/FacilityCard.js <module evaluation>", "default");
 }),
-"[project]/src/app/_components/home/HeroSection.js [app-rsc] (client reference proxy)": ((__turbopack_context__) => {
+"[project]/src/app/_components/facilities/FacilityCard.js [app-rsc] (client reference proxy)": ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s({
@@ -534,227 +534,324 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
 ;
 const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/HeroSection.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/HeroSection.js", "default");
+    throw new Error("Attempted to call the default export of [project]/src/app/_components/facilities/FacilityCard.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
+}, "[project]/src/app/_components/facilities/FacilityCard.js", "default");
 }),
-"[project]/src/app/_components/home/HeroSection.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/_components/facilities/FacilityCard.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$HeroSection$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/_components/home/HeroSection.js [app-rsc] (client reference proxy) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$HeroSection$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/HeroSection.js [app-rsc] (client reference proxy)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$facilities$2f$FacilityCard$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/_components/facilities/FacilityCard.js [app-rsc] (client reference proxy) <module evaluation>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$facilities$2f$FacilityCard$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/_components/facilities/FacilityCard.js [app-rsc] (client reference proxy)");
 ;
-__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$HeroSection$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
+__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$facilities$2f$FacilityCard$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
 }),
-"[project]/src/app/_components/home/IntroPreview.js [app-rsc] (client reference proxy) <module evaluation>": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/IntroPreview.js <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/IntroPreview.js <module evaluation>", "default");
-}),
-"[project]/src/app/_components/home/IntroPreview.js [app-rsc] (client reference proxy)": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/IntroPreview.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/IntroPreview.js", "default");
-}),
-"[project]/src/app/_components/home/IntroPreview.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$IntroPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/_components/home/IntroPreview.js [app-rsc] (client reference proxy) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$IntroPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/IntroPreview.js [app-rsc] (client reference proxy)");
-;
-__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$IntroPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
-}),
-"[project]/src/app/_components/home/Achievements.js [app-rsc] (client reference proxy) <module evaluation>": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/Achievements.js <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/Achievements.js <module evaluation>", "default");
-}),
-"[project]/src/app/_components/home/Achievements.js [app-rsc] (client reference proxy)": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/Achievements.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/Achievements.js", "default");
-}),
-"[project]/src/app/_components/home/Achievements.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$Achievements$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/_components/home/Achievements.js [app-rsc] (client reference proxy) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$Achievements$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/Achievements.js [app-rsc] (client reference proxy)");
-;
-__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$Achievements$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
-}),
-"[project]/src/app/_components/home/ProgramsPreview.js [app-rsc] (client reference proxy) <module evaluation>": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/ProgramsPreview.js <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/ProgramsPreview.js <module evaluation>", "default");
-}),
-"[project]/src/app/_components/home/ProgramsPreview.js [app-rsc] (client reference proxy)": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/ProgramsPreview.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/ProgramsPreview.js", "default");
-}),
-"[project]/src/app/_components/home/ProgramsPreview.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$ProgramsPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/_components/home/ProgramsPreview.js [app-rsc] (client reference proxy) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$ProgramsPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/ProgramsPreview.js [app-rsc] (client reference proxy)");
-;
-__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$ProgramsPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
-}),
-"[project]/src/app/_components/home/FacilitiesPreview.js [app-rsc] (client reference proxy) <module evaluation>": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/FacilitiesPreview.js <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/FacilitiesPreview.js <module evaluation>", "default");
-}),
-"[project]/src/app/_components/home/FacilitiesPreview.js [app-rsc] (client reference proxy)": ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s({
-    "default": ()=>__TURBOPACK__default__export__
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
-;
-const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
-    throw new Error("Attempted to call the default export of [project]/src/app/_components/home/FacilitiesPreview.js from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
-}, "[project]/src/app/_components/home/FacilitiesPreview.js", "default");
-}),
-"[project]/src/app/_components/home/FacilitiesPreview.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$FacilitiesPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/_components/home/FacilitiesPreview.js [app-rsc] (client reference proxy) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$FacilitiesPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/FacilitiesPreview.js [app-rsc] (client reference proxy)");
-;
-__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$FacilitiesPreview$2e$js__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
-}),
-"[project]/data/college-info.json (json)": ((__turbopack_context__) => {
-
-__turbopack_context__.v(JSON.parse("{\"name\":\"FG Science Degree College\",\"logo\":\"/images/college-logo.png\",\"tagline\":\"Excellence in Science Education\",\"description\":\"FG Science Degree College is a premier institution dedicated to providing quality education in science and technology. We foster academic excellence, research innovation, and character development to prepare students for successful careers and meaningful contributions to society.\",\"establishedYear\":1993,\"accreditation\":\"UGC Recognized\",\"affiliations\":[\"National University of Pakistan\"]}"));}),
-"[project]/data/programs.json (json)": ((__turbopack_context__) => {
-
-__turbopack_context__.v(JSON.parse("{\"intermediate\":[{\"id\":\"ics\",\"name\":\"ICS (Intermediate in Computer Science)\",\"description\":\"A comprehensive two-year program focusing on computer science fundamentals, mathematics, and physics to prepare students for higher education in technology fields.\",\"duration\":\"2 Years\",\"eligibility\":[\"Matriculation (10th grade) with Science subjects\",\"Minimum 60% aggregate marks\",\"Age limit: 15-19 years\"],\"subjects\":[\"Computer Science\",\"Mathematics\",\"Physics\",\"English\",\"Urdu\",\"Islamic Studies/Ethics\"],\"careerProspects\":[\"Bachelor's in Computer Science\",\"Bachelor's in Software Engineering\",\"Bachelor's in Information Technology\",\"Technical Diploma Programs\"],\"fees\":\"₹25,000 per year\",\"intake\":120},{\"id\":\"fcs\",\"name\":\"FCS (Faculty of Computer Science)\",\"description\":\"An advanced intermediate program with specialized focus on computer science, programming, and mathematical foundations for future computer scientists.\",\"duration\":\"2 Years\",\"eligibility\":[\"Matriculation with Science subjects\",\"Minimum 65% aggregate marks\",\"Aptitude test for computer science\"],\"subjects\":[\"Advanced Computer Science\",\"Programming Fundamentals\",\"Mathematics\",\"Physics\",\"English\",\"Research Methodology\"],\"careerProspects\":[\"Direct admission to BS Computer Science\",\"Software Development Courses\",\"IT Certification Programs\",\"Computer Engineering Programs\"],\"fees\":\"₹28,000 per year\",\"intake\":80},{\"id\":\"premedical\",\"name\":\"Pre-Medical\",\"description\":\"A rigorous two-year program designed to prepare students for medical and health sciences education with strong foundation in biology, chemistry, and physics.\",\"duration\":\"2 Years\",\"eligibility\":[\"Matriculation with Science subjects\",\"Minimum 70% aggregate marks\",\"Biology as compulsory subject\"],\"subjects\":[\"Biology\",\"Chemistry\",\"Physics\",\"English\",\"Urdu\",\"Islamic Studies/Ethics\"],\"careerProspects\":[\"MBBS (Medical Doctor)\",\"BDS (Dental Surgery)\",\"Pharmacy Programs\",\"Nursing and Allied Health Sciences\"],\"fees\":\"₹30,000 per year\",\"intake\":100},{\"id\":\"pre-engineering\",\"name\":\"Pre-Engineering\",\"description\":\"A comprehensive program focusing on mathematics, physics, and chemistry to prepare students for engineering and technology programs.\",\"duration\":\"2 Years\",\"eligibility\":[\"Matriculation with Science subjects\",\"Minimum 65% aggregate marks\",\"Strong mathematics background\"],\"subjects\":[\"Mathematics\",\"Physics\",\"Chemistry\",\"English\",\"Urdu\",\"Computer Science (Optional)\"],\"careerProspects\":[\"Engineering Programs (All Disciplines)\",\"Architecture\",\"Applied Sciences\",\"Technology Programs\"],\"fees\":\"₹27,000 per year\",\"intake\":150}],\"degree\":[{\"id\":\"bsc-computer-science\",\"name\":\"BS Computer Science\",\"description\":\"A modern four-year program combining theoretical computer science with practical programming, software development, and emerging technologies.\",\"duration\":\"4 Years\",\"eligibility\":[\"Intermediate with Mathematics\",\"Minimum 60% aggregate marks\",\"Valid entrance exam score\"],\"subjects\":[\"Programming Languages (C++, Java)\",\"Data Structures & Algorithms\",\"Database Management Systems\",\"Computer Networks\",\"Software Engineering\",\"Artificial Intelligence\",\"Web Development\",\"Mobile App Development\"],\"careerProspects\":[\"Software Developer\",\"System Analyst\",\"Database Administrator\",\"Web Developer\",\"Mobile App Developer\",\"IT Consultant\",\"Cybersecurity Specialist\"],\"fees\":\"Rs27,980 per semester (Rs10,000 one-time charges)\",\"intake\":40},{\"id\":\"bsc-physics\",\"name\":\"BS Physics\",\"description\":\"A comprehensive four-year program covering classical and modern physics, preparing students for careers in research, industry, and advanced studies.\",\"duration\":\"4 Years\",\"eligibility\":[\"Intermediate with Physics, Chemistry, and Mathematics\",\"Minimum 60% aggregate marks\",\"Valid entrance exam score\"],\"subjects\":[\"Classical Mechanics\",\"Quantum Physics\",\"Thermodynamics\",\"Electromagnetism\",\"Optics\",\"Nuclear Physics\",\"Solid State Physics\",\"Mathematical Physics\"],\"careerProspects\":[\"Research Scientist\",\"Physics Teacher/Professor\",\"Technical Consultant\",\"Quality Control Analyst\",\"Medical Physics\",\"Further Studies (M.Sc, Ph.D)\",\"Space Research\"],\"fees\":\"Rs27,980 per semester (Rs10,000 one-time charges)\",\"intake\":60}]}"));}),
 "[project]/data/facilities.json (json)": ((__turbopack_context__) => {
 
 __turbopack_context__.v(JSON.parse("[{\"id\":\"physics-lab\",\"name\":\"Advanced Physics Laboratory\",\"description\":\"State-of-the-art physics laboratory equipped with modern instruments for experimental physics and research.\",\"images\":[\"/images/facilities/physics-lab-1.jpg\",\"/images/facilities/physics-lab-2.jpg\"],\"features\":[\"Digital oscilloscopes\",\"Spectrometers\",\"Laser equipment\",\"Vacuum systems\",\"Computer-controlled experiments\"],\"capacity\":\"30 students\"},{\"id\":\"chemistry-lab\",\"name\":\"Chemistry Research Laboratory\",\"description\":\"Fully equipped chemistry laboratory with fume hoods, analytical instruments, and safety systems.\",\"images\":[\"/images/facilities/chemistry-lab-1.jpg\",\"/images/facilities/chemistry-lab-2.jpg\"],\"features\":[\"Fume hoods\",\"HPLC systems\",\"UV-Vis spectrophotometer\",\"pH meters\",\"Safety shower systems\"],\"capacity\":\"25 students\"},{\"id\":\"computer-lab\",\"name\":\"Computer Science Laboratory\",\"description\":\"Modern computer lab with high-performance workstations and latest software for programming and development.\",\"images\":[\"/images/facilities/computer-lab-1.jpg\",\"/images/facilities/computer-lab-2.jpg\"],\"features\":[\"40 high-performance PCs\",\"Latest development software\",\"High-speed internet\",\"Projector systems\",\"Air conditioning\"],\"capacity\":\"40 students\"},{\"id\":\"library\",\"name\":\"Central Library\",\"description\":\"Comprehensive library with extensive collection of books, journals, and digital resources.\",\"images\":[\"/images/facilities/library-1.jpg\",\"/images/facilities/library-2.jpg\"],\"features\":[\"10,000+ books\",\"Digital library access\",\"Study halls\",\"Internet facility\",\"Quiet reading zones\"],\"capacity\":\"200 students\"}]"));}),
-"[project]/src/app/page.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/facilities/page.js [app-rsc] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s({
-    "default": ()=>Home
+    "default": ()=>Facilities,
+    "metadata": ()=>metadata
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$layout$2f$MainLayout$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/layout/MainLayout.js [app-rsc] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$HeroSection$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/HeroSection.js [app-rsc] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$IntroPreview$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/IntroPreview.js [app-rsc] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$Achievements$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/Achievements.js [app-rsc] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$ProgramsPreview$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/ProgramsPreview.js [app-rsc] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$FacilitiesPreview$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/_components/home/FacilitiesPreview.js [app-rsc] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/data/college-info.json (json)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$programs$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/data/programs.json (json)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$facilities$2f$FacilityCard$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/_components/facilities/FacilityCard.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$facilities$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/data/facilities.json (json)");
 ;
 ;
 ;
 ;
-;
-;
-;
-;
-;
-;
-function Home() {
+const metadata = {
+    title: 'Facilities | FG Science Degree College',
+    description: 'Explore our world-class facilities including advanced laboratories, library, computer labs, and modern infrastructure.'
+};
+function Facilities() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$layout$2f$MainLayout$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$HeroSection$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                collegeInfo: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__["default"]
-            }, void 0, false, {
-                fileName: "[project]/src/app/page.js",
-                lineNumber: 14,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$IntroPreview$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                collegeInfo: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__["default"]
-            }, void 0, false, {
-                fileName: "[project]/src/app/page.js",
-                lineNumber: 15,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$Achievements$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
-                fileName: "[project]/src/app/page.js",
-                lineNumber: 16,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$ProgramsPreview$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                programs: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$programs$2e$json__$28$json$29$__["default"]
-            }, void 0, false, {
-                fileName: "[project]/src/app/page.js",
-                lineNumber: 17,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$home$2f$FacilitiesPreview$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                facilities: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$facilities$2e$json__$28$json$29$__["default"]
-            }, void 0, false, {
-                fileName: "[project]/src/app/page.js",
-                lineNumber: 18,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/src/app/page.js",
-        lineNumber: 13,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "pt-20 bg-gray-900 min-h-screen",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                    className: "bg-gradient-to-br from-purple-900 to-pink-900 text-white py-20",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "text-center",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                    className: "text-4xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400",
+                                    children: "Our Facilities"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/facilities/page.js",
+                                    lineNumber: 18,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto",
+                                    children: "State-of-the-art infrastructure and modern facilities to support your academic journey and research endeavors."
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/facilities/page.js",
+                                    lineNumber: 21,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/facilities/page.js",
+                            lineNumber: 17,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/facilities/page.js",
+                        lineNumber: 16,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/facilities/page.js",
+                    lineNumber: 15,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                    className: "py-20 bg-gray-900",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-center mb-16",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4",
+                                        children: "World-Class Facilities"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 32,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-lg text-gray-300 max-w-3xl mx-auto",
+                                        children: "Explore our comprehensive range of modern facilities designed to enhance your learning experience."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 35,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/facilities/page.js",
+                                lineNumber: 31,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid lg:grid-cols-2 gap-8",
+                                children: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$facilities$2e$json__$28$json$29$__["default"].map((facility)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$_components$2f$facilities$2f$FacilityCard$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                        facility: facility
+                                    }, facility.id, false, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 41,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/facilities/page.js",
+                                lineNumber: 39,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/facilities/page.js",
+                        lineNumber: 30,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/facilities/page.js",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                    className: "bg-gray-800 py-20",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-center mb-16",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 mb-4",
+                                        children: "Infrastructure Highlights"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 51,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-lg text-gray-300 max-w-3xl mx-auto",
+                                        children: "Our campus is equipped with modern amenities to provide the best learning environment."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 54,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/facilities/page.js",
+                                lineNumber: 50,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid md:grid-cols-3 gap-8",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "group bg-gray-700 p-6 rounded-xl shadow-lg text-center border border-gray-600 hover:border-blue-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/20",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/30 transition-colors duration-300",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-2xl",
+                                                    children: "🔬"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/facilities/page.js",
+                                                    lineNumber: 62,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 61,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300",
+                                                children: "Advanced Labs"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 64,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300",
+                                                children: "Modern equipment for practical learning"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 65,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 60,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "group bg-gray-700 p-6 rounded-xl shadow-lg text-center border border-gray-600 hover:border-green-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-green-900/20",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500/30 transition-colors duration-300",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-2xl",
+                                                    children: "📚"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/facilities/page.js",
+                                                    lineNumber: 70,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 69,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-lg font-semibold text-white mb-2 group-hover:text-green-300 transition-colors duration-300",
+                                                children: "Digital Library"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 72,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300",
+                                                children: "Extensive collection of books and e-resources"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 73,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 68,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "group bg-gray-700 p-6 rounded-xl shadow-lg text-center border border-gray-600 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-900/20",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500/30 transition-colors duration-300",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-2xl",
+                                                    children: "💻"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/facilities/page.js",
+                                                    lineNumber: 78,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 77,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300",
+                                                children: "Computer Labs"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 80,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300",
+                                                children: "High-speed internet and latest software"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/facilities/page.js",
+                                                lineNumber: 81,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/facilities/page.js",
+                                        lineNumber: 76,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/facilities/page.js",
+                                lineNumber: 59,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/facilities/page.js",
+                        lineNumber: 49,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/app/facilities/page.js",
+                    lineNumber: 48,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/app/facilities/page.js",
+            lineNumber: 13,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/app/facilities/page.js",
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
 }),
-"[project]/src/app/page.js [app-rsc] (ecmascript, Next.js Server Component)": ((__turbopack_context__) => {
+"[project]/src/app/facilities/page.js [app-rsc] (ecmascript, Next.js Server Component)": ((__turbopack_context__) => {
 
-__turbopack_context__.n(__turbopack_context__.i("[project]/src/app/page.js [app-rsc] (ecmascript)"));
+__turbopack_context__.n(__turbopack_context__.i("[project]/src/app/facilities/page.js [app-rsc] (ecmascript)"));
 }),
 "[externals]/next/dist/shared/lib/no-fallback-error.external.js [external] (next/dist/shared/lib/no-fallback-error.external.js, cjs)": ((__turbopack_context__) => {
 
@@ -767,4 +864,4 @@ module.exports = mod;
 
 };
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__60cf26e7._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__6ee33854._.js.map

@@ -19,7 +19,7 @@ const AdmissionTimeline = ({ dates }) => {
               <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg font-semibold text-gray-900">{item.event}</h3>
-                  <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap ml-2">
+                  <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full ml-2 flex-shrink-0">
                     {item.date}
                   </span>
                 </div>

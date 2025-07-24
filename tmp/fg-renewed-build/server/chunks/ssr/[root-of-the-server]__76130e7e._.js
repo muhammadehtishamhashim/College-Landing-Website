@@ -971,338 +971,340 @@ const Header = ()=>{
 };
 const __TURBOPACK__default__export__ = Header;
 }),
-"[project]/src/ui/RippleGrid.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/_components/programs/ProgramCard.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s({
     "default": ()=>__TURBOPACK__default__export__
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Renderer$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Renderer.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Program$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Program.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$extras$2f$Triangle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/extras/Triangle.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Mesh$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ogl/src/core/Mesh.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
 ;
-const RippleGrid = ({ enableRainbow = false, gridColor = "#ffffff", rippleIntensity = 0.05, gridSize = 10.0, gridThickness = 15.0, fadeDistance = 1.5, vignetteStrength = 2.0, glowIntensity = 0.1, opacity = 1.0, gridRotation = 0, mouseInteraction = true, mouseInteractionRadius = 1 })=>{
-    const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const mousePositionRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])({
-        x: 0.5,
-        y: 0.5
-    });
-    const targetMouseRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])({
-        x: 0.5,
-        y: 0.5
-    });
-    const mouseInfluenceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const uniformsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (!containerRef.current) return;
-        const hexToRgb = (hex)=>{
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? [
-                parseInt(result[1], 16) / 255,
-                parseInt(result[2], 16) / 255,
-                parseInt(result[3], 16) / 255
-            ] : [
-                1,
-                1,
-                1
-            ];
-        };
-        const renderer = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Renderer$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Renderer"]({
-            dpr: Math.min(window.devicePixelRatio, 2),
-            alpha: true
-        });
-        const gl = renderer.gl;
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-        gl.canvas.style.width = "100%";
-        gl.canvas.style.height = "100%";
-        containerRef.current.appendChild(gl.canvas);
-        const vert = `
-attribute vec2 position;
-varying vec2 vUv;
-void main() {
-    vUv = position * 0.5 + 0.5;
-    gl_Position = vec4(position, 0.0, 1.0);
-}`;
-        const frag = `precision highp float;
-uniform float iTime;
-uniform vec2 iResolution;
-uniform bool enableRainbow;
-uniform vec3 gridColor;
-uniform float rippleIntensity;
-uniform float gridSize;
-uniform float gridThickness;
-uniform float fadeDistance;
-uniform float vignetteStrength;
-uniform float glowIntensity;
-uniform float opacity;
-uniform float gridRotation;
-uniform bool mouseInteraction;
-uniform vec2 mousePosition;
-uniform float mouseInfluence;
-uniform float mouseInteractionRadius;
-varying vec2 vUv;
-
-float pi = 3.141592;
-
-mat2 rotate(float angle) {
-    float s = sin(angle);
-    float c = cos(angle);
-    return mat2(c, -s, s, c);
-}
-
-void main() {
-    vec2 uv = vUv * 2.0 - 1.0;
-    uv.x *= iResolution.x / iResolution.y;
-
-    if (gridRotation != 0.0) {
-        uv = rotate(gridRotation * pi / 180.0) * uv;
-    }
-
-    float dist = length(uv);
-    float func = sin(pi * (iTime - dist));
-    vec2 rippleUv = uv + uv * func * rippleIntensity;
-
-    if (mouseInteraction && mouseInfluence > 0.0) {
-        vec2 mouseUv = (mousePosition * 2.0 - 1.0);
-        mouseUv.x *= iResolution.x / iResolution.y;
-        float mouseDist = length(uv - mouseUv);
-        
-        float influence = mouseInfluence * exp(-mouseDist * mouseDist / (mouseInteractionRadius * mouseInteractionRadius));
-        
-        float mouseWave = sin(pi * (iTime * 2.0 - mouseDist * 3.0)) * influence;
-        rippleUv += normalize(uv - mouseUv) * mouseWave * rippleIntensity * 0.3;
-    }
-
-    vec2 a = sin(gridSize * 0.5 * pi * rippleUv - pi / 2.0);
-    vec2 b = abs(a);
-
-    float aaWidth = 0.5;
-    vec2 smoothB = vec2(
-        smoothstep(0.0, aaWidth, b.x),
-        smoothstep(0.0, aaWidth, b.y)
-    );
-
-    vec3 color = vec3(0.0);
-    color += exp(-gridThickness * smoothB.x * (0.8 + 0.5 * sin(pi * iTime)));
-    color += exp(-gridThickness * smoothB.y);
-    color += 0.5 * exp(-(gridThickness / 4.0) * sin(smoothB.x));
-    color += 0.5 * exp(-(gridThickness / 3.0) * smoothB.y);
-
-    if (glowIntensity > 0.0) {
-        color += glowIntensity * exp(-gridThickness * 0.5 * smoothB.x);
-        color += glowIntensity * exp(-gridThickness * 0.5 * smoothB.y);
-    }
-
-    float ddd = exp(-2.0 * clamp(pow(dist, fadeDistance), 0.0, 1.0));
-    
-    vec2 vignetteCoords = vUv - 0.5;
-    float vignetteDistance = length(vignetteCoords);
-    float vignette = 1.0 - pow(vignetteDistance * 2.0, vignetteStrength);
-    vignette = clamp(vignette, 0.0, 1.0);
-    
-    vec3 t;
-    if (enableRainbow) {
-        t = vec3(
-            uv.x * 0.5 + 0.5 * sin(iTime),
-            uv.y * 0.5 + 0.5 * cos(iTime),
-            pow(cos(iTime), 4.0)
-        ) + 0.5;
-    } else {
-        t = gridColor;
-    }
-
-    float finalFade = ddd * vignette;
-    float alpha = length(color) * finalFade * opacity;
-    gl_FragColor = vec4(color * t * finalFade * opacity, alpha);
-}`;
-        const uniforms = {
-            iTime: {
-                value: 0
-            },
-            iResolution: {
-                value: [
-                    1,
-                    1
-                ]
-            },
-            enableRainbow: {
-                value: enableRainbow
-            },
-            gridColor: {
-                value: hexToRgb(gridColor)
-            },
-            rippleIntensity: {
-                value: rippleIntensity
-            },
-            gridSize: {
-                value: gridSize
-            },
-            gridThickness: {
-                value: gridThickness
-            },
-            fadeDistance: {
-                value: fadeDistance
-            },
-            vignetteStrength: {
-                value: vignetteStrength
-            },
-            glowIntensity: {
-                value: glowIntensity
-            },
-            opacity: {
-                value: opacity
-            },
-            gridRotation: {
-                value: gridRotation
-            },
-            mouseInteraction: {
-                value: mouseInteraction
-            },
-            mousePosition: {
-                value: [
-                    0.5,
-                    0.5
-                ]
-            },
-            mouseInfluence: {
-                value: 0
-            },
-            mouseInteractionRadius: {
-                value: mouseInteractionRadius
-            }
-        };
-        uniformsRef.current = uniforms;
-        const geometry = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$extras$2f$Triangle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Triangle"](gl);
-        const program = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Program$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Program"](gl, {
-            vertex: vert,
-            fragment: frag,
-            uniforms
-        });
-        const mesh = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Mesh$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Mesh"](gl, {
-            geometry,
-            program
-        });
-        const resize = ()=>{
-            const { clientWidth: w, clientHeight: h } = containerRef.current;
-            renderer.setSize(w, h);
-            uniforms.iResolution.value = [
-                w,
-                h
-            ];
-        };
-        const handleMouseMove = (e)=>{
-            if (!mouseInteraction || !containerRef.current) return;
-            const rect = containerRef.current.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = 1.0 - (e.clientY - rect.top) / rect.height; // Flip Y coordinate
-            targetMouseRef.current = {
-                x,
-                y
-            };
-        };
-        const handleMouseEnter = ()=>{
-            if (!mouseInteraction) return;
-            mouseInfluenceRef.current = 1.0;
-        };
-        const handleMouseLeave = ()=>{
-            if (!mouseInteraction) return;
-            mouseInfluenceRef.current = 0.0;
-        };
-        window.addEventListener("resize", resize);
-        if (mouseInteraction) {
-            containerRef.current.addEventListener("mousemove", handleMouseMove);
-            containerRef.current.addEventListener("mouseenter", handleMouseEnter);
-            containerRef.current.addEventListener("mouseleave", handleMouseLeave);
+const ProgramCard = ({ program })=>{
+    // Determine border colors based on program type
+    const getBorderColors = (programId)=>{
+        if (programId.includes('physics') || programId.includes('pre-engineering')) {
+            return [
+                '#3b82f6',
+                '#8b5cf6'
+            ]; // Blue to Purple
+        } else if (programId.includes('computer') || programId.includes('ics') || programId.includes('fcs')) {
+            return [
+                '#10b981',
+                '#3b82f6'
+            ]; // Green to Blue
+        } else if (programId.includes('medical')) {
+            return [
+                '#ef4444',
+                '#f59e0b'
+            ]; // Red to Orange
+        } else {
+            return [
+                '#8b5cf6',
+                '#ec4899'
+            ]; // Purple to Pink (default)
         }
-        resize();
-        const render = (t)=>{
-            uniforms.iTime.value = t * 0.001;
-            const lerpFactor = 0.1;
-            mousePositionRef.current.x += (targetMouseRef.current.x - mousePositionRef.current.x) * lerpFactor;
-            mousePositionRef.current.y += (targetMouseRef.current.y - mousePositionRef.current.y) * lerpFactor;
-            const currentInfluence = uniforms.mouseInfluence.value;
-            const targetInfluence = mouseInfluenceRef.current;
-            uniforms.mouseInfluence.value += (targetInfluence - currentInfluence) * 0.05;
-            uniforms.mousePosition.value = [
-                mousePositionRef.current.x,
-                mousePositionRef.current.y
-            ];
-            renderer.render({
-                scene: mesh
-            });
-            requestAnimationFrame(render);
-        };
-        requestAnimationFrame(render);
-        return ()=>{
-            window.removeEventListener("resize", resize);
-            if (mouseInteraction && containerRef.current) {
-                containerRef.current.removeEventListener("mousemove", handleMouseMove);
-                containerRef.current.removeEventListener("mouseenter", handleMouseEnter);
-                containerRef.current.removeEventListener("mouseleave", handleMouseLeave);
-            }
-            renderer.gl.getExtension("WEBGL_lose_context")?.loseContext();
-            containerRef.current?.removeChild(gl.canvas);
-        };
-    }, []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (!uniformsRef.current) return;
-        const hexToRgb = (hex)=>{
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? [
-                parseInt(result[1], 16) / 255,
-                parseInt(result[2], 16) / 255,
-                parseInt(result[3], 16) / 255
-            ] : [
-                1,
-                1,
-                1
-            ];
-        };
-        uniformsRef.current.enableRainbow.value = enableRainbow;
-        uniformsRef.current.gridColor.value = hexToRgb(gridColor);
-        uniformsRef.current.rippleIntensity.value = rippleIntensity;
-        uniformsRef.current.gridSize.value = gridSize;
-        uniformsRef.current.gridThickness.value = gridThickness;
-        uniformsRef.current.fadeDistance.value = fadeDistance;
-        uniformsRef.current.vignetteStrength.value = vignetteStrength;
-        uniformsRef.current.glowIntensity.value = glowIntensity;
-        uniformsRef.current.opacity.value = opacity;
-        uniformsRef.current.gridRotation.value = gridRotation;
-        uniformsRef.current.mouseInteraction.value = mouseInteraction;
-        uniformsRef.current.mouseInteractionRadius.value = mouseInteractionRadius;
-    }, [
-        enableRainbow,
-        gridColor,
-        rippleIntensity,
-        gridSize,
-        gridThickness,
-        fadeDistance,
-        vignetteStrength,
-        glowIntensity,
-        opacity,
-        gridRotation,
-        mouseInteraction,
-        mouseInteractionRadius
-    ]);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: containerRef,
-        className: "w-full h-full relative overflow-hidden [&_canvas]:block"
-    }, void 0, false, {
-        fileName: "[project]/src/ui/RippleGrid.js",
-        lineNumber: 292,
-        columnNumber: 10
-    }, ("TURBOPACK compile-time value", void 0));
+    };
+    const borderColors = getBorderColors(program.id);
+    const borderClass = `animated-border-${program.id}`;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "jsx-22490b19a797d590" + " " + "animated-border-box group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/20",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-22490b19a797d590" + " " + `animated-border ${borderClass}`
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-22490b19a797d590" + " " + "program-card-content bg-gray-800 rounded-2xl shadow-lg overflow-hidden",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-22490b19a797d590" + " " + "p-8 relative",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-22490b19a797d590" + " " + "absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                    lineNumber: 29,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-22490b19a797d590" + " " + "relative z-10",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "flex items-start justify-between mb-4",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "jsx-22490b19a797d590" + " " + "text-2xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: program.name
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 33,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "jsx-22490b19a797d590" + " " + "bg-blue-500/20 text-blue-300 text-sm font-medium px-3 py-1 rounded-full border border-blue-500/30 group-hover:bg-blue-500/30 group-hover:border-blue-400/50 transition-all duration-300",
+                                                    children: program.duration
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 34,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 32,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "jsx-22490b19a797d590" + " " + "text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300",
+                                            children: program.description
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 39,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "grid grid-cols-2 gap-4 mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "bg-gray-700/50 p-4 rounded-lg border border-gray-600/50 group-hover:bg-gray-700/70 group-hover:border-gray-600/70 transition-all duration-300",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                            className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-2",
+                                                            children: "Annual Fees"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 46,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "jsx-22490b19a797d590" + " " + "text-blue-400 font-bold group-hover:text-blue-300 transition-colors duration-300",
+                                                            children: program.fees
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 47,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 45,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "bg-gray-700/50 p-4 rounded-lg border border-gray-600/50 group-hover:bg-gray-700/70 group-hover:border-gray-600/70 transition-all duration-300",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                            className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-2",
+                                                            children: "Intake"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 50,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "jsx-22490b19a797d590" + " " + "text-green-400 font-bold group-hover:text-green-300 transition-colors duration-300",
+                                                            children: [
+                                                                program.intake,
+                                                                " Students"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 51,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 49,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 44,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: "Eligibility Criteria"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 57,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                    className: "jsx-22490b19a797d590" + " " + "space-y-1",
+                                                    children: program.eligibility.map((criteria, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                            className: "jsx-22490b19a797d590" + " " + "text-sm text-gray-300 flex items-start group-hover:text-gray-200 transition-colors duration-300",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "jsx-22490b19a797d590" + " " + "text-green-400 mr-2 group-hover:text-green-300 transition-colors duration-300",
+                                                                    children: "✓"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                                    lineNumber: 61,
+                                                                    columnNumber: 23
+                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                criteria
+                                                            ]
+                                                        }, index, true, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 60,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0)))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 58,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 56,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "mb-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: "Key Subjects"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 70,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "flex flex-wrap gap-2",
+                                                    children: [
+                                                        program.subjects.slice(0, 4).map((subject, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "jsx-22490b19a797d590" + " " + "bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/30 group-hover:bg-blue-500/30 group-hover:border-blue-400/50 transition-all duration-300",
+                                                                children: subject
+                                                            }, index, false, {
+                                                                fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                                lineNumber: 73,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0))),
+                                                        program.subjects.length > 4 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "jsx-22490b19a797d590" + " " + "bg-gray-600/50 text-gray-300 text-xs px-3 py-1 rounded-full border border-gray-500/30 group-hover:bg-gray-600/70 group-hover:border-gray-500/50 transition-all duration-300",
+                                                            children: [
+                                                                "+",
+                                                                program.subjects.length - 4,
+                                                                " more"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 81,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 71,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 69,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-22490b19a797d590" + " " + "mb-8",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "jsx-22490b19a797d590" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                    children: "Career Prospects"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 90,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-22490b19a797d590" + " " + "flex flex-wrap gap-2",
+                                                    children: program.careerProspects.slice(0, 3).map((career, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "jsx-22490b19a797d590" + " " + "bg-green-500/20 text-green-300 text-xs px-3 py-1 rounded-full border border-green-500/30 group-hover:bg-green-500/30 group-hover:border-green-400/50 transition-all duration-300",
+                                                            children: career
+                                                        }, index, false, {
+                                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                            lineNumber: 93,
+                                                            columnNumber: 21
+                                                        }, ("TURBOPACK compile-time value", void 0)))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                                    lineNumber: 91,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 89,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                            href: `/admissions?program=${program.id}`,
+                                            className: "block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-center font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl",
+                                            children: [
+                                                "Apply for ",
+                                                program.name.split(' ').pop()
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                            lineNumber: 104,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                    lineNumber: 31,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-22490b19a797d590" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out rounded-2xl"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                                    lineNumber: 113,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                            lineNumber: 27,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/_components/programs/ProgramCard.js",
+                lineNumber: 24,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                id: "22490b19a797d590",
+                children: '@property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}.animated-border-box{border-radius:16px;margin-bottom:0;padding:2px;position:relative}.animated-border{z-index:0;background-size:300% 300%;border-radius:16px;animation:4s linear infinite rotate;position:absolute;inset:0}.program-card-content{z-index:1;position:relative}.animated-border-bsc-physics,.animated-border-pre-engineering{background-image:conic-gradient(from var(--angle),#3b82f6,#8b5cf6,#3b82f6)}.animated-border-bsc-computer-science,.animated-border-ics,.animated-border-fcs{background-image:conic-gradient(from var(--angle),#10b981,#3b82f6,#10b981)}.animated-border-premedical{background-image:conic-gradient(from var(--angle),#ef4444,#f59e0b,#ef4444)}@keyframes rotate{0%{--angle:0deg}to{--angle:360deg}}'
+            }, void 0, false, void 0, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true);
 };
-const __TURBOPACK__default__export__ = RippleGrid;
+const __TURBOPACK__default__export__ = ProgramCard;
 }),
 
 };
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__a86593f6._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__76130e7e._.js.map

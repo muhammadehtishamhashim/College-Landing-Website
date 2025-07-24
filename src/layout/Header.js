@@ -49,17 +49,17 @@ const Header = () => {
         style={{ transform: 'translateZ(0)' }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center h-16 lg:h-20">
             
             {/* Mobile Menu Toggle - Left Side */}
-            <div className="lg:hidden">
+            <div className="lg:hidden mr-3">
               <MobileNavToggle 
                 isOpen={isMobileMenuOpen}
                 onClick={toggleMobileMenu}
               />
             </div>
 
-            {/* Logo */}
+            {/* Logo - Fixed positioning */}
             <div 
               ref={logoRef}
               className="flex-shrink-0"
@@ -70,7 +70,7 @@ const Header = () => {
                   <span className="text-green-400 font-bold text-lg lg:text-xl relative z-10">FG</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="font-bold text-green-400 text-sm sm:text-base md:text-lg lg:text-xl">
+                  <h1 className="font-bold text-green-400 text-sm sm:text-base md:text-lg lg:text-xl whitespace-nowrap">
                     <span className="lg:hidden">FG Science Degree College</span>
                     <span className="hidden lg:inline">FG Science Degree College for Men</span>
                   </h1>
@@ -78,8 +78,8 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Desktop Navigation - More spacing from college name */}
-            <div className="hidden lg:block ml-auto pl-16">
+            {/* Desktop Navigation - Pushed to the right with extra spacing */}
+            <div className="hidden lg:flex ml-auto pl-8 xl:pl-12">
               <DesktopNavigation isScrolled={isScrolled} />
             </div>
 

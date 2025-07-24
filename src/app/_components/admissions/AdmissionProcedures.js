@@ -38,8 +38,8 @@ const AdmissionProcedures = ({ procedures, documents, fees }) => {
             <span className="font-bold text-blue-600">{fees.application}</span>
           </div>
           <div className="flex justify-between items-start p-4 bg-gray-50 rounded-lg">
-            <span className="font-medium text-gray-700">Tuition Fee</span>
-            <span className="font-bold text-blue-600 text-right text-sm">{fees.tuition}</span>
+            <span className="font-medium text-gray-700 flex-shrink-0 mr-2">Tuition Fee</span>
+            <span className="font-bold text-blue-600 text-right text-sm break-words">{fees.tuition}</span>
           </div>
           <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
             <span className="font-medium text-gray-700">Other Fees</span>

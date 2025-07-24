@@ -484,7 +484,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$layout$2f$Footer$2e$j
 ;
 const MainLayout = ({ children })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen flex flex-col",
+        className: "min-h-screen flex flex-col overflow-x-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$layout$2f$Header$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/layout/MainLayout.js",
@@ -492,7 +492,7 @@ const MainLayout = ({ children })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-                className: "flex-1",
+                className: "flex-1 overflow-x-hidden",
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/layout/MainLayout.js",
@@ -588,10 +588,10 @@ function About() {
                                     gridColor: "#ffffff",
                                     rippleIntensity: 0.05,
                                     gridSize: 10,
-                                    gridThickness: 15,
+                                    gridThickness: 25,
                                     mouseInteraction: true,
                                     mouseInteractionRadius: 1.2,
-                                    opacity: 0.8
+                                    opacity: 1
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/about/page.js",
                                     lineNumber: 19,
@@ -615,7 +615,7 @@ function About() {
                             }, void 0, false, {
                                 fileName: "[project]/src/app/about/page.js",
                                 lineNumber: 33,
-                                columnNumber: 24
+                                columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/about/page.js",

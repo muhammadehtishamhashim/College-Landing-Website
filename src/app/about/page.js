@@ -21,16 +21,16 @@ export default function About() {
                                 gridColor="#ffffff"
                                 rippleIntensity={0.05}
                                 gridSize={10}
-                                gridThickness={15}
+                                gridThickness={25}
                                 mouseInteraction={true}
                                 mouseInteractionRadius={1.2}
-                                opacity={0.8}
+                                opacity={1}
                             />
                         </div>
                     </div>
 
                     <div className="relative z-10 text-center">
-                       <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white drop-shadow-lg">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white drop-shadow-lg">
                             About Us
                         </h1>
                     </div>

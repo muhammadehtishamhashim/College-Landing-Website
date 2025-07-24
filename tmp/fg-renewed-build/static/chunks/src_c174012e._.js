@@ -1013,7 +1013,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/app/_components/contact/ContactForm.js [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/app/_components/facilities/FacilityCard.js [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
@@ -1022,329 +1022,278 @@ __turbopack_context__.s({
     "default": ()=>__TURBOPACK__default__export__
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
 'use client';
 ;
-const ContactForm = ()=>{
-    _s();
-    const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-    });
-    const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const handleChange = (e)=>{
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+;
+const FacilityCard = (param)=>{
+    let { facility } = param;
+    // Determine border colors based on facility type
+    const getBorderColors = (facilityId)=>{
+        if (facilityId.includes('physics')) {
+            return [
+                '#3b82f6',
+                '#8b5cf6'
+            ]; // Blue to Purple
+        } else if (facilityId.includes('chemistry')) {
+            return [
+                '#ef4444',
+                '#f59e0b'
+            ]; // Red to Orange
+        } else if (facilityId.includes('computer')) {
+            return [
+                '#10b981',
+                '#3b82f6'
+            ]; // Green to Blue
+        } else if (facilityId.includes('library')) {
+            return [
+                '#8b5cf6',
+                '#ec4899'
+            ]; // Purple to Pink
+        } else if (facilityId.includes('bio')) {
+            return [
+                '#10b981',
+                '#34d399'
+            ]; // Green to Emerald
+        } else {
+            return [
+                '#f59e0b',
+                '#ef4444'
+            ]; // Orange to Red (default)
+        }
     };
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        setIsSubmitting(true);
-        // Simulate form submission
-        await new Promise((resolve)=>setTimeout(resolve, 1000));
-        // Reset form
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            subject: '',
-            message: ''
-        });
-        setIsSubmitting(false);
-        alert('Thank you for your message! We will get back to you soon.');
+    // Get facility image path
+    const getImagePath = (facilityId)=>{
+        const imageMap = {
+            'physics-lab': '/Facilities/PhysicsLab.png',
+            'chemistry-lab': '/Facilities/ChemistryLab.png',
+            'computer-lab': '/Facilities/ComputerLab.png',
+            'library': '/Facilities/Library.png',
+            'bio-lab': '/Facilities/BioLab.png',
+            'smart-classes': '/Facilities/SmartClasses.png'
+        };
+        return imageMap[facilityId] || '/Facilities/PhysicsLab.png';
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white p-8 rounded-2xl shadow-lg",
+    const borderColors = getBorderColors(facility.id);
+    const borderClass = "animated-border-".concat(facility.id);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: "text-2xl font-bold text-gray-900 mb-6",
-                children: "Send us a Message"
-            }, void 0, false, {
-                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                lineNumber: 44,
-                columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                onSubmit: handleSubmit,
-                className: "space-y-6",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "jsx-2a1b759a4a9eac8b" + " " + "animated-border-box group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/20",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "name",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Full Name *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 49,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                id: "name",
-                                name: "name",
-                                value: formData.name,
-                                onChange: handleChange,
-                                required: true,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                placeholder: "Enter your full name"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 52,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 48,
+                        className: "jsx-2a1b759a4a9eac8b" + " " + "animated-border ".concat(borderClass)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                        lineNumber: 40,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-2a1b759a4a9eac8b" + " " + "facility-card-content bg-gray-800 rounded-2xl shadow-lg overflow-hidden",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "email",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Email Address *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 66,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "email",
-                                id: "email",
-                                name: "email",
-                                value: formData.email,
-                                onChange: handleChange,
-                                required: true,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                placeholder: "Enter your email address"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 69,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 65,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "phone",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Phone Number"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 83,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "tel",
-                                id: "phone",
-                                name: "phone",
-                                value: formData.phone,
-                                onChange: handleChange,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
-                                placeholder: "Enter your phone number"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 86,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 82,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "subject",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Subject *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 99,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                id: "subject",
-                                name: "subject",
-                                value: formData.subject,
-                                onChange: handleChange,
-                                required: true,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-2a1b759a4a9eac8b" + " " + "h-64 relative overflow-hidden",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "",
-                                        children: "Select a subject"
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: getImagePath(facility.id),
+                                        alt: facility.name,
+                                        className: "jsx-2a1b759a4a9eac8b" + " " + "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 110,
+                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                        lineNumber: 44,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "admission",
-                                        children: "Admission Inquiry"
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-2a1b759a4a9eac8b" + " " + "absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"
                                     }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 111,
+                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                        lineNumber: 49,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "programs",
-                                        children: "Program Information"
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-2a1b759a4a9eac8b" + " " + "absolute top-4 right-4",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "jsx-2a1b759a4a9eac8b" + " " + "bg-blue-500/20 text-blue-300 text-sm font-medium px-3 py-1 rounded-full border border-blue-500/30 backdrop-blur-sm",
+                                            children: facility.capacity
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                            lineNumber: 51,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 112,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "facilities",
-                                        children: "Facilities Tour"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 113,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "general",
-                                        children: "General Question"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 114,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "other",
-                                        children: "Other"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                        lineNumber: 115,
+                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                        lineNumber: 50,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 102,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 98,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "message",
-                                className: "block text-sm font-medium text-gray-700 mb-2",
-                                children: "Message *"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 121,
+                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                lineNumber: 43,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                                id: "message",
-                                name: "message",
-                                value: formData.message,
-                                onChange: handleChange,
-                                required: true,
-                                rows: 5,
-                                className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical",
-                                placeholder: "Enter your message here..."
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                lineNumber: 124,
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "jsx-2a1b759a4a9eac8b" + " " + "p-8 relative",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-2a1b759a4a9eac8b" + " " + "absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                        lineNumber: 59,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-2a1b759a4a9eac8b" + " " + "relative z-10",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-2a1b759a4a9eac8b" + " " + "mb-4",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "jsx-2a1b759a4a9eac8b" + " " + "text-2xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300 mb-2",
+                                                    children: facility.name
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                    lineNumber: 63,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                lineNumber: 62,
+                                                columnNumber: 15
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "jsx-2a1b759a4a9eac8b" + " " + "text-gray-300 mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300",
+                                                children: facility.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                lineNumber: 68,
+                                                columnNumber: 15
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-2a1b759a4a9eac8b" + " " + "mb-6",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                        className: "jsx-2a1b759a4a9eac8b" + " " + "font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300",
+                                                        children: "Key Features"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                        lineNumber: 74,
+                                                        columnNumber: 17
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "jsx-2a1b759a4a9eac8b" + " " + "grid grid-cols-1 gap-2",
+                                                        children: facility.features.map((feature, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "jsx-2a1b759a4a9eac8b" + " " + "flex items-start",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "jsx-2a1b759a4a9eac8b" + " " + "text-green-400 mr-2 mt-1 group-hover:text-green-300 transition-colors duration-300",
+                                                                        children: "✓"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                                        lineNumber: 78,
+                                                                        columnNumber: 23
+                                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "jsx-2a1b759a4a9eac8b" + " " + "text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300",
+                                                                        children: feature
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                                        lineNumber: 79,
+                                                                        columnNumber: 23
+                                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                                ]
+                                                            }, index, true, {
+                                                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                                lineNumber: 77,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0)))
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                        lineNumber: 75,
+                                                        columnNumber: 17
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                lineNumber: 73,
+                                                columnNumber: 15
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "jsx-2a1b759a4a9eac8b" + " " + "bg-gray-700/50 p-4 rounded-lg border border-gray-600/50 group-hover:bg-gray-700/70 group-hover:border-gray-600/70 transition-all duration-300",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "jsx-2a1b759a4a9eac8b" + " " + "flex items-center justify-between",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "jsx-2a1b759a4a9eac8b" + " " + "text-sm font-medium text-white",
+                                                            children: "Capacity"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                            lineNumber: 88,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "jsx-2a1b759a4a9eac8b" + " " + "text-lg font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300",
+                                                            children: facility.capacity
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                            lineNumber: 89,
+                                                            columnNumber: 19
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                    lineNumber: 87,
+                                                    columnNumber: 17
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                                lineNumber: 86,
+                                                columnNumber: 15
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                        lineNumber: 61,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-2a1b759a4a9eac8b" + " " + "absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out rounded-b-2xl"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                        lineNumber: 95,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                                lineNumber: 57,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 120,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        type: "submit",
-                        disabled: isSubmitting,
-                        className: "w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center",
-                        children: isSubmitting ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                    className: "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    fill: "none",
-                                    viewBox: "0 0 24 24",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                            className: "opacity-25",
-                                            cx: "12",
-                                            cy: "12",
-                                            r: "10",
-                                            stroke: "currentColor",
-                                            strokeWidth: "4"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                            lineNumber: 145,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                            className: "opacity-75",
-                                            fill: "currentColor",
-                                            d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                            lineNumber: 146,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0))
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                                    lineNumber: 144,
-                                    columnNumber: 15
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                "Sending..."
-                            ]
-                        }, void 0, true) : 'Send Message'
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                        lineNumber: 137,
+                        fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                        lineNumber: 41,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
-                fileName: "[project]/src/app/_components/contact/ContactForm.js",
-                lineNumber: 46,
+                fileName: "[project]/src/app/_components/facilities/FacilityCard.js",
+                lineNumber: 39,
                 columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0))
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                id: "2a1b759a4a9eac8b",
+                children: '@property --angle{syntax:"<angle>";inherits:false;initial-value:0deg}.animated-border-box{border-radius:16px;margin-bottom:0;padding:2px;position:relative}.animated-border{z-index:0;background-size:300% 300%;border-radius:16px;animation:4s linear infinite rotate;position:absolute;top:0;bottom:0;left:0;right:0}.facility-card-content{z-index:1;position:relative}.animated-border-physics-lab{background-image:conic-gradient(from var(--angle),#3b82f6,#8b5cf6,#3b82f6)}.animated-border-chemistry-lab{background-image:conic-gradient(from var(--angle),#ef4444,#f59e0b,#ef4444)}.animated-border-computer-lab{background-image:conic-gradient(from var(--angle),#10b981,#3b82f6,#10b981)}.animated-border-library{background-image:conic-gradient(from var(--angle),#8b5cf6,#ec4899,#8b5cf6)}.animated-border-bio-lab{background-image:conic-gradient(from var(--angle),#10b981,#34d399,#10b981)}.animated-border-smart-classes{background-image:conic-gradient(from var(--angle),#f59e0b,#ef4444,#f59e0b)}@keyframes rotate{0%{--angle:0deg}to{--angle:360deg}}'
+            }, void 0, false, void 0, ("TURBOPACK compile-time value", void 0))
         ]
-    }, void 0, true, {
-        fileName: "[project]/src/app/_components/contact/ContactForm.js",
-        lineNumber: 43,
-        columnNumber: 5
-    }, ("TURBOPACK compile-time value", void 0));
+    }, void 0, true);
 };
-_s(ContactForm, "CqgBtZ+og8RGKDipeaVQ3r01Luk=");
-_c = ContactForm;
-const __TURBOPACK__default__export__ = ContactForm;
+_c = FacilityCard;
+const __TURBOPACK__default__export__ = FacilityCard;
 var _c;
-__turbopack_context__.k.register(_c, "ContactForm");
+__turbopack_context__.k.register(_c, "FacilityCard");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
 }]);
 
-//# sourceMappingURL=src_6d4482b7._.js.map
+//# sourceMappingURL=src_c174012e._.js.map

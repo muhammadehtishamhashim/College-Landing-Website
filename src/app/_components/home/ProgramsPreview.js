@@ -15,10 +15,10 @@ const ProgramsPreview = ({ programs }) => {
   const leftCardRef = useRef(null);
   const rightCardRef = useRef(null);
 
-  // Filter only Physics and Computer Science programs
-  const filteredPrograms = programs.filter(
+  // Filter only Physics and Computer Science programs from degree programs
+  const filteredPrograms = programs.degree ? programs.degree.filter(
     program => program.id === 'bsc-physics' || program.id === 'bsc-computer-science'
-  );
+  ) : [];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -113,10 +113,10 @@ const ProgramsPreview = ({ programs }) => {
         </div>
       </div>
 
-      {/* Cards container - full width on mobile, contained on desktop */}
-      <div className="px-0 sm:px-4 md:px-6 lg:px-8 mb-16">
+      {/* Cards container - proper padding on all screen sizes */}
+      <div className="px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {filteredPrograms.map((program, index) => (
               <div
                 key={program.id}

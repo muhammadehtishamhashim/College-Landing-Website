@@ -66,22 +66,5 @@
       "Quiet reading zones"
     ],
     "capacity": "200 students"
-  },
-  {
-    "id": "auditorium",
-    "name": "Main Auditorium",
-    "description": "Spacious auditorium for seminars, conferences, and cultural events with modern audio-visual systems.",
-    "images": [
-      "/images/facilities/auditorium-1.jpg",
-      "/images/facilities/auditorium-2.jpg"
-    ],
-    "features": [
-      "300 seating capacity",
-      "Audio-visual systems",
-      "Stage lighting",
-      "Air conditioning",
-      "Wheelchair accessible"
-    ],
-    "capacity": "300 people"
   }
 ]
