@@ -76,21 +76,11 @@ const fragment = /* glsl */ `
 `;
 
 const Particles = ({
-  particleCount = 200,
-  particleSpread = 10,
-  speed = 0.1,
-  particleColors,
-  moveParticlesOnHover = false,
-  particleHoverFactor = 1,
-  alphaParticles = false,
-  particleBaseSize = 100,
-  sizeRandomness = 1,
-  cameraDistance = 20,
-  disableRotation = false,
+  particleCount = 150,
+  particleColors = defaultColors,
   className,
 }) => {
   const containerRef = useRef(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const container = containerRef.current;
@@ -125,12 +115,11 @@ const Particles = ({
       gl.clearColor(0, 0, 0, 0);
 
       const camera = new Camera(gl, { fov: 15 });
-      camera.position.set(0, 0, cameraDistance);
+      camera.position.set(0, 0, 18);
 
       const resize = () => {
         const width = container.clientWidth;
         const height = container.clientHeight;
-        console.log('Resizing canvas to:', width, height);
 
         if (width > 0 && height > 0) {
           renderer.setSize(width, height);
@@ -139,22 +128,7 @@ const Particles = ({
       };
 
       window.addEventListener("resize", resize, false);
-
-      // Force initial resize after a short delay for Chrome/Edge
-      setTimeout(() => {
-        resize();
-      }, 100);
-
-      const handleMouseMove = (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-        const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
-        mouseRef.current = { x, y };
-      };
-
-      if (moveParticlesOnHover) {
-        container.addEventListener("mousemove", handleMouseMove);
-      }
+      setTimeout(() => resize(), 100);
 
       const count = particleCount;
       const positions = new Float32Array(count * 3);
@@ -188,10 +162,10 @@ const Particles = ({
         fragment,
         uniforms: {
           uTime: { value: 0 },
-          uSpread: { value: particleSpread },
-          uBaseSize: { value: particleBaseSize },
-          uSizeRandomness: { value: sizeRandomness },
-          uAlphaParticles: { value: alphaParticles ? 1 : 0 },
+          uSpread: { value: 8 },
+          uBaseSize: { value: 60 },
+          uSizeRandomness: { value: 0.5 },
+          uAlphaParticles: { value: 1 },
         },
         transparent: true,
         depthTest: false,
@@ -207,23 +181,14 @@ const Particles = ({
         animationFrameId = requestAnimationFrame(update);
         const delta = t - lastTime;
         lastTime = t;
-        elapsed += delta * speed;
+        elapsed += delta * 0.3;
 
         program.uniforms.uTime.value = elapsed * 0.001;
 
-        if (moveParticlesOnHover) {
-          particles.position.x = -mouseRef.current.x * particleHoverFactor;
-          particles.position.y = -mouseRef.current.y * particleHoverFactor;
-        } else {
-          particles.position.x = 0;
-          particles.position.y = 0;
-        }
-
-        if (!disableRotation) {
-          particles.rotation.x = Math.sin(elapsed * 0.0002) * 0.1;
-          particles.rotation.y = Math.cos(elapsed * 0.0005) * 0.15;
-          particles.rotation.z += 0.01 * speed;
-        }
+        // Fixed gentle rotation
+        particles.rotation.x = Math.sin(elapsed * 0.0001) * 0.05;
+        particles.rotation.y = Math.cos(elapsed * 0.0002) * 0.08;
+        particles.rotation.z += 0.005;
 
         renderer.render({ scene: particles, camera });
       };
@@ -232,9 +197,6 @@ const Particles = ({
 
       return () => {
         window.removeEventListener("resize", resize);
-        if (moveParticlesOnHover) {
-          container.removeEventListener("mousemove", handleMouseMove);
-        }
         cancelAnimationFrame(animationFrameId);
         if (container.contains(gl.canvas)) {
           container.removeChild(gl.canvas);
@@ -245,19 +207,7 @@ const Particles = ({
       // Fallback: show a simple message or alternative effect
       container.innerHTML = '<div style="color: white; padding: 20px;">WebGL not supported in this browser</div>';
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    particleCount,
-    particleSpread,
-    speed,
-    moveParticlesOnHover,
-    particleHoverFactor,
-    alphaParticles,
-    particleBaseSize,
-    sizeRandomness,
-    cameraDistance,
-    disableRotation,
-  ]);
+  }, [particleCount, particleColors]);
 
   return (
     <div

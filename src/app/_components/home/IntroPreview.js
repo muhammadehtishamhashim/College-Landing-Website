@@ -194,10 +194,13 @@ const IntroPreview = () => {
                                     <div
                                         key={item.id}
                                         ref={el => cardsRef.current[index] = el}
-                                        className="animated-border-box"
+                                        className="static-border-box"
                                     >
-                                        <div className={`animated-border animated-border-${item.id}`}></div>
-                                        <div className={`content-box group/${item.id} transition-all duration-500 hover:shadow-lg hover:shadow-[#60a5fa]/20 overflow-hidden`}>
+                                        <div className={`static-border static-border-${item.id}`}></div>
+                                        <div className={`content-box group/${item.id} transition-all duration-500 hover:shadow-2xl ${item.id === 'campus' ? 'hover:shadow-emerald-500/40' :
+                                            item.id === 'academic' ? 'hover:shadow-purple-500/40' :
+                                                'hover:shadow-orange-500/40'
+                                            } overflow-hidden`}>
                                             {/* Shimmer effect on hover - properly contained */}
                                             <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/6 to-transparent -translate-x-full group-hover/${item.id}:translate-x-full transition-transform duration-1200 ease-in-out`}></div>
 
@@ -207,14 +210,13 @@ const IntroPreview = () => {
                                             <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 relative z-10">
                                                 {/* Image first on mobile, right on desktop */}
                                                 <div className={`w-full lg:w-80 h-40 sm:h-48 relative order-1 lg:order-2 overflow-hidden rounded-lg transition-all duration-500 group-hover/${item.id}:shadow-md group-hover/${item.id}:shadow-[#60a5fa]/20`}>
-                                                    <div className={`w-full h-full transition-transform duration-500 group-hover/${item.id}:scale-105`}>
-                                                        <img
-                                                            src={item.images[0]}
-                                                            alt={item.title}
-                                                            className="w-full h-full object-cover rounded-lg"
-                                                            loading="lazy"
-                                                        />
-                                                    </div>
+                                                    <SimpleImageTransition
+                                                        images={item.images}
+                                                        alt={item.title}
+                                                        className="w-full h-full object-cover rounded-lg"
+                                                        interval={3000 + (index * 500)}
+                                                        hoverScale={true}
+                                                    />
 
                                                     {/* Subtle floating particles on hover */}
                                                     <div className={`absolute inset-0 opacity-0 group-hover/${item.id}:opacity-100 transition-opacity duration-500 pointer-events-none z-20`}>
@@ -255,22 +257,16 @@ const IntroPreview = () => {
                 </div>
             </div>
 
-            {/* Add responsive styles and animated border styles */}
+            {/* Add responsive styles and static border styles */}
             <style jsx global>{`
-                @property --angle {
-                    syntax: "<angle>";
-                    initial-value: 0deg;
-                    inherits: false;
-                }
-
-                .animated-border-box {
+                .static-border-box {
                     position: relative;
                     border-radius: 12px;
                     padding: 2px;
                     margin-bottom: 24px;
                 }
 
-                .animated-border {
+                .static-border {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -278,9 +274,6 @@ const IntroPreview = () => {
                     bottom: 0;
                     border-radius: 12px;
                     z-index: 0;
-                    background-size: 200% 200%;
-                    animation: rotate 6s linear infinite;
-                    will-change: transform;
                 }
 
                 .content-box {
@@ -291,25 +284,16 @@ const IntroPreview = () => {
                     z-index: 1;
                 }
 
-                .animated-border-campus {
+                .static-border-campus {
                     background: linear-gradient(45deg, #34d399, #60a5fa);
                 }
 
-                .animated-border-academic {
+                .static-border-academic {
                     background: linear-gradient(45deg, #8b5cf6, #ec4899);
                 }
 
-                .animated-border-commitment {
+                .static-border-commitment {
                     background: linear-gradient(45deg, #f59e0b, #ef4444);
-                }
-
-                @keyframes rotate {
-                    from {
-                        --angle: 0deg;
-                    }
-                    to {
-                        --angle: 360deg;
-                    }
                 }
 
                 @media (min-width: 640px) {
@@ -318,7 +302,7 @@ const IntroPreview = () => {
                     }
                 }
             `}</style>
-        </section>
+        </section >
     );
 };
 

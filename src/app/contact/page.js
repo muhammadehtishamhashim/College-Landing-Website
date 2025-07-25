@@ -12,9 +12,9 @@ export const metadata = {
 export default function Contact() {
   return (
     <MainLayout>
-      <div className="pt-20">
+      <div className="bg-gray-900 text-white min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-20 lg:py-32 flex items-center justify-center overflow-hidden">
+        <section className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
           {/* Background Animation */}
           <div className="absolute inset-0 w-full h-full">
             {/* Dark gradient background */}
@@ -23,28 +23,19 @@ export default function Contact() {
             {/* Particles animation */}
             <div className="absolute inset-0 opacity-60">
               <Particles
-                particleCount={180}
-                particleSpread={10}
-                speed={0.9}
+                particleCount={150}
                 particleColors={["#14b8a6", "#0891b2", "#06b6d4", "#ffffff"]}
-                moveParticlesOnHover={false}
-                particleHoverFactor={1.2}
-                alphaParticles={false}
-                particleBaseSize={90}
-                sizeRandomness={0.9}
-                cameraDistance={14}
-                disableRotation={false}
               />
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">Contact Us</h1>
-              <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
-                We're here to help you with any questions about admissions, programs, or campus life.
-              </p>
-            </div>
+          <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-6">
+              Contact Us
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-cyan-100 max-w-3xl mx-auto leading-relaxed">
+              We're here to help you with any questions about admissions, programs, or campus life.
+            </p>
           </div>
         </section>
 

@@ -13,37 +13,27 @@ export default function Programs() {
     <MainLayout>
       <div className="bg-gray-900 text-white min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-20 lg:py-32 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
           {/* Particles Background */}
           <div className="absolute inset-0 w-full h-full">
             <Particles
-              particleColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
               particleCount={200}
-              particleSpread={10}
-              speed={0.8}
-              particleBaseSize={100}
-              moveParticlesOnHover={false}
-              alphaParticles={false}
-              disableRotation={false}
-              
+              particleColors={["#00ffff", "#40ffaa", "#4079ff", "#ffffff"]}
             />
           </div>
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                Our Programs
-              </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Choose from our comprehensive range of intermediate and degree programs designed to prepare you for academic excellence and successful careers.
-              </p>
-            </div>
+
+          <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-6">
+              Our Programs
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-cyan-100 max-w-3xl mx-auto leading-relaxed">
+              Choose from our comprehensive range of intermediate and degree programs designed to prepare you for academic excellence and successful careers.
+            </p>
           </div>
         </section>
 
         {/* Intermediate Programs Section */}
-        <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
+        <section className="py-16 sm:py-20 bg-gray-800 relative overflow-hidden">
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">
@@ -64,8 +54,7 @@ export default function Programs() {
         </section>
 
         {/* Degree Programs Section */}
-        <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
+        <section className="py-12 sm:py-16 bg-gray-900 relative overflow-hidden">
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">
@@ -86,8 +75,7 @@ export default function Programs() {
         </section>
 
         {/* Why Choose Our Programs */}
-        <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
+        <section className="py-12 sm:py-16 bg-gray-800 relative overflow-hidden">
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">

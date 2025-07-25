@@ -17,16 +17,8 @@ export default function About() {
                     {/* Particles Background */}
                     <div className="absolute inset-0 w-full h-full">
                         <Particles
-                            particleColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
-                            particleCount={200}
-                            particleSpread={10}
-                            speed={0.8}
-                            particleBaseSize={100}
-                            moveParticlesOnHover={false}
-                            particleHoverFactor={1}
-                            alphaParticles={false}
-                            disableRotation={false}
-                            sizeRandomness={1}
+                            particleCount={180}
+                            particleColors={['#3b82f6', '#8b5cf6', '#06b6d4', '#ffffff']}
                         />
                     </div>
 

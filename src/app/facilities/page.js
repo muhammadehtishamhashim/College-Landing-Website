@@ -12,41 +12,30 @@ export const metadata = {
 export default function Facilities() {
   return (
     <MainLayout>
-      <div className="pt-16 bg-gray-900 min-h-screen">
+      <div className="bg-gray-900 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gray-900 text-white py-20 lg:py-32 flex items-center justify-center overflow-hidden">
+        <section className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white overflow-hidden py-20 lg:py-32 flex items-center justify-center">
           {/* Background Animation */}
           <div className="absolute inset-0 w-full h-full">
             {/* Dark gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-pink-900"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"></div>
 
             {/* Particles animation */}
             <div className="absolute inset-0 opacity-50">
               <Particles
-                particleCount={100}
-                particleSpread={8}
-                speed={0.5}
-                particleColors={["#00ffff", "#40ffaa", "#4079ff", "#ffffff"]}
-                moveParticlesOnHover={false}
-                particleHoverFactor={2}
-                alphaParticles={false}
-                particleBaseSize={80}
-                sizeRandomness={0.8}
-                cameraDistance={15}
-                disableRotation={false}
+                particleCount={120}
+                particleColors={["#8b5cf6", "#ec4899", "#a855f7", "#ffffff"]}
               />
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                Our Facilities
-              </h1>
-              <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto">
-                State-of-the-art infrastructure and modern facilities to support your academic journey and research endeavors.
-              </p>
-            </div>
+          <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-6">
+              Our Facilities
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-cyan-100 max-w-3xl mx-auto leading-relaxed">
+              State-of-the-art infrastructure and modern facilities to support your academic journey and research endeavors.
+            </p>
           </div>
         </section>
 

@@ -612,20 +612,13 @@ function About() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "absolute inset-0 w-full h-full",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ui$2f$Particles$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                particleCount: 180,
                                 particleColors: [
                                     '#3b82f6',
                                     '#8b5cf6',
-                                    '#06b6d4'
-                                ],
-                                particleCount: 200,
-                                particleSpread: 10,
-                                speed: 0.8,
-                                particleBaseSize: 100,
-                                moveParticlesOnHover: false,
-                                particleHoverFactor: 1,
-                                alphaParticles: false,
-                                disableRotation: false,
-                                sizeRandomness: 1
+                                    '#06b6d4',
+                                    '#ffffff'
+                                ]
                             }, void 0, false, {
                                 fileName: "[project]/src/app/about/page.js",
                                 lineNumber: 19,
@@ -644,7 +637,7 @@ function About() {
                                     children: "About Us"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/about/page.js",
-                                    lineNumber: 34,
+                                    lineNumber: 26,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -652,13 +645,13 @@ function About() {
                                     children: "Discover the legacy of excellence at FG Science Degree College, where innovation meets education and dreams transform into reality."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/about/page.js",
-                                    lineNumber: 37,
+                                    lineNumber: 29,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 33,
+                            lineNumber: 25,
                             columnNumber: 21
                         }, this)
                     ]
@@ -674,7 +667,7 @@ function About() {
                             className: "absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"
                         }, void 0, false, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 45,
+                            lineNumber: 37,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -691,7 +684,7 @@ function About() {
                                                     children: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__["default"].name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/about/page.js",
-                                                    lineNumber: 51,
+                                                    lineNumber: 43,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -699,7 +692,7 @@ function About() {
                                                     children: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__["default"].description
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/about/page.js",
-                                                    lineNumber: 54,
+                                                    lineNumber: 46,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -713,7 +706,7 @@ function About() {
                                                                     children: "Established"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/about/page.js",
-                                                                    lineNumber: 59,
+                                                                    lineNumber: 51,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -721,13 +714,13 @@ function About() {
                                                                     children: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__["default"].establishedYear
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/about/page.js",
-                                                                    lineNumber: 60,
+                                                                    lineNumber: 52,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/about/page.js",
-                                                            lineNumber: 58,
+                                                            lineNumber: 50,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -738,7 +731,7 @@ function About() {
                                                                     children: "Accreditation"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/about/page.js",
-                                                                    lineNumber: 63,
+                                                                    lineNumber: 55,
                                                                     columnNumber: 45
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -746,25 +739,25 @@ function About() {
                                                                     children: __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$college$2d$info$2e$json__$28$json$29$__["default"].accreditation
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/about/page.js",
-                                                                    lineNumber: 64,
+                                                                    lineNumber: 56,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/about/page.js",
-                                                            lineNumber: 62,
+                                                            lineNumber: 54,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/about/page.js",
-                                                    lineNumber: 57,
+                                                    lineNumber: 49,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/about/page.js",
-                                            lineNumber: 50,
+                                            lineNumber: 42,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -779,12 +772,12 @@ function About() {
                                                             children: "🏛️"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/about/page.js",
-                                                            lineNumber: 71,
+                                                            lineNumber: 63,
                                                             columnNumber: 45
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 70,
+                                                        lineNumber: 62,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -792,40 +785,40 @@ function About() {
                                                         children: "College Campus"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 73,
+                                                        lineNumber: 65,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/about/page.js",
-                                                lineNumber: 69,
+                                                lineNumber: 61,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/about/page.js",
-                                            lineNumber: 68,
+                                            lineNumber: 60,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/about/page.js",
-                                    lineNumber: 49,
+                                    lineNumber: 41,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/about/page.js",
-                                lineNumber: 48,
+                                lineNumber: 40,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 47,
+                            lineNumber: 39,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/about/page.js",
-                    lineNumber: 44,
+                    lineNumber: 36,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -835,7 +828,7 @@ function About() {
                             className: "absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"
                         }, void 0, false, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 83,
+                            lineNumber: 75,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -856,12 +849,12 @@ function About() {
                                                             children: "🎯"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/about/page.js",
-                                                            lineNumber: 90,
+                                                            lineNumber: 82,
                                                             columnNumber: 41
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 89,
+                                                        lineNumber: 81,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -869,13 +862,13 @@ function About() {
                                                         children: "Our Mission"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 92,
+                                                        lineNumber: 84,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/about/page.js",
-                                                lineNumber: 88,
+                                                lineNumber: 80,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -883,13 +876,13 @@ function About() {
                                                 children: "To provide quality education in science and technology, fostering academic excellence, research innovation, and character development to prepare students for successful careers and meaningful contributions to society."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/about/page.js",
-                                                lineNumber: 94,
+                                                lineNumber: 86,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/about/page.js",
-                                        lineNumber: 87,
+                                        lineNumber: 79,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -905,12 +898,12 @@ function About() {
                                                             children: "🔮"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/about/page.js",
-                                                            lineNumber: 103,
+                                                            lineNumber: 95,
                                                             columnNumber: 41
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 102,
+                                                        lineNumber: 94,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -918,13 +911,13 @@ function About() {
                                                         children: "Our Vision"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 105,
+                                                        lineNumber: 97,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/about/page.js",
-                                                lineNumber: 101,
+                                                lineNumber: 93,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -932,30 +925,30 @@ function About() {
                                                 children: "To be a premier institution recognized for excellence in science education, producing competent professionals and researchers who contribute to the advancement of science and technology for the betterment of humanity."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/about/page.js",
-                                                lineNumber: 107,
+                                                lineNumber: 99,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/about/page.js",
-                                        lineNumber: 100,
+                                        lineNumber: 92,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/about/page.js",
-                                lineNumber: 86,
+                                lineNumber: 78,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 85,
+                            lineNumber: 77,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/about/page.js",
-                    lineNumber: 82,
+                    lineNumber: 74,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -965,7 +958,7 @@ function About() {
                             className: "absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"
                         }, void 0, false, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 119,
+                            lineNumber: 111,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -976,7 +969,7 @@ function About() {
                                     children: "Affiliations & Recognition"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/about/page.js",
-                                    lineNumber: 122,
+                                    lineNumber: 114,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -993,12 +986,12 @@ function About() {
                                                             children: "🏆"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/about/page.js",
-                                                            lineNumber: 133,
+                                                            lineNumber: 125,
                                                             columnNumber: 45
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 132,
+                                                        lineNumber: 124,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1006,35 +999,35 @@ function About() {
                                                         children: affiliation
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/about/page.js",
-                                                        lineNumber: 135,
+                                                        lineNumber: 127,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/about/page.js",
-                                                lineNumber: 131,
+                                                lineNumber: 123,
                                                 columnNumber: 37
                                             }, this)
                                         }, index, false, {
                                             fileName: "[project]/src/app/about/page.js",
-                                            lineNumber: 127,
+                                            lineNumber: 119,
                                             columnNumber: 33
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/about/page.js",
-                                    lineNumber: 125,
+                                    lineNumber: 117,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/about/page.js",
-                            lineNumber: 121,
+                            lineNumber: 113,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/about/page.js",
-                    lineNumber: 118,
+                    lineNumber: 110,
                     columnNumber: 17
                 }, this)
             ]

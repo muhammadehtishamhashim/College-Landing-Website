@@ -1388,13 +1388,9 @@ const hexToRgb = (hex)=>{
 const vertex = "\n  attribute vec3 position;\n  attribute vec4 random;\n  attribute vec3 color;\n  \n  uniform mat4 modelMatrix;\n  uniform mat4 viewMatrix;\n  uniform mat4 projectionMatrix;\n  uniform float uTime;\n  uniform float uSpread;\n  uniform float uBaseSize;\n  uniform float uSizeRandomness;\n  \n  varying vec4 vRandom;\n  varying vec3 vColor;\n  \n  void main() {\n    vRandom = random;\n    vColor = color;\n    \n    vec3 pos = position * uSpread;\n    pos.z *= 10.0;\n    \n    vec4 mPos = modelMatrix * vec4(pos, 1.0);\n    float t = uTime;\n    mPos.x += sin(t * random.z + 6.28 * random.w) * mix(0.1, 1.5, random.x);\n    mPos.y += sin(t * random.y + 6.28 * random.x) * mix(0.1, 1.5, random.w);\n    mPos.z += sin(t * random.w + 6.28 * random.y) * mix(0.1, 1.5, random.z);\n    \n    vec4 mvPos = viewMatrix * mPos;\n    gl_PointSize = (uBaseSize * (1.0 + uSizeRandomness * (random.x - 0.5))) / length(mvPos.xyz);\n    gl_Position = projectionMatrix * mvPos;\n  }\n";
 const fragment = "\n  precision highp float;\n  \n  uniform float uTime;\n  uniform float uAlphaParticles;\n  varying vec4 vRandom;\n  varying vec3 vColor;\n  \n  void main() {\n    vec2 uv = gl_PointCoord.xy;\n    float d = length(uv - vec2(0.5));\n    \n    if(uAlphaParticles < 0.5) {\n      if(d > 0.5) {\n        discard;\n      }\n      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), 1.0);\n    } else {\n      float circle = smoothstep(0.5, 0.4, d) * 0.8;\n      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);\n    }\n  }\n";
 const Particles = (param)=>{
-    let { particleCount = 200, particleSpread = 10, speed = 0.1, particleColors, moveParticlesOnHover = false, particleHoverFactor = 1, alphaParticles = false, particleBaseSize = 100, sizeRandomness = 1, cameraDistance = 20, disableRotation = false, className } = param;
+    let { particleCount = 150, particleColors = defaultColors, className } = param;
     _s();
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const mouseRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])({
-        x: 0,
-        y: 0
-    });
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Particles.useEffect": ()=>{
             const container = containerRef.current;
@@ -1424,12 +1420,11 @@ const Particles = (param)=>{
                 const camera = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ogl$2f$src$2f$core$2f$Camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Camera"](gl, {
                     fov: 15
                 });
-                camera.position.set(0, 0, cameraDistance);
+                camera.position.set(0, 0, 18);
                 const resize = {
                     "Particles.useEffect.resize": ()=>{
                         const width = container.clientWidth;
                         const height = container.clientHeight;
-                        console.log('Resizing canvas to:', width, height);
                         if (width > 0 && height > 0) {
                             renderer.setSize(width, height);
                             camera.perspective({
@@ -1439,26 +1434,9 @@ const Particles = (param)=>{
                     }
                 }["Particles.useEffect.resize"];
                 window.addEventListener("resize", resize, false);
-                // Force initial resize after a short delay for Chrome/Edge
                 setTimeout({
-                    "Particles.useEffect": ()=>{
-                        resize();
-                    }
+                    "Particles.useEffect": ()=>resize()
                 }["Particles.useEffect"], 100);
-                const handleMouseMove = {
-                    "Particles.useEffect.handleMouseMove": (e)=>{
-                        const rect = container.getBoundingClientRect();
-                        const x = (e.clientX - rect.left) / rect.width * 2 - 1;
-                        const y = -((e.clientY - rect.top) / rect.height * 2 - 1);
-                        mouseRef.current = {
-                            x,
-                            y
-                        };
-                    }
-                }["Particles.useEffect.handleMouseMove"];
-                if (moveParticlesOnHover) {
-                    container.addEventListener("mousemove", handleMouseMove);
-                }
                 const count = particleCount;
                 const positions = new Float32Array(count * 3);
                 const randoms = new Float32Array(count * 4);
@@ -1509,16 +1487,16 @@ const Particles = (param)=>{
                             value: 0
                         },
                         uSpread: {
-                            value: particleSpread
+                            value: 8
                         },
                         uBaseSize: {
-                            value: particleBaseSize
+                            value: 60
                         },
                         uSizeRandomness: {
-                            value: sizeRandomness
+                            value: 0.5
                         },
                         uAlphaParticles: {
-                            value: alphaParticles ? 1 : 0
+                            value: 1
                         }
                     },
                     transparent: true,
@@ -1537,20 +1515,12 @@ const Particles = (param)=>{
                         animationFrameId = requestAnimationFrame(update);
                         const delta = t - lastTime;
                         lastTime = t;
-                        elapsed += delta * speed;
+                        elapsed += delta * 0.3;
                         program.uniforms.uTime.value = elapsed * 0.001;
-                        if (moveParticlesOnHover) {
-                            particles.position.x = -mouseRef.current.x * particleHoverFactor;
-                            particles.position.y = -mouseRef.current.y * particleHoverFactor;
-                        } else {
-                            particles.position.x = 0;
-                            particles.position.y = 0;
-                        }
-                        if (!disableRotation) {
-                            particles.rotation.x = Math.sin(elapsed * 0.0002) * 0.1;
-                            particles.rotation.y = Math.cos(elapsed * 0.0005) * 0.15;
-                            particles.rotation.z += 0.01 * speed;
-                        }
+                        // Fixed gentle rotation
+                        particles.rotation.x = Math.sin(elapsed * 0.0001) * 0.05;
+                        particles.rotation.y = Math.cos(elapsed * 0.0002) * 0.08;
+                        particles.rotation.z += 0.005;
                         renderer.render({
                             scene: particles,
                             camera
@@ -1561,9 +1531,6 @@ const Particles = (param)=>{
                 return ({
                     "Particles.useEffect": ()=>{
                         window.removeEventListener("resize", resize);
-                        if (moveParticlesOnHover) {
-                            container.removeEventListener("mousemove", handleMouseMove);
-                        }
                         cancelAnimationFrame(animationFrameId);
                         if (container.contains(gl.canvas)) {
                             container.removeChild(gl.canvas);
@@ -1575,30 +1542,21 @@ const Particles = (param)=>{
                 // Fallback: show a simple message or alternative effect
                 container.innerHTML = '<div style="color: white; padding: 20px;">WebGL not supported in this browser</div>';
             }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         }
     }["Particles.useEffect"], [
         particleCount,
-        particleSpread,
-        speed,
-        moveParticlesOnHover,
-        particleHoverFactor,
-        alphaParticles,
-        particleBaseSize,
-        sizeRandomness,
-        cameraDistance,
-        disableRotation
+        particleColors
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         ref: containerRef,
         className: "relative w-full h-full ".concat(className)
     }, void 0, false, {
         fileName: "[project]/src/ui/Particles.js",
-        lineNumber: 263,
+        lineNumber: 213,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(Particles, "+nF1yJvQLVO//ZYCcNavPZmnV1A=");
+_s(Particles, "8puyVO4ts1RhCfXUmci3vLI3Njw=");
 _c = Particles;
 const __TURBOPACK__default__export__ = Particles;
 var _c;

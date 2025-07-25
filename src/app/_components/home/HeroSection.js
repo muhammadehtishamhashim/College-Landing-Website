@@ -15,17 +15,8 @@ const HeroSection = ({ collegeInfo }) => {
         {/* Particles animation */}
         <div className="absolute inset-0 opacity-80">
           <Particles
-            particleCount={300}
-            particleSpread={12}
-            speed={0.4}
+            particleCount={200}
             particleColors={["#00ffff", "#40ffaa", "#4079ff", "#ffffff"]}
-            moveParticlesOnHover={true}
-            particleHoverFactor={1.5}
-            alphaParticles={true}
-            particleBaseSize={120}
-            sizeRandomness={1.2}
-            cameraDistance={12}
-            disableRotation={false}
           />
         </div>
       </div>
