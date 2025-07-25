@@ -1,0 +1,23 @@
+{
+  "department": "Chemistry",
+  "faculty": [
+    {
+      "id": "muhammad-ashfaq",
+      "name": "Dr. Muhammad Ashfaq Ahmad",
+      "position": "Lecturer",
+      "image": "/faculty/muhmmad-ashfaq.png",
+      "phone": "0333-5532711",
+      "qualifications": ["PhD University of Wah", "B.Ed (AIOU)", "M.Ed (University of Sargodha)"],
+      "specialization": "Chemistry"
+    },
+    {
+      "id": "javed-iqbal",
+      "name": "Mr. Javed Iqbal",
+      "position": "SST",
+      "image": "/faculty/maleuser.png",
+      "phone": "0340-7576551",
+      "qualifications": ["M Phil Chemistry, BZU, Multan"],
+      "specialization": "Chemistry"
+    }
+  ]
+}

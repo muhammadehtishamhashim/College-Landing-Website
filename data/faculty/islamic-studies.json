@@ -1,0 +1,14 @@
+{
+  "department": "Islamic Studies",
+  "faculty": [
+    {
+      "id": "abul-bashar",
+      "name": "Dr. Abul Bashar",
+      "position": "Assistant Professor",
+      "image": "/faculty/abul-bashar.png",
+      "phone": "0333-5728041",
+      "qualifications": ["B.Ed (AIOU)", "Fazil Arabic (Rwp Board)", "M.A Islamiyat (I.U.U.I)", "M.Phil Arabic (I.U.U.I)"],
+      "specialization": "Islamic Studies"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "department": "Administration",
+  "faculty": [
+    {
+      "id": "principal",
+      "name": "Mr. Azhar Kaiser",
+      "position": "Principal",
+      "image": "/faculty/azhar-kaisar.png",
+      "phone": null,
+      "qualifications": [],
+      "specialization": "Administration"
+    },
+    {
+      "id": "vice-principal",
+      "name": "Mr. Muhammad Riaz",
+      "position": "Vice Principal",
+      "image": "/faculty/muhammad-riaz.png",
+      "phone": null,
+      "qualifications": [],
+      "specialization": "Administration"
+    }
+  ]
+}

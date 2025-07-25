@@ -1,0 +1,32 @@
+{
+  "department": "Computer Science",
+  "faculty": [
+    {
+      "id": "muhammad-umair",
+      "name": "Mr. Muhammad Umair",
+      "position": "Assistant Professor",
+      "image": "/faculty/muhammad-umair.png",
+      "phone": "0345-9548262",
+      "qualifications": ["MCS, Comsats", "MS, FAST"],
+      "specialization": "Computer Science"
+    },
+    {
+      "id": "rohama-javed",
+      "name": "Ms. Rohama Javed",
+      "position": "Lecturer",
+      "image": "/faculty/femaleuser.png",
+      "phone": null,
+      "qualifications": ["MSCS, Comsats, Wah"],
+      "specialization": "Computer Science"
+    },
+    {
+      "id": "muhammad-musa",
+      "name": "Mr. Muhammad Musa",
+      "position": "Lecturer",
+      "image": "/faculty/maleuser.png",
+      "phone": "0332-5161090",
+      "qualifications": ["MSCS, CUI, Wah"],
+      "specialization": "Computer Science"
+    }
+  ]
+}

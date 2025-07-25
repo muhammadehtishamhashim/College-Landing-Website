@@ -1,0 +1,32 @@
+{
+  "department": "Physics",
+  "faculty": [
+    {
+      "id": "shabraiz-hussain",
+      "name": "Mr. Shabraiz Hussain",
+      "position": "Assistant Professor",
+      "image": "/faculty/shabraiz-hussain.png",
+      "phone": "0333-7941664",
+      "qualifications": ["M.Sc Physics, University of Balochistan", "M.Ed"],
+      "specialization": "Physics"
+    },
+    {
+      "id": "faisal-mehmood",
+      "name": "Dr. Faisal Mehmood",
+      "position": "Lecturer",
+      "image": "/faculty/faisal-mehmood.png",
+      "phone": "0301-5224868",
+      "qualifications": ["M.S.c Physics, PU, Lahore", "Ph.D Physics, IIU, Islamabad"],
+      "specialization": "Physics"
+    },
+    {
+      "id": "muhammad-farooq",
+      "name": "Dr. Muhammad Farooq",
+      "position": "Assistant Professor",
+      "image": "/faculty/muhammad-farooq.png",
+      "phone": "0300-5780198",
+      "qualifications": ["MS Physics, Comsats Wah", "PhD Scholar Comsats Islamabad"],
+      "specialization": "Physics"
+    }
+  ]
+}

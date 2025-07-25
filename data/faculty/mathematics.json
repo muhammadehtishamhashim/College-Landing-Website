@@ -1,0 +1,40 @@
+{
+  "department": "Mathematics",
+  "faculty": [
+    {
+      "id": "tahir-mehmood",
+      "name": "Mr. Tahir Mehmood",
+      "position": "Associate Professor",
+      "image": "/faculty/tahir-mehmood.png",
+      "phone": "0306-5757092",
+      "qualifications": [
+        "MSc Mathematics (P.U)",
+        "B.Ed"
+      ],
+      "specialization": "Mathematics"
+    },
+    {
+      "id": "muhammad-rafique",
+      "name": "Mr. Muhammad Rafique",
+      "position": "Assistant Professor",
+      "image": "/faculty/muhammad-rafique.png",
+      "phone": "0301-5847286",
+      "qualifications": [
+        "M.Sc Mathematics (Punjab)",
+        "M.Ed"
+      ],
+      "specialization": "Mathematics"
+    },
+    {
+      "id": "husnain-shahzad",
+      "name": "Dr. M. Husnain Shahzad",
+      "position": "Lecturer",
+      "image": "/faculty/maleuser.png",
+      "phone": "0342-8776115",
+      "qualifications": [
+        "PhD Mathematics (P.U)"
+      ],
+      "specialization": "Mathematics"
+    }
+  ]
+}

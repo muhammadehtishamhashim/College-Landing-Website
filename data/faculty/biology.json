@@ -1,0 +1,17 @@
+{
+  "department": "Biology",
+  "faculty": [
+    {
+      "id": "khalid-hassan-kazmi",
+      "name": "Syed Khalid Hassan Kazmi",
+      "position": "Assistant Professor",
+      "image": "/faculty/khalid-hassan-mehmood.png",
+      "phone": "0345-4464478",
+      "qualifications": [
+        "MSc. Zoology, University of Balochistan",
+        "B.Ed"
+      ],
+      "specialization": "Biology"
+    }
+  ]
+}

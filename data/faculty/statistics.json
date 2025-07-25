@@ -1,0 +1,14 @@
+{
+  "department": "Statistics",
+  "faculty": [
+    {
+      "id": "ijaz-ahmed-mirza",
+      "name": "Mr. Ijaz Ahmed Mirza",
+      "position": "Assistant Professor",
+      "image": "/faculty/maleuser.png",
+      "phone": "0321-9546757",
+      "qualifications": ["M.Sc. Statistics, I.U.B"],
+      "specialization": "Statistics"
+    }
+  ]
+}

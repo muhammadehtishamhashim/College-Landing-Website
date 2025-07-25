@@ -1,0 +1,32 @@
+{
+  "department": "Urdu",
+  "faculty": [
+    {
+      "id": "zafar-iqbal",
+      "name": "Mr. Zafar Iqbal",
+      "position": "Associate Professor",
+      "image": "/faculty/zafar-iqbal.png",
+      "phone": "0300-9180033",
+      "qualifications": ["MA Urdu (Punjab)", "M.Phil (AIOU)"],
+      "specialization": "Urdu"
+    },
+    {
+      "id": "ahmad-rizwan",
+      "name": "Mr. Ahmad Rizwan",
+      "position": "Lecturer",
+      "image": "/faculty/maleuser.png",
+      "phone": "0302-3568611",
+      "qualifications": ["M.A Urdu (University of Sargodha)", "M.Phil Education (Southern Punjab University, Multan)"],
+      "specialization": "Urdu"
+    },
+    {
+      "id": "tasawar-abbas",
+      "name": "Mr. Tasawar Abbas",
+      "position": "Faculty Member",
+      "image": "/faculty/maleuser.png",
+      "phone": "0344-0868283",
+      "qualifications": ["M.Phil Urdu (GCUF)"],
+      "specialization": "Urdu"
+    }
+  ]
+}

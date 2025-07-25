@@ -1,0 +1,32 @@
+{
+  "department": "Support Staff",
+  "faculty": [
+    {
+      "id": "muhammad-inam-raja",
+      "name": "Mr. Muhammad Inam Raja",
+      "position": "Librarian",
+      "image": "/faculty/muhammad-inam-raja.png",
+      "phone": "0302-8981370",
+      "qualifications": ["MLIS", "MEd"],
+      "specialization": "Library Science"
+    },
+    {
+      "id": "sheeraz-khan",
+      "name": "Mr. Sheeraz Khan",
+      "position": "Accountant",
+      "image": "/faculty/maleuser.png",
+      "phone": "0300-9180955",
+      "qualifications": ["BA Statistics"],
+      "specialization": "Accounting"
+    },
+    {
+      "id": "khurram-javed",
+      "name": "M. Khurram Javed",
+      "position": "LDC",
+      "image": "/faculty/maleuser.png",
+      "phone": "0304-5108591",
+      "qualifications": ["BA Statistics"],
+      "specialization": "Administration"
+    }
+  ]
+}

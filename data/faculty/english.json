@@ -1,0 +1,32 @@
+{
+  "department": "English",
+  "faculty": [
+    {
+      "id": "muhammad-riaz-english",
+      "name": "Mr. Muhammad Riaz",
+      "position": "Associate Professor",
+      "image": "/faculty/maleuser.png",
+      "phone": "0300-5820171",
+      "qualifications": ["MA (English)", "MA (Pol.Science)", "MA (Islamiyat)", "B.Ed", "M.Ed"],
+      "specialization": "English"
+    },
+    {
+      "id": "himayat-ali",
+      "name": "Mr. Himayat Ali",
+      "position": "Associate Professor",
+      "image": "/faculty/maleuser.png",
+      "phone": null,
+      "qualifications": ["MA English (Silver Medalist)", "Shah Abdul Latif University, Sindh", "B.Ed (University of the Punjab)"],
+      "specialization": "English"
+    },
+    {
+      "id": "shahzad-anser",
+      "name": "Mr. Shahzad Anser",
+      "position": "Assistant Professor",
+      "image": "/faculty/shahzad-anser.png",
+      "phone": "0300-5113026",
+      "qualifications": ["M.A (English) University of Punjab"],
+      "specialization": "English"
+    }
+  ]
+}

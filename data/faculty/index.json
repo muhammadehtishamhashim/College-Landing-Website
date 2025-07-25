@@ -1,0 +1,85 @@
+{
+  "title": "Faculty & Staff",
+  "description": "Meet our dedicated faculty and staff members at FG Science Degree College",
+  "departments": [
+    {
+      "name": "Administration",
+      "file": "administration.json",
+      "icon": "👨‍💼",
+      "color": "#3b82f6"
+    },
+    {
+      "name": "Mathematics",
+      "file": "mathematics.json",
+      "icon": "📊",
+      "color": "#8b5cf6"
+    },
+    {
+      "name": "Computer Science",
+      "file": "computer-science.json",
+      "icon": "💻",
+      "color": "#10b981"
+    },
+    {
+      "name": "Physics",
+      "file": "physics.json",
+      "icon": "⚛️",
+      "color": "#f59e0b"
+    },
+    {
+      "name": "Chemistry",
+      "file": "chemistry.json",
+      "icon": "🧪",
+      "color": "#ef4444"
+    },
+    {
+      "name": "English",
+      "file": "english.json",
+      "icon": "📚",
+      "color": "#06b6d4"
+    },
+    {
+      "name": "Urdu",
+      "file": "urdu.json",
+      "icon": "📖",
+      "color": "#84cc16"
+    },
+    {
+      "name": "Islamic Studies",
+      "file": "islamic-studies.json",
+      "icon": "🕌",
+      "color": "#22c55e"
+    },
+    {
+      "name": "Statistics",
+      "file": "statistics.json",
+      "icon": "📈",
+      "color": "#a855f7"
+    },
+    {
+      "name": "Biology",
+      "file": "biology.json",
+      "icon": "🧬",
+      "color": "#14b8a6"
+    },
+    {
+      "name": "Physical Education",
+      "file": "physical-education.json",
+      "icon": "🏃‍♂️",
+      "color": "#f97316"
+    },
+    {
+      "name": "Support Staff",
+      "file": "support-staff.json",
+      "icon": "🏢",
+      "color": "#6b7280"
+    }
+  ],
+  "stats": {
+    "totalFaculty": 25,
+    "departments": 12,
+    "professors": 8,
+    "assistantProfessors": 10,
+    "lecturers": 7
+  }
+}

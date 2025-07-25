@@ -2,6 +2,16 @@ import MainLayout from '../../layout/MainLayout';
 import collegeInfo from '../../../data/college-info.json';
 import RippleGrid from '../../ui/RippleGrid';
 import Particles from '../../ui/Particles';
+import FacultyCard from '../../ui/FacultyCard';
+import AdministrationCard from '../../ui/AdministrationCard';
+
+// Import faculty data
+import administrationData from '../../../data/faculty/administration.json';
+import mathematicsData from '../../../data/faculty/mathematics.json';
+import computerScienceData from '../../../data/faculty/computer-science.json';
+import physicsData from '../../../data/faculty/physics.json';
+import chemistryData from '../../../data/faculty/chemistry.json';
+import englishData from '../../../data/faculty/english.json';
 
 export const metadata = {
     title: 'About Us | FG Science Degree College',
@@ -64,6 +74,102 @@ export default function About() {
                                         </div>
                                         <p className="text-gray-400 text-sm sm:text-base">College Campus</p>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Faculty Section */}
+                <section className="py-16 sm:py-20 bg-gray-800 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 opacity-60"></div>
+
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                        <div className="text-center mb-12 sm:mb-16">
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4 sm:mb-6">
+                                Our Faculty
+                            </h2>
+                            <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                                Meet our dedicated team of educators and administrators who are committed to excellence in science education and student development.
+                            </p>
+                        </div>
+
+                        {/* Administration Cards */}
+                        <div className="mb-12 sm:mb-16">
+                            <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-6 sm:mb-8 text-center">
+                                Leadership Team
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                {administrationData.faculty.map((member) => (
+                                    <AdministrationCard key={member.id} faculty={member} />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Faculty by Department */}
+                        <div className="space-y-12 sm:space-y-16">
+                            {/* Mathematics Faculty */}
+                            <div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+                                    <span className="text-2xl">📊</span>
+                                    Mathematics Department
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                    {mathematicsData.faculty.map((member) => (
+                                        <FacultyCard key={member.id} faculty={member} showDepartment={false} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Computer Science Faculty */}
+                            <div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+                                    <span className="text-2xl">💻</span>
+                                    Computer Science Department
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                    {computerScienceData.faculty.map((member) => (
+                                        <FacultyCard key={member.id} faculty={member} showDepartment={false} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Physics Faculty */}
+                            <div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+                                    <span className="text-2xl">⚛️</span>
+                                    Physics Department
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                    {physicsData.faculty.map((member) => (
+                                        <FacultyCard key={member.id} faculty={member} showDepartment={false} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Chemistry Faculty */}
+                            <div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+                                    <span className="text-2xl">🧪</span>
+                                    Chemistry Department
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                    {chemistryData.faculty.map((member) => (
+                                        <FacultyCard key={member.id} faculty={member} showDepartment={false} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* English Faculty */}
+                            <div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+                                    <span className="text-2xl">📚</span>
+                                    English Department
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                    {englishData.faculty.map((member) => (
+                                        <FacultyCard key={member.id} faculty={member} showDepartment={false} />
+                                    ))}
                                 </div>
                             </div>
                         </div>

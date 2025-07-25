@@ -1,0 +1,14 @@
+{
+  "department": "Health & Physical Education",
+  "faculty": [
+    {
+      "id": "ghulam-mustufa",
+      "name": "Mr. Ghulam Mustufa",
+      "position": "Assistant Professor",
+      "image": "/faculty/ghulam-mustafa.png",
+      "phone": "0312-5417536",
+      "qualifications": ["MSc Physical Education, AJOU, Islamabad"],
+      "specialization": "Physical Education"
+    }
+  ]
+}
