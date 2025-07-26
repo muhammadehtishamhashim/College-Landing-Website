@@ -55,7 +55,17 @@ const DesktopNavigation = ({ isScrolled })=>{
         },
         {
             href: '/about',
-            label: 'About'
+            label: 'About',
+            dropdown: [
+                {
+                    href: '/about#history',
+                    label: 'History of FG'
+                },
+                {
+                    href: '/about#faculty',
+                    label: 'Faculty'
+                }
+            ]
         },
         {
             href: '/programs',
@@ -74,8 +84,17 @@ const DesktopNavigation = ({ isScrolled })=>{
             label: 'Affiliated University'
         },
         {
-            href: '/contact',
-            label: 'Contact'
+            label: 'More',
+            dropdown: [
+                {
+                    href: '/contact',
+                    label: 'Contact'
+                },
+                {
+                    href: '/gallery',
+                    label: 'Gallery'
+                }
+            ]
         }
     ];
     // Smooth hover animations with GSAP
@@ -134,14 +153,14 @@ const DesktopNavigation = ({ isScrolled })=>{
                                 className: "absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/0 via-green-500/8 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 88,
+                                lineNumber: 101,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute inset-0 rounded-xl bg-gradient-to-br from-green-400/5 via-green-500/10 to-green-600/5 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out transform scale-95 group-hover:scale-100"
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 91,
+                                lineNumber: 104,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -181,13 +200,13 @@ const DesktopNavigation = ({ isScrolled })=>{
                                             }
                                         }, i, false, {
                                             fileName: "[project]/src/layout/DesktopNavigation.js",
-                                            lineNumber: 98,
+                                            lineNumber: 111,
                                             columnNumber: 23
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 94,
+                                lineNumber: 107,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -195,7 +214,7 @@ const DesktopNavigation = ({ isScrolled })=>{
                                 children: item.label
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 128,
+                                lineNumber: 141,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].span, {
@@ -214,20 +233,20 @@ const DesktopNavigation = ({ isScrolled })=>{
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 132,
+                                lineNumber: 145,
                                 columnNumber: 17
                             }, ("TURBOPACK compile-time value", void 0)),
                             !isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-green-400/60 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 143,
+                                lineNumber: 156,
                                 columnNumber: 17
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                        lineNumber: 72,
+                        lineNumber: 85,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -275,7 +294,7 @@ const DesktopNavigation = ({ isScrolled })=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                                        lineNumber: 164,
+                                        lineNumber: 177,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -286,42 +305,42 @@ const DesktopNavigation = ({ isScrolled })=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                                        lineNumber: 174,
+                                        lineNumber: 187,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-green-600 rotate-45 border-l border-t border-green-500/30"
                                     }, void 0, false, {
                                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                                        lineNumber: 179,
+                                        lineNumber: 192,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 162,
+                                lineNumber: 175,
                                 columnNumber: 19
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/layout/DesktopNavigation.js",
-                            lineNumber: 150,
+                            lineNumber: 163,
                             columnNumber: 17
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                        lineNumber: 148,
+                        lineNumber: 161,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, item.href, true, {
                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                lineNumber: 68,
+                lineNumber: 81,
                 columnNumber: 11
             }, ("TURBOPACK compile-time value", void 0));
         })
     }, void 0, false, {
         fileName: "[project]/src/layout/DesktopNavigation.js",
-        lineNumber: 63,
+        lineNumber: 76,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

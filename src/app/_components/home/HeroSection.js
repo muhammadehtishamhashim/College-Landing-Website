@@ -1,25 +1,93 @@
 'use client';
 
-import Particles from '../../../ui/Particles';
-import BlurText from '../../textanimations/BlurText';
-import GradientText from '../../textanimations/GradientText';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import HeroBackground from '../../../ui/HeroBackground';
 
 const HeroSection = ({ collegeInfo }) => {
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const buttonsRef = useRef(null);
+  const imageRef = useRef(null);
+  const mobileImageRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    
+    // Set initial states
+    gsap.set([titleRef.current, subtitleRef.current, descriptionRef.current, buttonsRef.current], {
+      x: -100,
+      opacity: 0
+    });
+    
+    // Set initial states for both desktop and mobile image containers
+    if (imageRef.current) {
+      gsap.set(imageRef.current, {
+        x: 100,
+        opacity: 0
+      });
+    }
+    
+    if (mobileImageRef.current) {
+      gsap.set(mobileImageRef.current, {
+        x: 100,
+        opacity: 0
+      });
+    }
+
+    // Animate elements from left with staggered timing
+    tl.to(titleRef.current, {
+      x: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    .to(subtitleRef.current, {
+      x: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    }, "-=0.6")
+    .to(descriptionRef.current, {
+      x: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    }, "-=0.6")
+    .to(buttonsRef.current, {
+      x: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    }, "-=0.6");
+
+    // Animate desktop image (if exists)
+    if (imageRef.current) {
+      tl.to(imageRef.current, {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out"
+      }, "-=0.4");
+    }
+
+    // Animate mobile image (if exists)
+    if (mobileImageRef.current) {
+      tl.to(mobileImageRef.current, {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out"
+      }, "-=0.4");
+    }
+
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-black overflow-hidden hero-section will-change-transform">
       {/* Background Animation */}
-      <div className="absolute inset-0 w-full h-full">
-        {/* Dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
-
-        {/* Particles animation */}
-        <div className="absolute inset-0 opacity-80">
-          <Particles
-            particleCount={200}
-            particleColors={["#00ffff", "#40ffaa", "#4079ff", "#ffffff"]}
-          />
-        </div>
-      </div>
+      <HeroBackground />
 
       {/* Ribbons Overlay */}
 
@@ -29,37 +97,26 @@ const HeroSection = ({ collegeInfo }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-            {/* Left Side - Text Content with BlurText */}
+            {/* Left Side - Text Content with GSAP Animations */}
             <div className="text-white">
 
-              <BlurText
-                text="Welcome to"
-                delay={40}
-                animateBy="words"
-                direction="top"
-                stepDuration={0.15}
-                className="lg:mt-12 md:mt-8 sm:mt-6 mt-4 text-lg sm:text-xl lg:text-2xl font-medium mb-1 text-white/80 drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
-              />
-              <BlurText
-                text="FG Science Degree College for Men, Wah Cantt"
-                delay={50}
-                animateBy="words"
-                direction="top"
-                stepDuration={0.2}
-                className="text-2xl sm:text-3xl lg:text-4.5xl font-bold mb-1 lg:mb-4 leading-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
-              />
+              <div ref={titleRef} className="lg:mt-12 md:mt-8 sm:mt-6 mt-4">
+                <p className="text-lg sm:text-xl lg:text-2xl font-medium mb-1 text-white/80 drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]">
+                  Welcome to
+                </p>
+                <h1 className="text-2xl sm:text-3xl lg:text-4.5xl font-bold mb-1 lg:mb-4 leading-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]">
+                  FG Science Degree College for Men, Wah Cantt
+                </h1>
+              </div>
 
-              <BlurText
-                text="A Legacy of Excellence in Education"
-                delay={40}
-                animateBy="words"
-                direction="top"
-                stepDuration={0.15}
-                className="text-lg font-bold sm:text-xl lg:text-xl text-gray-300 mb-2 lg:mb-4 font-light mt-1"
-              />
+              <div ref={subtitleRef}>
+                <h2 className="text-lg font-bold sm:text-xl lg:text-xl text-gray-300 mb-2 lg:mb-4 font-light mt-1">
+                  A Legacy of Excellence in Education
+                </h2>
+              </div>
 
               {/* Mobile Logo Container - Only visible on mobile */}
-              <div className="lg:hidden flex justify-center my-6">
+              <div ref={mobileImageRef} className="lg:hidden flex justify-center my-6">
                 <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 flex items-center justify-center relative overflow-hidden">
                   {/* Animated border */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/20 via-blue-500/20 to-green-500/20 animate-spin" style={{ animationDuration: '8s' }}></div>
@@ -78,22 +135,14 @@ const HeroSection = ({ collegeInfo }) => {
               {/* Green separator line - Mobile only */}
               <div className="lg:hidden w-full h-px bg-gradient-to-r from-transparent via-green-400 to-transparent my-6"></div>
 
-              <div className="mb-6 lg:mb-8">
-                <GradientText
-                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-
-                  animationSpeed={3}
-
-                  showBorder={false}
-
-                  className="custom-class"
-                >
+              <div ref={descriptionRef} className="mb-6 lg:mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-green-400 leading-relaxed">
                   FG Science Degree College is a premier institution dedicated to providing quality education in science and technology. We foster academic excellence, research innovation, and character development to prepare students for successful careers and meaningful contributions to society.
-                </GradientText>
+                </p>
               </div>
 
               {/* Premium Interactive Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 mb-8 lg:mb-12">
+              <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-6 mb-8 lg:mb-12">
                 {/* Primary Button - Explore Facilities */}
                 <a
                   href="/facilities"
@@ -165,7 +214,7 @@ const HeroSection = ({ collegeInfo }) => {
             </div>
 
             {/* Right Side - Circular Logo Container - Desktop only */}
-            <div className="hidden lg:flex justify-center lg:justify-end">
+            <div ref={imageRef} className="hidden lg:flex justify-center lg:justify-end">
               <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 flex items-center justify-center relative overflow-hidden">
                 {/* Animated border */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/20 via-blue-500/20 to-green-500/20 animate-spin" style={{ animationDuration: '8s' }}></div>

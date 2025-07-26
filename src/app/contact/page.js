@@ -39,6 +39,9 @@ export default function Contact() {
           </div>
         </section>
 
+        {/* Section Separator */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+
         {/* Contact Content */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,6 +54,9 @@ export default function Contact() {
             </div>
           </div>
         </section>
+
+        {/* Section Separator */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
 
         {/* Map Section */}
         <section className="bg-gray-50 py-20">

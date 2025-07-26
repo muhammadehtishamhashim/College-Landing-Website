@@ -123,9 +123,9 @@ const IntroPreview = () => {
                                         It was 1986 when on a visit to POF the then Prime Minister, Muhammad Khan Junejo, approached by the representatives of Wah Cantt residents, promised the establishment of another F.G. College to cater to the ever growing demand for a standard educational institution.
                                     </p>
 
-                                    <div className="quote-box bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-5 sm:p-6 rounded-lg border-l-4 border-blue-500 relative animate-text transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20 hover:border-l-[6px] group/quote">
+                                    <div className="quote-box bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-5 sm:p-6 rounded-lg border-l-4 border-blue-500 relative animate-text transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20 hover:border-l-[6px] group/quote overflow-hidden">
                                         {/* Shimmer effect on hover - properly clipped */}
-                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover/quote:translate-x-full transition-transform duration-1200 ease-in-out rounded-lg"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover/quote:translate-x-full transition-transform duration-1200 ease-in-out"></div>
 
                                         {/* Subtle glow effect */}
                                         <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-purple-500/0 opacity-0 group-hover/quote:opacity-100 blur-lg transition-opacity duration-500 rounded-lg"></div>
@@ -168,7 +168,7 @@ const IntroPreview = () => {
                                 {[
                                     {
                                         id: 'campus',
-                                        icon: '🌳',
+                                        icon: '',
                                         title: 'Campus & Facilities',
                                         colors: ['#34d399', '#60a5fa'],
                                         content: 'With picturesque green grounds spanning approximately 60 canals, our college offers a serene learning environment. Students can pursue their sporting interests with access to various sports facilities. Our well-equipped science labs enable a practical understanding of scientific principles.',
@@ -176,7 +176,7 @@ const IntroPreview = () => {
                                     },
                                     {
                                         id: 'academic',
-                                        icon: '🎓',
+                                        icon: '',
                                         title: 'Academic Programs',
                                         colors: ['#8b5cf6', '#ec4899'],
                                         content: 'We offer HSSC classes in science groups (for boys only), along with BS Physics and BS IT programs (co-education). Graduates from our college have excelled in their fields, making valuable contributions to society.',
@@ -184,7 +184,7 @@ const IntroPreview = () => {
                                     },
                                     {
                                         id: 'commitment',
-                                        icon: '✨',
+                                        icon: '',
                                         title: 'Our Commitment',
                                         colors: ['#f59e0b', '#ef4444'],
                                         content: 'We are committed to upholding educational excellence and nurturing both academic and personal growth. Join us in achieving your academic and career aspirations.',
@@ -209,13 +209,11 @@ const IntroPreview = () => {
 
                                             <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 relative z-10">
                                                 {/* Image first on mobile, right on desktop */}
-                                                <div className={`w-full lg:w-80 h-40 sm:h-48 relative order-1 lg:order-2 overflow-hidden rounded-lg transition-all duration-500 group-hover/${item.id}:shadow-md group-hover/${item.id}:shadow-[#60a5fa]/20`}>
+                                                <div className={`w-full lg:w-80 h-40 sm:h-48 relative order-1 lg:order-2 rounded-lg transition-all duration-500 group-hover/${item.id}:shadow-md group-hover/${item.id}:shadow-[#60a5fa]/20`}>
                                                     <SimpleImageTransition
                                                         images={item.images}
-                                                        alt={item.title}
-                                                        className="w-full h-full object-cover rounded-lg"
-                                                        interval={3000 + (index * 500)}
-                                                        hoverScale={true}
+                                                        width="100%"
+                                                        height="100%"
                                                     />
 
                                                     {/* Subtle floating particles on hover */}

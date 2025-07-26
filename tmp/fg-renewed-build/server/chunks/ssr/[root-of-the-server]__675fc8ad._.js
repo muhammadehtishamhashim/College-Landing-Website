@@ -48,6 +48,7 @@ const DesktopNavigation = ({ isScrolled })=>{
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
     const navRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [hoveredItem, setHoveredItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [openDropdown, setOpenDropdown] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const navItems = [
         {
             href: '/',
@@ -55,7 +56,17 @@ const DesktopNavigation = ({ isScrolled })=>{
         },
         {
             href: '/about',
-            label: 'About'
+            label: 'About',
+            dropdown: [
+                {
+                    href: '/about#history',
+                    label: 'History of FG'
+                },
+                {
+                    href: '/about#faculty',
+                    label: 'Faculty'
+                }
+            ]
         },
         {
             href: '/programs',
@@ -74,8 +85,17 @@ const DesktopNavigation = ({ isScrolled })=>{
             label: 'Affiliated University'
         },
         {
-            href: '/contact',
-            label: 'Contact'
+            label: 'More',
+            dropdown: [
+                {
+                    href: '/contact',
+                    label: 'Contact'
+                },
+                {
+                    href: '/gallery',
+                    label: 'Gallery'
+                }
+            ]
         }
     ];
     // Smooth hover animations with GSAP
@@ -114,35 +134,37 @@ const DesktopNavigation = ({ isScrolled })=>{
         ref: navRef,
         className: "hidden lg:flex items-center space-x-8",
         children: navItems.map((item, index)=>{
-            const isActive = pathname === item.href;
+            const isActive = pathname === item.href || item.dropdown && item.dropdown.some((dropItem)=>pathname.startsWith(dropItem.href.split('#')[0]));
+            const hasDropdown = item.dropdown && item.dropdown.length > 0;
             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative group",
+                onMouseEnter: ()=>{
+                    setHoveredItem(index);
+                    if (hasDropdown) setOpenDropdown(index);
+                },
+                onMouseLeave: ()=>{
+                    setHoveredItem(null);
+                    setOpenDropdown(null);
+                },
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        href: item.href,
-                        className: `nav-item relative px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl block ${isActive ? 'text-green-400 font-semibold' : 'text-green-400/80 hover:text-white'}`,
-                        onMouseEnter: (e)=>{
-                            setHoveredItem(index);
-                            handleMouseEnter(e, index);
-                        },
-                        onMouseLeave: (e)=>{
-                            setHoveredItem(null);
-                            handleMouseLeave(e);
-                        },
+                    hasDropdown ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: `nav-item relative px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl cursor-pointer ${isActive ? 'text-green-400 font-semibold' : 'text-green-400/80 hover:text-white'}`,
+                        onMouseEnter: (e)=>handleMouseEnter(e, index),
+                        onMouseLeave: (e)=>handleMouseLeave(e),
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/0 via-green-500/8 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 88,
-                                columnNumber: 15
+                                lineNumber: 105,
+                                columnNumber: 17
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute inset-0 rounded-xl bg-gradient-to-br from-green-400/5 via-green-500/10 to-green-600/5 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out transform scale-95 group-hover:scale-100"
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 91,
-                                columnNumber: 15
+                                lineNumber: 108,
+                                columnNumber: 17
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                                 children: hoveredItem === index && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -181,22 +203,44 @@ const DesktopNavigation = ({ isScrolled })=>{
                                             }
                                         }, i, false, {
                                             fileName: "[project]/src/layout/DesktopNavigation.js",
-                                            lineNumber: 98,
-                                            columnNumber: 23
+                                            lineNumber: 115,
+                                            columnNumber: 25
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 94,
-                                columnNumber: 15
+                                lineNumber: 111,
+                                columnNumber: 17
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "relative z-10 block transition-all duration-300 group-hover:transform group-hover:-translate-y-0.5",
-                                children: item.label
-                            }, void 0, false, {
+                                className: "relative z-10 flex items-center gap-1 transition-all duration-300 group-hover:transform group-hover:-translate-y-0.5",
+                                children: [
+                                    item.label,
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                        className: "w-4 h-4 transition-transform duration-200 group-hover:rotate-180",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        viewBox: "0 0 24 24",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            strokeWidth: 2,
+                                            d: "M19 9l-7 7-7-7"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/layout/DesktopNavigation.js",
+                                            lineNumber: 148,
+                                            columnNumber: 21
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/layout/DesktopNavigation.js",
+                                        lineNumber: 147,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 128,
-                                columnNumber: 15
+                                lineNumber: 145,
+                                columnNumber: 17
                             }, ("TURBOPACK compile-time value", void 0)),
                             isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].span, {
                                 className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-green-400 via-green-300 to-green-400",
@@ -214,114 +258,210 @@ const DesktopNavigation = ({ isScrolled })=>{
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 132,
-                                columnNumber: 17
+                                lineNumber: 154,
+                                columnNumber: 19
                             }, ("TURBOPACK compile-time value", void 0)),
                             !isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-green-400/60 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 143,
-                                columnNumber: 17
+                                lineNumber: 165,
+                                columnNumber: 19
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                        lineNumber: 72,
-                        columnNumber: 13
+                        lineNumber: 96,
+                        columnNumber: 15
+                    }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        href: item.href,
+                        className: `nav-item relative px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl block ${isActive ? 'text-green-400 font-semibold' : 'text-green-400/80 hover:text-white'}`,
+                        onMouseEnter: (e)=>handleMouseEnter(e, index),
+                        onMouseLeave: (e)=>handleMouseLeave(e),
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/0 via-green-500/8 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
+                            }, void 0, false, {
+                                fileName: "[project]/src/layout/DesktopNavigation.js",
+                                lineNumber: 179,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute inset-0 rounded-xl bg-gradient-to-br from-green-400/5 via-green-500/10 to-green-600/5 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out transform scale-95 group-hover:scale-100"
+                            }, void 0, false, {
+                                fileName: "[project]/src/layout/DesktopNavigation.js",
+                                lineNumber: 182,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                                children: hoveredItem === index && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                    children: [
+                                        0,
+                                        1,
+                                        2
+                                    ].map((i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                            className: "absolute w-1 h-1 bg-green-400/60 rounded-full",
+                                            initial: {
+                                                opacity: 0,
+                                                x: (i - 1) * 15,
+                                                y: 20
+                                            },
+                                            animate: {
+                                                opacity: [
+                                                    0,
+                                                    1,
+                                                    0
+                                                ],
+                                                y: -20,
+                                                x: (i - 1) * 20
+                                            },
+                                            exit: {
+                                                opacity: 0
+                                            },
+                                            transition: {
+                                                duration: 1.5,
+                                                delay: i * 0.2,
+                                                repeat: Infinity,
+                                                repeatDelay: 1
+                                            },
+                                            style: {
+                                                left: `${20 + i * 20}%`,
+                                                bottom: '0px'
+                                            }
+                                        }, i, false, {
+                                            fileName: "[project]/src/layout/DesktopNavigation.js",
+                                            lineNumber: 189,
+                                            columnNumber: 25
+                                        }, ("TURBOPACK compile-time value", void 0)))
+                                }, void 0, false)
+                            }, void 0, false, {
+                                fileName: "[project]/src/layout/DesktopNavigation.js",
+                                lineNumber: 185,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "relative z-10 block transition-all duration-300 group-hover:transform group-hover:-translate-y-0.5",
+                                children: item.label
+                            }, void 0, false, {
+                                fileName: "[project]/src/layout/DesktopNavigation.js",
+                                lineNumber: 219,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].span, {
+                                className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-green-400 via-green-300 to-green-400",
+                                layoutId: "activeIndicator",
+                                initial: {
+                                    scaleX: 0
+                                },
+                                animate: {
+                                    scaleX: 1
+                                },
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 30
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/layout/DesktopNavigation.js",
+                                lineNumber: 223,
+                                columnNumber: 19
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            !isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-green-400/60 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"
+                            }, void 0, false, {
+                                fileName: "[project]/src/layout/DesktopNavigation.js",
+                                lineNumber: 234,
+                                columnNumber: 19
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/layout/DesktopNavigation.js",
+                        lineNumber: 169,
+                        columnNumber: 15
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                        children: hoveredItem === index && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                        children: hasDropdown && openDropdown === index && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                             initial: {
                                 opacity: 0,
                                 y: 10,
-                                scale: 0.8,
-                                rotateX: -10
+                                scale: 0.95
                             },
                             animate: {
                                 opacity: 1,
                                 y: 0,
-                                scale: 1,
-                                rotateX: 0
+                                scale: 1
                             },
                             exit: {
                                 opacity: 0,
                                 y: 10,
-                                scale: 0.8,
-                                rotateX: -10
+                                scale: 0.95
                             },
                             transition: {
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 25,
-                                duration: 0.3
+                                duration: 0.2,
+                                ease: "easeOut"
                             },
-                            className: "absolute top-full left-1/2 transform -translate-x-1/2 mt-3 z-50 pointer-events-none",
+                            className: "absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-50",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white px-4 py-2 rounded-xl shadow-2xl border border-green-500/30 backdrop-blur-sm relative overflow-hidden",
+                                className: "bg-black/90 backdrop-blur-md border border-green-500/20 rounded-xl shadow-2xl overflow-hidden min-w-[200px]",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                                        className: "absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent",
-                                        animate: {
-                                            x: [
-                                                -100,
-                                                100
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-black/90 border-l border-t border-green-500/20 rotate-45"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/layout/DesktopNavigation.js",
+                                        lineNumber: 251,
+                                        columnNumber: 21
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    item.dropdown.map((dropItem, dropIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                            href: dropItem.href,
+                                            className: "block px-4 py-3 text-sm text-green-400/80 hover:text-white hover:bg-green-500/10 transition-all duration-200 relative group/drop",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "absolute inset-0 bg-gradient-to-r from-green-400/5 to-blue-400/5 opacity-0 group-hover/drop:opacity-100 transition-opacity duration-200"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/layout/DesktopNavigation.js",
+                                                    lineNumber: 259,
+                                                    columnNumber: 25
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "relative z-10",
+                                                    children: dropItem.label
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/layout/DesktopNavigation.js",
+                                                    lineNumber: 260,
+                                                    columnNumber: 25
+                                                }, ("TURBOPACK compile-time value", void 0))
                                             ]
-                                        },
-                                        transition: {
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "linear"
-                                        }
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/layout/DesktopNavigation.js",
-                                        lineNumber: 164,
-                                        columnNumber: 21
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "text-sm font-medium whitespace-nowrap relative z-10",
-                                        children: [
-                                            "Navigate to ",
-                                            item.label
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/layout/DesktopNavigation.js",
-                                        lineNumber: 174,
-                                        columnNumber: 21
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-green-600 rotate-45 border-l border-t border-green-500/30"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/layout/DesktopNavigation.js",
-                                        lineNumber: 179,
-                                        columnNumber: 21
-                                    }, ("TURBOPACK compile-time value", void 0))
+                                        }, dropItem.href, true, {
+                                            fileName: "[project]/src/layout/DesktopNavigation.js",
+                                            lineNumber: 254,
+                                            columnNumber: 23
+                                        }, ("TURBOPACK compile-time value", void 0)))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                                lineNumber: 162,
+                                lineNumber: 249,
                                 columnNumber: 19
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/layout/DesktopNavigation.js",
-                            lineNumber: 150,
+                            lineNumber: 242,
                             columnNumber: 17
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/layout/DesktopNavigation.js",
-                        lineNumber: 148,
+                        lineNumber: 240,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
-            }, item.href, true, {
+            }, item.href || item.label, true, {
                 fileName: "[project]/src/layout/DesktopNavigation.js",
-                lineNumber: 68,
+                lineNumber: 83,
                 columnNumber: 11
             }, ("TURBOPACK compile-time value", void 0));
         })
     }, void 0, false, {
         fileName: "[project]/src/layout/DesktopNavigation.js",
-        lineNumber: 63,
+        lineNumber: 77,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -409,6 +549,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 ;
 const MobileSidebar = ({ isOpen, onClose })=>{
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
+    const [expandedItem, setExpandedItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const navItems = [
         {
             href: '/',
@@ -416,7 +557,17 @@ const MobileSidebar = ({ isOpen, onClose })=>{
         },
         {
             href: '/about',
-            label: 'About'
+            label: 'About',
+            dropdown: [
+                {
+                    href: '/about#history',
+                    label: 'History of FG'
+                },
+                {
+                    href: '/about#faculty',
+                    label: 'Faculty'
+                }
+            ]
         },
         {
             href: '/programs',
@@ -437,6 +588,10 @@ const MobileSidebar = ({ isOpen, onClose })=>{
         {
             href: '/contact',
             label: 'Contact'
+        },
+        {
+            href: '/gallery',
+            label: 'Gallery'
         }
     ];
     // Close sidebar when route changes (only if actually navigating)
@@ -484,7 +639,7 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                     onClick: onClose
                 }, void 0, false, {
                     fileName: "[project]/src/layout/MobileSidebar.js",
-                    lineNumber: 48,
+                    lineNumber: 57,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -536,12 +691,12 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                                 children: "FG"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/layout/MobileSidebar.js",
-                                                lineNumber: 77,
+                                                lineNumber: 86,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/layout/MobileSidebar.js",
-                                            lineNumber: 76,
+                                            lineNumber: 85,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -551,7 +706,7 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                                     children: "FG Science College"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                                    lineNumber: 80,
+                                                    lineNumber: 89,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -559,19 +714,19 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                                     children: "Excellence in Education"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                                    lineNumber: 81,
+                                                    lineNumber: 90,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/layout/MobileSidebar.js",
-                                            lineNumber: 79,
+                                            lineNumber: 88,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                    lineNumber: 75,
+                                    lineNumber: 84,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -597,23 +752,23 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                             d: "M6 18L18 6M6 6l12 12"
                                         }, void 0, false, {
                                             fileName: "[project]/src/layout/MobileSidebar.js",
-                                            lineNumber: 93,
+                                            lineNumber: 102,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/layout/MobileSidebar.js",
-                                        lineNumber: 92,
+                                        lineNumber: 101,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                    lineNumber: 85,
+                                    lineNumber: 94,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/layout/MobileSidebar.js",
-                            lineNumber: 69,
+                            lineNumber: 78,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -621,7 +776,9 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                 className: "space-y-2",
                                 children: navItems.map((item, index)=>{
-                                    const isActive = pathname === item.href;
+                                    const isActive = pathname === item.href || item.dropdown && item.dropdown.some((dropItem)=>pathname.startsWith(dropItem.href.split('#')[0]));
+                                    const hasDropdown = item.dropdown && item.dropdown.length > 0;
+                                    const isExpanded = expandedItem === index;
                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].li, {
                                         initial: {
                                             opacity: 0,
@@ -635,7 +792,119 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                             delay: 0.1 + index * 0.05,
                                             duration: 0.3
                                         },
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                        children: hasDropdown ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>setExpandedItem(isExpanded ? null : index),
+                                                    className: `w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 relative overflow-hidden ${isActive ? 'bg-green-500/20 text-green-300 border-l-4 border-green-400 font-medium' : 'text-green-400/80 hover:bg-green-500/10 hover:text-green-300'}`,
+                                                    style: {
+                                                        minHeight: '44px'
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "absolute inset-0 bg-gradient-to-r from-green-400/5 to-blue-400/5 opacity-0 hover:opacity-100 transition-opacity duration-200"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/layout/MobileSidebar.js",
+                                                            lineNumber: 134,
+                                                            columnNumber: 29
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "relative z-10",
+                                                            children: item.label
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/layout/MobileSidebar.js",
+                                                            lineNumber: 135,
+                                                            columnNumber: 29
+                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                            className: `w-4 h-4 transition-transform duration-200 relative z-10 ${isExpanded ? 'rotate-180' : ''}`,
+                                                            fill: "none",
+                                                            stroke: "currentColor",
+                                                            viewBox: "0 0 24 24",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                strokeLinecap: "round",
+                                                                strokeLinejoin: "round",
+                                                                strokeWidth: 2,
+                                                                d: "M19 9l-7 7-7-7"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/layout/MobileSidebar.js",
+                                                                lineNumber: 142,
+                                                                columnNumber: 31
+                                                            }, ("TURBOPACK compile-time value", void 0))
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/layout/MobileSidebar.js",
+                                                            lineNumber: 136,
+                                                            columnNumber: 29
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/layout/MobileSidebar.js",
+                                                    lineNumber: 124,
+                                                    columnNumber: 27
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                                                    children: isExpanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                        initial: {
+                                                            opacity: 0,
+                                                            height: 0
+                                                        },
+                                                        animate: {
+                                                            opacity: 1,
+                                                            height: 'auto'
+                                                        },
+                                                        exit: {
+                                                            opacity: 0,
+                                                            height: 0
+                                                        },
+                                                        transition: {
+                                                            duration: 0.2
+                                                        },
+                                                        className: "ml-4 mt-2 space-y-1",
+                                                        children: item.dropdown.map((dropItem, dropIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                                href: dropItem.href,
+                                                                className: "block px-4 py-2 text-sm text-green-400/70 hover:text-green-300 hover:bg-green-500/5 rounded-lg transition-all duration-200 relative overflow-hidden",
+                                                                onClick: onClose,
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "absolute inset-0 bg-gradient-to-r from-green-400/3 to-blue-400/3 opacity-0 hover:opacity-100 transition-opacity duration-200"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/layout/MobileSidebar.js",
+                                                                        lineNumber: 162,
+                                                                        columnNumber: 37
+                                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "relative z-10",
+                                                                        children: [
+                                                                            "• ",
+                                                                            dropItem.label
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/layout/MobileSidebar.js",
+                                                                        lineNumber: 163,
+                                                                        columnNumber: 37
+                                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                                ]
+                                                            }, dropItem.href, true, {
+                                                                fileName: "[project]/src/layout/MobileSidebar.js",
+                                                                lineNumber: 156,
+                                                                columnNumber: 35
+                                                            }, ("TURBOPACK compile-time value", void 0)))
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/layout/MobileSidebar.js",
+                                                        lineNumber: 148,
+                                                        columnNumber: 31
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/layout/MobileSidebar.js",
+                                                    lineNumber: 146,
+                                                    columnNumber: 27
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/layout/MobileSidebar.js",
+                                            lineNumber: 123,
+                                            columnNumber: 25
+                                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                             href: item.href,
                                             className: `block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 relative overflow-hidden ${isActive ? 'bg-green-500/20 text-green-300 border-l-4 border-green-400 font-medium' : 'text-green-400/80 hover:bg-green-500/10 hover:text-green-300'}`,
                                             style: {
@@ -646,37 +915,37 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                                     className: "absolute inset-0 bg-gradient-to-r from-green-400/5 to-blue-400/5 opacity-0 hover:opacity-100 transition-opacity duration-200"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                                    lineNumber: 121,
-                                                    columnNumber: 25
+                                                    lineNumber: 181,
+                                                    columnNumber: 27
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "relative z-10",
                                                     children: item.label
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                                    lineNumber: 122,
-                                                    columnNumber: 25
+                                                    lineNumber: 182,
+                                                    columnNumber: 27
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/layout/MobileSidebar.js",
-                                            lineNumber: 111,
-                                            columnNumber: 23
+                                            lineNumber: 171,
+                                            columnNumber: 25
                                         }, ("TURBOPACK compile-time value", void 0))
-                                    }, item.href, false, {
+                                    }, item.href || item.label, false, {
                                         fileName: "[project]/src/layout/MobileSidebar.js",
-                                        lineNumber: 105,
+                                        lineNumber: 116,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0));
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/src/layout/MobileSidebar.js",
-                                lineNumber: 100,
+                                lineNumber: 109,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/layout/MobileSidebar.js",
-                            lineNumber: 99,
+                            lineNumber: 108,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -712,7 +981,7 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                                 className: "absolute inset-0 bg-gradient-to-r from-green-400/10 to-blue-400/10 opacity-50"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/layout/MobileSidebar.js",
-                                                lineNumber: 146,
+                                                lineNumber: 207,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -720,18 +989,18 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                                 children: "Apply Now"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/layout/MobileSidebar.js",
-                                                lineNumber: 147,
+                                                lineNumber: 208,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/layout/MobileSidebar.js",
-                                        lineNumber: 141,
+                                        lineNumber: 202,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                    lineNumber: 137,
+                                    lineNumber: 198,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -742,7 +1011,7 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                             children: "+91-123-456-7890"
                                         }, void 0, false, {
                                             fileName: "[project]/src/layout/MobileSidebar.js",
-                                            lineNumber: 152,
+                                            lineNumber: 213,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -750,32 +1019,32 @@ const MobileSidebar = ({ isOpen, onClose })=>{
                                             children: "info@fgscience.edu.in"
                                         }, void 0, false, {
                                             fileName: "[project]/src/layout/MobileSidebar.js",
-                                            lineNumber: 155,
+                                            lineNumber: 216,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/layout/MobileSidebar.js",
-                                    lineNumber: 151,
+                                    lineNumber: 212,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/layout/MobileSidebar.js",
-                            lineNumber: 131,
+                            lineNumber: 192,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/layout/MobileSidebar.js",
-                    lineNumber: 58,
+                    lineNumber: 67,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true)
     }, void 0, false, {
         fileName: "[project]/src/layout/MobileSidebar.js",
-        lineNumber: 44,
+        lineNumber: 53,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

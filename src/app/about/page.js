@@ -42,6 +42,9 @@ export default function About() {
                     </div>
                 </section>
 
+                {/* Section Separator */}
+                <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+
                 {/* College Overview */}
                 <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60"></div>
@@ -80,6 +83,9 @@ export default function About() {
                     </div>
                 </section>
 
+                {/* Section Separator */}
+                <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+
                 {/* Faculty Section */}
                 <section className="py-16 sm:py-20 bg-gray-800 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 opacity-60"></div>
@@ -110,8 +116,7 @@ export default function About() {
                         <div className="space-y-12 sm:space-y-16">
                             {/* Mathematics Faculty */}
                             <div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
-                                    <span className="text-2xl">📊</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6 sm:mb-8 text-center">
                                     Mathematics Department
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -123,8 +128,7 @@ export default function About() {
 
                             {/* Computer Science Faculty */}
                             <div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
-                                    <span className="text-2xl">💻</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 mb-6 sm:mb-8 text-center">
                                     Computer Science Department
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -136,8 +140,7 @@ export default function About() {
 
                             {/* Physics Faculty */}
                             <div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
-                                    <span className="text-2xl">⚛️</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 mb-6 sm:mb-8 text-center">
                                     Physics Department
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -149,8 +152,7 @@ export default function About() {
 
                             {/* Chemistry Faculty */}
                             <div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
-                                    <span className="text-2xl">🧪</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 mb-6 sm:mb-8 text-center">
                                     Chemistry Department
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -162,8 +164,7 @@ export default function About() {
 
                             {/* English Faculty */}
                             <div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
-                                    <span className="text-2xl">📚</span>
+                                <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 sm:mb-8 text-center">
                                     English Department
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -175,6 +176,9 @@ export default function About() {
                         </div>
                     </div>
                 </section>
+
+                {/* Section Separator */}
+                <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
 
                 {/* Mission & Vision */}
                 <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
@@ -211,6 +215,9 @@ export default function About() {
                         </div>
                     </div>
                 </section>
+
+                {/* Section Separator */}
+                <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
 
                 {/* Affiliations */}
                 <section className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">

@@ -32,6 +32,9 @@ export default function Programs() {
           </div>
         </section>
 
+        {/* Section Separator */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+
         {/* Intermediate Programs Section */}
         <section className="py-16 sm:py-20 bg-gray-800 relative overflow-hidden">
 
@@ -53,6 +56,9 @@ export default function Programs() {
           </div>
         </section>
 
+        {/* Section Separator */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+
         {/* Degree Programs Section */}
         <section className="py-12 sm:py-16 bg-gray-900 relative overflow-hidden">
 
@@ -73,6 +79,9 @@ export default function Programs() {
             </div>
           </div>
         </section>
+
+        {/* Section Separator */}
+        <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
 
         {/* Why Choose Our Programs */}
         <section className="py-12 sm:py-16 bg-gray-800 relative overflow-hidden">

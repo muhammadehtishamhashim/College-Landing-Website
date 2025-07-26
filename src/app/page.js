@@ -12,9 +12,25 @@ export default function Home() {
   return (
     <MainLayout>
       <HeroSection collegeInfo={collegeInfo} />
+      
+      {/* Section Separator */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+      
       <IntroPreview collegeInfo={collegeInfo} />
+      
+      {/* Section Separator */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+      
       <Achievements />
+      
+      {/* Section Separator */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+      
       <ProgramsPreview programs={programs} />
+      
+      {/* Section Separator */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+      
       <FacilitiesPreview facilities={facilities} />
     </MainLayout>
   );

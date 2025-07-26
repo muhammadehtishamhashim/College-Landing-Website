@@ -2,7 +2,11 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
   "/admissions/page": "app/admissions/page.js",
+  "/affiliated-university/page": "app/affiliated-university/page.js",
+  "/contact/page": "app/contact/page.js",
   "/facilities/page": "app/facilities/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/gallery/page": "app/gallery/page.js",
   "/page": "app/page.js",
   "/programs/page": "app/programs/page.js"
 }
